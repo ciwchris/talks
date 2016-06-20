@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="casts/asciinema-player.css" />
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      table {
+          margin-left: auto;
+          margin-right: auto;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+
+    <textarea id="source">
+
+class: center, middle
+
+# .Net Core, Clojure and Elixir: a newbie's experience
+
+# ![.Net](images/dotnet-logo.png) ![Clojure](images/clojure-logo.png) ![Elixir](images/elixir-logo.png)
+
+
+### Christopher Lopes
+### @ciwchris
+
+---
+
+# Clojure
+
+<div id="clojure-create"></div>
+
+
+???
+
+lein
+emacs
+Show exception stack
+    - an site created just to list common messages
+    - at least the community saw an issue and took action
+All is not well: http://ashtonkemerling.com/blog/2016/06/11/my-increasing-frustration-with-clojure/
+    - just because a community may look great in may not be (so .net doesn't have to be perfect either)
+Clojure is do it yourself, lots of libraries you need to put together
+    - old docs (http://stackoverflow.com/questions/3325033/comparison-of-clojure-web-frameworks)
+http://blog.cognitect.com/blog/2015/11/10/lets-make-clojure-org-better
+
+Started with OM - difficult - Reagent made sense
+
+Tougher to get back into. Signatures don't give enough info. What was in this map?
+
+Show very terse
+Show bad exception stack
+
+---
+
+# Elixir
+
+???
+
+mix: build tool https://github.com/elixir-lang/elixir
+iex: IEx, Elixir's interactive shell https://github.com/elixir-lang/elixir
+emacs (first on their home page)
+
+
+---
+
+# .Net Core
+
+| Clojure | Elixir | .Net Core |
+|------------------------------|
+| JVM     | BEAM   | CLR       |
+| clojure.core| Elixir Kernel | CoreCLR |
+| clojure.* |  | CoreFx |
+
+How to learn. Koans, excorism(http://exercism.io/languages) c# has more problems but less contribs
+
+---
+
+vs code
+
+# Community/Call to action
+
+How many people have watched a community stand up?
+
+    </textarea>
+    <script src="remark-latest.min.js"></script>
+    <script>
+        var slideshow = remark.create({
+            ratio: '16:9',
+            slideNumberFormat: ''
+        });
+    </script>
+    <script src="casts/asciinema-player.js"></script>
+    <script>
+        asciinema.player.js.CreatePlayer(
+            'clojure-create',
+            'casts/clojure-creation.json',
+            {
+                poster: 'npt:1',
+                speed: 1.5,
+                width: 80,
+                height: 18,
+                fontSize: 'medium',
+                theme: 'solarized-light'
+            });
+    </script>
+  </body>
+</html>

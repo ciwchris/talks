@@ -1,0 +1,55 @@
+Hi, I'm Chris Lopes. Welcome to my talk on my experience using clojure, elixir and. Net core.
+
+Problem [image: come in we're closed]
+I'm a web developer, but I moonlight checking kids into classrooms. We have a pretty slick system. Parents come with their drivers license, hold it up to a scanner, logs then in bringing their list of kids on a computer where they can select which kids they are checking in. A tag is printed on a sticker for each kid and a receipt for the parent. In the system the max number of kids for each classroom can be set. Unfortunately the system is happy to continue to check in kids after the limit has been reached. Therefore one of my duties is to monitor the number of kids in each classroom and once reached update a whiteboard to mark the class full. Unfortunately I can't monitor the numbers from another device, like my phone, so every so often I have to interrupt families checking in, go to the admin on the computer, check the numbers, hope the classroom limit hasn't already been exceeded (which makes the teachers none to happy [screenshot: no no no]) and then let families continue to check-in. One day I had enough, this is a problem I should be able to do something about. I checked if they have an API. They do! And they have a web hook too!
+
+The plan [image: side by side apps]
+This is the application I built. There are two screens. The first shows the status of all classrooms, identified by color, and will be displayed next to the check in screen screen. The second displays the count of each class room and has buttons to increment and decrement the count, if, for example, and kid is moved from one class to another. Both screens establish an web socket connection to the server. When the check in system sends a web hook event the server will retrieve send requests to the API and updates its internal list of check ins and broadcasts the new list of check-ins to any connected clients.
+
+About [image: dilbert - Microsoft all the things]
+That was the vision I had. The plan was to use this as a learning project. This talk is my reflections after implementing this project using different stacks. For perspective, by day I'm a asp.net developer. I have been my whole career. I consider myself a fairly typical developer. Developing in more than a 9-5 obligation, but I'm not going home every night to work on an open source project either. I consult StackOverflow often, but rarely contribute. [image: SO]. Low score, but top 37% this quarter, yeah! I follow a select set of people on twitter, listen to a handful of podcasts, watch the occasional video. Attend the occasional conference, but have never spoken at one before. At work we, for the most part, use the Microsoft way and, surprise, surprise, Angular is our JavaScript framework of choice. [image: none of these things] But we don't have a JavaScript build process. No grunt, gulp, webpack, rollup, eslint, babel nor npm scripts. [image: nuget w/ js libs]. Instead we use NuGet to install our libs and BundleTransformer to bundle and minify.
+
+[image: arch] What may make me atypical is at home my primary computer is Arch Linux and so doing any asp.net work at home was not friendly. Mono is an impressive project. I remember, back in the day, being jealous of Quicksilver on the Mac. I came across gnome do and learned it was written in Mono. But, nevertheless, there are development challenges. First, you can't run NuGet, so I'm not sure how packages are installed. And there's a limit on what can be done on the command line.[image: SO mono cmdline] For example, I asked this question on StackOverflow. How do you even get started? I guess I can answer my own question now. With this background I start my learning.
+
+
+Clojure [image: clj with cljs]
+
+Let's talk about Clojure. Clojure is a dialect of Lisp which has the mantra of code as data. It's a dynamic language. There are several implementations, including one that runs on the CLR. The primary implementations are on the JVM (and has good interoperability with Java), and ClojureScript, which compiles to JavaScript using Google Closure Library. Cognitect is the maintainer of Clojure and Rich Hickey is its benevolent dictator for life.
+
+If you aren't familiar with Lisps the first two things you'll notice are the parentheses and prefix notation. [code: addition(maybe klipse)].
+user=> (+ 1 2 3 4)
+10
+user=> (+ 1 (* 2 3) 4)
+11
+
+The parens are a list. Lists are evaluated. The first position in the list is the operator. The rest are arguments to the operator. Evaluation occurs from the inside out. So in the second example 2 and 3 are multiplied and then use in the addition evaluation. These simple rules have the effect of making the code simple and consistent.
+
+user=> (map inc (range 1 10))
+(2 3 4 5 6 7 8 9 10)
+user=> (filter even? (range 1 10))
+(2 4 6 8)
+user=> (reduce + (range 1 10))
+45
+user=> (reduce + (filter even? (map inc (range 1 10))))
+30
+
+Here are examples of the basic functions of map filter and reduce. In the last example you begin to see the common complaint about lisps, all the parens. It is true that you get used to them, and with a proper editor you don't need to count the parens, to make sure the parens are balanced. But it is important to structure the code to make it readable.
+
+user=> (->>
+         (range 1 10)
+         (map inc)
+         (filter even?)
+         (reduce +))
+30
+
+Additionally Clojure has threading macros to pipe values from one expression to the next. This often times can make the code easier to read. In this example the result from the previous expression is piped as the last argument into the next expression.
+
+[image: lein] The most prevalent to automate project related tasks. You can think of it similarly as to NPM. You can create project, using various templates. Retrieve dependencies, build the project, run tests, start a repl, plus more. Additionally you can include community plugins, or write your own.
+
+[image: blank slide] Unlike other stacks, Clojure doesn't have a complete, end-to-end, web framework. Instead the it is common to use Ring as a base with other libraries which run on top of it, like Compojure for routing. [image: Arachne] This has been identified as an issue and recently a kickstarter campaigned was funded to build Arachne, a complete web framework.
+
+[image: reagent logo] The other side of the story with Clojure is ClojureScript. There are several ClojureScript libraries which wrap React. Reagent is one such library. It allows the creation of React components in ClojureScript. Reagent has a lein template to generate a new Reagent project, including the server side bits, Ring and Compojure. Therefore this seems like the best way to get started with the project.
+
+lein new reagent kids-checkin
+
+The first step 
