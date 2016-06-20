@@ -12,7 +12,7 @@ That was the vision I had. The plan was to use this as a learning project. This 
 [image: arch] What may make me atypical is at home my primary computer is Arch Linux and so doing any asp.net work at home was not friendly. Mono is an impressive project. I remember, back in the day, being jealous of Quicksilver on the Mac. I came across gnome do and learned it was written in Mono. But, nevertheless, there are development challenges. First, you can't run NuGet, so I'm not sure how packages are installed. And there's a limit on what can be done on the command line.[image: SO mono cmdline] For example, I asked this question on StackOverflow. How do you even get started? I guess I can answer my own question now. With this background I start my learning.
 
 
-Clojure [image: clj with cljs]
+Clojure [image: clj with cljs|color change]
 
 Let's talk about Clojure. Clojure is a dialect of Lisp which has the mantra of code as data. It's a dynamic language. There are several implementations, including one that runs on the CLR. The primary implementations are on the JVM (and has good interoperability with Java), and ClojureScript, which compiles to JavaScript using Google Closure Library. Cognitect is the maintainer of Clojure and Rich Hickey is its benevolent dictator for life.
 
@@ -50,6 +50,121 @@ Additionally Clojure has threading macros to pipe values from one expression to 
 
 [image: reagent logo] The other side of the story with Clojure is ClojureScript. There are several ClojureScript libraries which wrap React. Reagent is one such library. It allows the creation of React components in ClojureScript. Reagent has a lein template to generate a new Reagent project, including the server side bits, Ring and Compojure. Therefore this seems like the best way to get started with the project.
 
-lein new reagent kids-checkin
+[cast: clojure creation]
 
-The first step 
+When can then set up our routes. One route to handle web hook requests coming from the system, the other to return the check in information to clients.
+
+(defroutes site-routes
+  (GET "/" [] (render-file "templates/index.html" env))
+  (GET "/checkins" [] {:status 200
+                       :body (api/create-list-of-checkin-count-by-group env)})
+  (POST "/newcheckin" request {:status 200
+                               :body (api/register-checkin request env)})
+  (resources "/")
+  (not-found "Not Found"))
+
+To retrieve new checkins we define an overloaded version of the function. If no arguments are supplied recursion is used to call the function again with the initial set of arguments. A new request to the system API is created and sent and the results stored in a map. Only 20 check-in entries are returned at a time, so while we have entries which currently do not exist in our map we will send another request to the system API with a new page number. Once we have all check-ins the map is returned.
+(defn- retrieve-checkins
+  "Page through the list of checkins from thecity and add them to a vector which
+  we be stored in an application cache, then return it for use"
+  ([] (retrieve-checkins 1 @checkins-store))
+  ([page-number checkins]
+   (let [today (.toString (time/today) "MM/dd/yyyy")
+         new-checkins (retrieve-checkins-for-result-page page-number)
+         new-checkin-store (add-new-checkins-to-checkins-store checkins new-checkins today)]
+     (if (not= (count new-checkin-store) (count checkins))
+       (retrieve-checkins (inc page-number) new-checkin-store)
+       (do
+         (swap! checkins-store into checkins)
+         @checkins-store)))))
+
+The API requires a key and token. To keep these secret they are stored in an edn file, and will not be included in the repo. Edn files contain clojure data, and so can be loaded and used by the application.
+
+(defn- load-config
+  "Load thecity API config"
+  []
+  (edn/read-string (slurp "src/clj/kids_checkin/config.edn")))
+
+The API uses HMAC for authentication. Clojure does have library to produce HMAC signatures. But it is trivial to use Java interrupt to generate the required signature.
+
+(defn- create-secret-key [key mac]
+  (SecretKeySpec. (.getBytes key) (.getAlgorithm mac)))
+
+(defn- sign-text-with-key
+  "Returns the signature of a string with a given key, using a SHA-256 HMAC."
+  [key string]
+  (let [mac (Mac/getInstance "HMACSHA256")
+        secretKey (create-secret-key key mac)]
+    (-> (doto mac
+          (.init secretKey)
+          (.update (.getBytes string)))
+        .doFinal)))
+
+When there is a request to retrieve check-ins a list is created for each classroom and calculates the count for each.
+
+(defn- count-checkins-for-group
+  "Count the number of checkins in each checkin group"
+  [group-id checkins]
+  (count (filter #(= group-id (second %)) checkins)))
+
+(defn create-group-count
+  [checkins]
+  [{:color "red" :count (count-checkins-for-group 108117 checkins)…}
+   {:color "orange" :count (count-checkins-for-group 108119 checkins)…}
+   {:color "yellow" :count (count-checkins-for-group 108120 checkins)…}
+   {:color "green" :count (count-checkins-for-group 144673 checkins)…}
+   {:color "blue" :count (count-checkins-for-group 108123 checkins)…}
+   {:color "purple" :count (count-checkins-for-group 89515 checkins)…}])
+
+Using ClojureScript, on the client, we initialize the page.
+
+(defn mount-root []
+  (reagent/render [checkin-page] (.getElementById js/document "app")))
+
+(defn save-checkins [response]
+  (swap! checkins (fn [] response)))
+
+(defn get-checkins []
+    (GET "/checkins" {:handler save-checkins}))
+
+Then we setup the page components. We create a container, at the bottom, and pass in the list of check-ins to, top, which iterates through the list creating a container for each classroom. In this version of the app the classroom name is outputted along with the current count of the classroom and the max number for the classroom.
+
+(defn list-classes [checkins]
+  [:div
+   [:ul
+    (for [class checkins]
+      ^{:key (:id class)} [:li
+                           [:div {:style {:background-color (:color class)}}
+                            (str (:name class) " " (:count class) "/" (:max class))]])]])
+
+(defn checkin-page []
+  [:div
+   [list-classes @checkins]])
+
+Deployment:
+[image: heroku] Reagent includes a Procfile to deploy to Heroku. They provide simple instructions on deploying a reagent application. Information, such as how to supply configuration information, namely the API key and token, is not discussed.
+
+Lessons:
+[image: blank green again] That covers most of the core pieces.
+- The community is friendly, enthusiastic and active (lots of libraries to pick from)
+- Repl driven development can handy (instead of debugging and inspecting)
+- ClojureScript is fun and refreshing
+- Figwheel makes things simple (hooks up browser repl, shows simple errors)
+;; working in clojurescript
+(def incremented-counts
+  (map #(assoc % :count 2) @checkins))
+(swap! checkins (fn [] incremented-counts))
+    [image: heads up display]
+
+- What editor to use? (emacs/spacemacs, but cursive has come a long ways)
+- No comprehensive framework to guide the way (what tools to use? How to use them? I stuck with what reagent gave me, but when having to expand from there it was difficult to figure out the best thing to use.
+- Tougher to come back to (How did that work. How did I use the tool to do X. I imagine this is not an issue when experienced level is achieved.)
+- [image: SO error]When things go bad they can be challenging to figure out (Errors can be lengthy and misleading. Community tries to be helpful by cataloging exceptions and how to read them. Constant high item on the state of clojure survey. Things are improving. Clojure.spec is a good step forward.)
+- [image/code: keep fn ex]Clojure can be terse and hard to read (why use single letter names)
+
+
+Elixir [image: elixir logo|color change]
+
+Let's talk about Elixir. Elixir is also a dynamic language. It is built on, and extends Erlang, and therefore runs on the Erlang virtual machine, aka BEAM. It has great support for distributed systems, being able to scale horizontally.
+
+

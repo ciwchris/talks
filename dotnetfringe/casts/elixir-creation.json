@@ -1,0 +1,1490 @@
+{
+  "version": 1,
+  "width": 80,
+  "height": 18,
+  "duration": 80.235024,
+  "command": "/bin/bash",
+  "title": "",
+  "env": {
+    "TERM": "xterm",
+    "SHELL": "/bin/bash"
+  },
+  "stdout": [
+    [
+      0.031433,
+      "\u001b]0;chris@ant:~/projects\u0007"
+    ],
+    [
+      0.000375,
+      "[chris@ant projects]$ "
+    ],
+    [
+      0.557444,
+      "s"
+    ],
+    [
+      0.162093,
+      "u"
+    ],
+    [
+      0.124842,
+      "d"
+    ],
+    [
+      0.130985,
+      "o"
+    ],
+    [
+      0.112839,
+      " "
+    ],
+    [
+      0.327346,
+      "p"
+    ],
+    [
+      0.264972,
+      "a"
+    ],
+    [
+      0.221947,
+      "c"
+    ],
+    [
+      0.187184,
+      "m"
+    ],
+    [
+      0.138107,
+      "a"
+    ],
+    [
+      0.132483,
+      "n"
+    ],
+    [
+      0.161012,
+      " "
+    ],
+    [
+      0.423230,
+      "-"
+    ],
+    [
+      0.740800,
+      "S"
+    ],
+    [
+      0.289405,
+      " "
+    ],
+    [
+      0.224276,
+      "e"
+    ],
+    [
+      0.142760,
+      "l"
+    ],
+    [
+      0.178219,
+      "i"
+    ],
+    [
+      0.243027,
+      "x"
+    ],
+    [
+      0.211215,
+      "i"
+    ],
+    [
+      0.086604,
+      "r"
+    ],
+    [
+      0.316101,
+      "\r\n"
+    ],
+    [
+      0.008577,
+      "[sudo] password for chris: "
+    ],
+    [
+      1.000000,
+      "\r\n"
+    ],
+    [
+      0.216639,
+      "resolving dependencies...\r\n"
+    ],
+    [
+      0.001165,
+      "looking for conflicting packages...\r\n"
+    ],
+    [
+      0.007987,
+      "\r\n"
+    ],
+    [
+      0.000064,
+      "Packages (1) elixir-1.2.6-1\r\n"
+    ],
+    [
+      0.000023,
+      "\r\n"
+    ],
+    [
+      0.000032,
+      "Total Installed Size:  4.73 MiB\r\n"
+    ],
+    [
+      0.000022,
+      "\r\n"
+    ],
+    [
+      0.000030,
+      ":: "
+    ],
+    [
+      0.000023,
+      "Proceed with installation?"
+    ],
+    [
+      0.000024,
+      " [Y/n] "
+    ],
+    [
+      0.647562,
+      "\r\n"
+    ],
+    [
+      0.000524,
+      "(0/1) checking keys in keyring                     [----------------------]   0%\r"
+    ],
+    [
+      0.043982,
+      "(1/1) checking keys in keyring                     [######################] 100%\r\n"
+    ],
+    [
+      0.000120,
+      "(0/1) checking package integrity                   [----------------------]   0%\r"
+    ],
+    [
+      0.074222,
+      "(1/1) checking package integrity                   [######################] 100%\r\n"
+    ],
+    [
+      0.000203,
+      "(0/1) loading package files                        [----------------------]   0%\r"
+    ],
+    [
+      0.008968,
+      "(1/1) loading package files                        [######################] 100%\r\n"
+    ],
+    [
+      0.000144,
+      "(0/1) checking for file conflicts                  [----------------------]   0%\r"
+    ],
+    [
+      0.000331,
+      "(1/1) checking for file conflicts                  [######################] 100%\r\n"
+    ],
+    [
+      0.000188,
+      "(0/1) checking available disk space                [----------------------]   0%\r"
+    ],
+    [
+      0.000226,
+      "(1/1) checking available disk space                [######################] 100%\r\n"
+    ],
+    [
+      0.001073,
+      ":: Processing package changes...\r\n"
+    ],
+    [
+      0.005150,
+      "(1/1) installing elixir                            [----------------------]   0%\r"
+    ],
+    [
+      0.194055,
+      "(1/1) installing elixir                            [###################---]  89%\r"
+    ],
+    [
+      0.020879,
+      "(1/1) installing elixir                            [######################] 100%\r\n"
+    ],
+    [
+      0.025394,
+      ":: Running post-transaction hooks...\r\n"
+    ],
+    [
+      0.000094,
+      "(1/1) Updating manpage index...\r\n"
+    ],
+    [
+      0.205275,
+      "\u001b]0;chris@ant:~/projects\u0007"
+    ],
+    [
+      0.000181,
+      "[chris@ant projects]$ "
+    ],
+    [
+      0.830139,
+      "m"
+    ],
+    [
+      0.210805,
+      "i"
+    ],
+    [
+      0.273705,
+      "x"
+    ],
+    [
+      0.222588,
+      " "
+    ],
+    [
+      0.313624,
+      "l"
+    ],
+    [
+      0.255862,
+      "o"
+    ],
+    [
+      0.379566,
+      "c"
+    ],
+    [
+      0.193105,
+      "a"
+    ],
+    [
+      0.104343,
+      "l"
+    ],
+    [
+      0.335459,
+      "."
+    ],
+    [
+      0.156872,
+      "h"
+    ],
+    [
+      0.123583,
+      "e"
+    ],
+    [
+      0.235788,
+      "x"
+    ],
+    [
+      0.613464,
+      "\r\n"
+    ],
+    [
+      1.000000,
+      "\u001b[32m* creating \u001b[0m/home/chris/.mix/archives/hex-0.12.1.ez\u001b[0m\r\n"
+    ],
+    [
+      0.009743,
+      "\u001b]0;chris@ant:~/projects\u0007"
+    ],
+    [
+      0.000273,
+      "[chris@ant projects]$ "
+    ],
+    [
+      1.000000,
+      "mix"
+    ],
+    [
+      0.190192,
+      " "
+    ],
+    [
+      0.381632,
+      "arch"
+    ],
+    [
+      0.294602,
+      "ive."
+    ],
+    [
+      0.235590,
+      "inst"
+    ],
+    [
+      0.191987,
+      "all "
+    ],
+    [
+      1.000000,
+      "https"
+    ],
+    [
+      0.396228,
+      "://"
+    ],
+    [
+      1.000000,
+      "git"
+    ],
+    [
+      0.116414,
+      "hub."
+    ],
+    [
+      0.110713,
+      "com/"
+    ],
+    [
+      0.533375,
+      "pho"
+    ],
+        [
+      0.086024,
+      "enix"
+    ],
+    [
+      0.322760,
+      "fra"
+    ],
+    [
+      0.094820,
+      "mew"
+    ],
+    [
+      0.185828,
+      "ork/"
+    ],
+    [
+      0.103937,
+      "ar \r"
+    ],
+    [
+      0.093032,
+      "chi"
+    ],
+    [
+      0.141785,
+      "ves/"
+    ],
+    [
+      0.416996,
+      "raw/"
+    ],
+    [
+      0.225877,
+      "mas"
+    ],
+    [
+      0.081757,
+      "ter/"
+    ],
+    [
+      0.652365,
+      "pho"
+    ],
+    [
+      0.078716,
+      "enix_"
+    ],
+    [
+      0.296578,
+      "new."
+    ],
+    [
+      0.472429,
+      "ez"
+    ],
+    [
+      0.512603,
+      "\r\n"
+    ],
+    [
+      1.000000,
+      "\u001b[32m* creating \u001b[0m/home/chris/.mix/archives/phoenix_new.ez\u001b[0m\r\n"
+    ],
+    [
+      0.005862,
+      "\u001b]0;chris@ant:~/projects\u0007"
+    ],
+    [
+      0.000207,
+      "[chris@ant projects]$ "
+    ],
+    [
+      1.000000,
+      "s"
+    ],
+    [
+      0.162111,
+      "u"
+    ],
+    [
+      0.132268,
+      "d"
+    ],
+    [
+      0.115332,
+      "o"
+    ],
+    [
+      0.136221,
+      " "
+    ],
+    [
+      0.390013,
+      "p"
+    ],
+    [
+      0.206963,
+      "a"
+    ],
+    [
+      0.101092,
+      "c"
+    ],
+    [
+      0.181008,
+      "m"
+    ],
+    [
+      0.178868,
+      "a"
+    ],
+    [
+      0.096833,
+      "n"
+    ],
+    [
+      0.275047,
+      " "
+    ],
+    [
+      0.273479,
+      "-"
+    ],
+    [
+      0.289532,
+      "S"
+    ],
+    [
+      0.187319,
+      " "
+    ],
+    [
+      0.194764,
+      "n"
+    ],
+    [
+      0.129566,
+      "o"
+    ],
+    [
+      0.442906,
+      "d"
+    ],
+    [
+      0.115033,
+      "e"
+    ],
+    [
+      0.243005,
+      "j"
+    ],
+    [
+      0.522715,
+      "s"
+    ],
+    [
+      0.251335,
+      " "
+    ],
+    [
+      0.574331,
+      "n"
+    ],
+    [
+      0.336290,
+      "p"
+    ],
+    [
+      0.094045,
+      "m"
+    ],
+    [
+      0.500042,
+      "\r\n"
+    ],
+    [
+      0.244763,
+      "resolving dependencies...\r\n"
+    ],
+    [
+      0.008601,
+      "looking for conflicting packages...\r\n"
+    ],
+    [
+      0.000857,
+      "\r\n"
+    ],
+    [
+      0.000043,
+      "Packages (3) semver-5.1.0-1  nodejs-6.2.2-1  npm-3.9.6-1\r\n"
+    ],
+    [
+      0.000022,
+      "\r\n"
+    ],
+    [
+      0.000033,
+      "Total Installed Size:  24.67 MiB\r\n"
+    ],
+    [
+      0.000022,
+      "\r\n"
+    ],
+    [
+      0.000022,
+      ":: "
+    ],
+    [
+      0.000022,
+      "Proceed with installation?"
+    ],
+    [
+      0.000024,
+      " [Y/n] "
+    ],
+    [
+      1.000000,
+      "\r\n"
+    ],
+    [
+      0.000251,
+      "(0/3) checking keys in keyring                     [----------------------]   0%\r"
+    ],
+    [
+      0.043647,
+      "(1/3) checking keys in keyring                     [#######---------------]  33%\r"
+    ],
+    [
+      0.000206,
+      "(2/3) checking keys in keyring                     [##############--------]  66%\r"
+    ],
+    [
+      0.000070,
+      "(3/3) checking keys in keyring                     [######################] 100%\r\n"
+    ],
+    [
+      0.000057,
+      "(0/3) checking package integrity                   [----------------------]   0%\r"
+    ],
+    [
+      0.092183,
+      "(1/3) checking package integrity                   [#############---------]  61%\r"
+    ],
+    [
+      0.015173,
+      "(2/3) checking package integrity                   [#############---------]  61%\r"
+    ],
+    [
+      0.047375,
+      "(3/3) checking package integrity                   [######################] 100%\r\n"
+    ],
+    [
+      0.000078,
+      "(0/3) loading package files                        [----------------------]   0%\r"
+    ],
+    [
+      0.001990,
+      "(1/3) loading package files                        [#############---------]  61%\r"
+    ],
+    [
+      0.001714,
+      "(2/3) loading package files                        [#############---------]  61%\r"
+    ],
+    [
+      0.237266,
+      "(3/3) loading package files                        [######################] 100%\r\n"
+    ],
+    [
+      0.000099,
+      "(0/3) checking for file conflicts                  [----------------------]   0%\r"
+    ],
+    [
+      0.000113,
+      "(1/3) checking for file conflicts                  [#######---------------]  33%\r"
+    ],
+    [
+      0.000128,
+      "(2/3) checking for file conflicts                  [##############--------]  66%\r"
+    ],
+    [
+      0.002507,
+      "(3/3) checking for file conflicts                  [######################] 100%\r\n"
+    ],
+    [
+      0.000194,
+      "(0/3) checking available disk space                [----------------------]   0%\r"
+    ],
+    [
+      0.000052,
+      "(1/3) checking available disk space                [#######---------------]  33%\r"
+    ],
+    [
+      0.000038,
+      "(2/3) checking available disk space                [##############--------]  66%\r"
+    ],
+    [
+      0.001335,
+      "(3/3) checking available disk space                [######################] 100%\r\n"
+    ],
+    [
+      0.007936,
+      ":: Processing package changes...\r\n"
+    ],
+    [
+      0.001334,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000052,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000042,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000038,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000323,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000047,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000041,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000040,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000041,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000086,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000084,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000074,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000082,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000090,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000089,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000072,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.001046,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000079,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000079,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000090,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000075,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000084,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.000072,
+      "(1/3) installing nodejs                            [----------------------]   0%\r"
+    ],
+    [
+      0.285769,
+      "(1/3) installing nodejs                            [######################] 100%\r\n"
+    ],
+    [
+      0.000256,
+      "Optional dependencies for nodejs\r\n"
+    ],
+    [
+      0.000042,
+      "    npm: nodejs package manager [pending]\r\n"
+    ],
+    [
+      0.001275,
+      "(2/3) installing semver                            [----------------------]   0%\r"
+    ],
+    [
+      0.001504,
+      "(2/3) installing semver                            [######################] 100%\r\n"
+    ],
+    [
+      0.004301,
+      "(3/3) installing npm                               [----------------------]   0%\r"
+    ],
+    [
+      0.192693,
+      "(3/3) installing npm                               [#############---------]  60%\r"
+    ],
+    [
+      0.120826,
+      "(3/3) installing npm                               [######################] 100%\r\n"
+    ],
+    [
+      0.004535,
+      "Optional dependencies for npm\r\n"
+    ],
+    [
+      0.000079,
+      "    python2: for node-gyp [installed]\r\n"
+    ],
+    [
+      0.051304,
+      ":: Running post-transaction hooks...\r\n"
+    ],
+    [
+      0.000123,
+      "(1/1) Updating manpage index...\r\n"
+    ],
+    [
+      0.331323,
+      "\u001b]0;chris@ant:~/projects\u0007"
+    ],
+    [
+      0.000156,
+      "[chris@ant projects]$ "
+    ],
+    [
+      1.000000,
+      "m"
+    ],
+    [
+      0.202991,
+      "i"
+    ],
+    [
+      0.227451,
+      "x"
+    ],
+    [
+      0.190306,
+      " "
+    ],
+    [
+      0.588415,
+      "p"
+    ],
+    [
+      0.140538,
+      "h"
+    ],
+    [
+      0.170453,
+      "o"
+    ],
+    [
+      0.070455,
+      "e"
+    ],
+    [
+      0.291592,
+      "n"
+    ],
+    [
+      0.114925,
+      "i"
+    ],
+    [
+      0.243299,
+      "x"
+    ],
+    [
+      0.400872,
+      "."
+    ],
+    [
+      0.173529,
+      "n"
+    ],
+    [
+      0.138346,
+      "e"
+    ],
+    [
+      0.213027,
+      "w"
+    ],
+    [
+      0.103436,
+      " "
+    ],
+    [
+      0.423102,
+      "-"
+    ],
+    [
+      0.156076,
+      "-"
+    ],
+    [
+      0.274241,
+      "n"
+    ],
+    [
+      0.121846,
+      "o"
+    ],
+    [
+      0.246482,
+      "-"
+    ],
+    [
+      0.287576,
+      "e"
+    ],
+    [
+      0.141717,
+      "c"
+    ],
+    [
+      0.164079,
+      "t"
+    ],
+    [
+      0.138125,
+      "o"
+    ],
+    [
+      0.523558,
+      " "
+    ],
+    [
+      0.359156,
+      "k"
+    ],
+    [
+      0.258887,
+      "i"
+    ],
+    [
+      0.108648,
+      "d"
+    ],
+    [
+      0.347710,
+      "s"
+    ],
+    [
+      0.376476,
+      "_"
+    ],
+    [
+      0.264352,
+      "c"
+    ],
+    [
+      0.101509,
+      "h"
+    ],
+    [
+      0.352092,
+      "e"
+    ],
+    [
+      0.188908,
+      "c"
+    ],
+    [
+      0.147367,
+      "k"
+    ],
+    [
+      0.258710,
+      "i"
+    ],
+    [
+      0.063568,
+      "n"
+    ],
+    [
+      0.885761,
+      "\r\n"
+    ],
+    [
+      0.587928,
+      "\u001b[32m* creating \u001b[0mkids_checkin/config/config.exs\u001b[0m\r\n"
+    ],
+    [
+      0.002521,
+      "\u001b[32m* creating \u001b[0mkids_checkin/config/dev.exs\u001b[0m\r\n"
+    ],
+    [
+      0.002954,
+      "\u001b[32m* creating \u001b[0mkids_checkin/config/prod.exs\u001b[0m\r\n"
+    ],
+    [
+      0.001003,
+      "\u001b[32m* creating \u001b[0mkids_checkin/config/prod.secret.exs\u001b[0m\r\n"
+    ],
+    [
+      0.000732,
+      "\u001b[32m* creating \u001b[0mkids_checkin/config/test.exs\u001b[0m\r\n"
+    ],
+    [
+      0.002197,
+      "\u001b[32m* creating \u001b[0mkids_checkin/lib/kids_checkin.ex\u001b[0m\r\n"
+    ],
+    [
+      0.002383,
+      "\u001b[32m* creating \u001b[0mkids_checkin/lib/kids_checkin/endpoint.ex\u001b[0m\r\n"
+    ],
+    [
+      0.003656,
+      "\u001b[32m* creating \u001b[0mkids_checkin/test/views/error_view_test.exs\u001b[0m\r\n"
+    ],
+    [
+      0.002456,
+      "\u001b[32m* creating \u001b[0mkids_checkin/test/support/conn_case.ex\u001b[0m\r\n"
+    ],
+    [
+      0.002358,
+      "\u001b[32m* creating \u001b[0mkids_checkin/test/support/channel_case.ex\u001b[0m\r\n"
+    ],
+    [
+      0.001382,
+      "\u001b[32m* creating \u001b[0mkids_checkin/test/test_helper.exs\u001b[0m\r\n"
+    ],
+    [
+      0.001070,
+      "\u001b[32m* creating \u001b[0mkids_checkin/web/channels/user_socket.ex\u001b[0m\r\n"
+    ],
+    [
+      0.002491,
+      "\u001b[32m* creating \u001b[0mkids_checkin/web/router.ex\u001b[0m\r\n"
+    ],
+    [
+      0.001410,
+      "\u001b[32m* creating \u001b[0mkids_checkin/web/views/error_view.ex\u001b[0m\r\n"
+    ],
+    [
+      0.009931,
+      "\u001b[32m* creating \u001b[0mkids_checkin/web/web.ex\u001b[0m\r\n"
+    ],
+    [
+      0.007762,
+      "\u001b[32m* creating \u001b[0mkids_checkin/mix.exs\u001b[0m\r\n"
+    ],
+    [
+      0.001542,
+      "\u001b[32m* creating \u001b[0mkids_checkin/README.md\u001b[0m\r\n"
+    ],
+    [
+      0.001012,
+      "\u001b[32m* creating \u001b[0mkids_checkin/web/gettext.ex\u001b[0m\r\n"
+    ],
+    [
+      0.001042,
+      "\u001b[32m* creating \u001b[0mkids_checkin/priv/gettext/errors.pot\u001b[0m\r\n"
+    ],
+    [
+      0.002606,
+      "\u001b[32m* creating \u001b[0mkids_checkin/priv/gettext/en/LC_MESSAGES/errors.po\u001b[0m\r\n"
+    ],
+    [
+      0.001986,
+      "\u001b[32m* creating \u001b[0mkids_checkin/web/views/error_helpers.ex\u001b[0m\r\n"
+    ],
+    [
+      0.000273,
+      "\u001b[32m* creating \u001b[0mkids_checkin/.gitignore\u001b[0m\r\n"
+    ],
+    [
+      0.000921,
+      "\u001b[32m* creating \u001b[0mkids_checkin/brunch-config.js\u001b[0m\r\n"
+    ],
+    [
+      0.001346,
+      "\u001b[32m* creating \u001b[0mkids_checkin/package.json\u001b[0m\r\n"
+    ],
+    [
+      0.000248,
+      "\u001b[32m* creating \u001b[0mkids_checkin/web/static/css/app.css\u001b[0m\r\n"
+    ],
+    [
+      0.000560,
+      "\u001b[32m* creating \u001b[0mkids_checkin/web/static/js/app.js\u001b[0m\r\n"
+    ],
+    [
+      0.000721,
+      "\u001b[32m* creating \u001b[0mkids_checkin/web/static/js/socket.js\u001b[0m\r\n"
+    ],
+    [
+      0.000234,
+      "\u001b[32m* creating \u001b[0mkids_checkin/web/static/assets/robots.txt\u001b[0m\r\n"
+    ],
+    [
+      0.000274,
+      "\u001b[32m* creating \u001b[0mkids_checkin/web/static/assets/images/phoenix.png\u001b[0m\r\n"
+    ],
+    [
+      0.000283,
+      "\u001b[32m* creating \u001b[0mkids_checkin/web/static/assets/favicon.ico\u001b[0m\r\n"
+    ],
+    [
+      0.000778,
+      "\u001b[32m* creating \u001b[0mkids_checkin/test/controllers/page_controller_test.exs\u001b[0m\r\n"
+    ],
+    [
+      0.000705,
+      "\u001b[32m* creating \u001b[0mkids_checkin/test/views/layout_view_test.exs\u001b[0m\r\n"
+    ],
+    [
+      0.001458,
+      "\u001b[32m* creating \u001b[0mkids_checkin/test/views/page_view_test.exs\u001b[0m\r\n"
+    ],
+    [
+      0.002590,
+      "\u001b[32m* creating \u001b[0mkids_checkin/web/controllers/page_controller.ex\u001b[0m\r\n"
+    ],
+    [
+      0.000725,
+      "\u001b[32m* creating \u001b[0mkids_checkin/web/templates/layout/app.html.eex\u001b[0m\r\n"
+    ],
+    [
+      0.000609,
+      "\u001b[32m* creating \u001b[0mkids_checkin/web/templates/page/index.html.eex\u001b[0m\r\n"
+    ],
+    [
+      0.000752,
+      "\u001b[32m* creating \u001b[0mkids_checkin/web/views/layout_view.ex\u001b[0m\r\n"
+    ],
+    [
+      0.000687,
+      "\u001b[32m* creating \u001b[0mkids_checkin/web/views/page_view.ex\u001b[0m\r\n"
+    ],
+    [
+      0.003258,
+      "\r\nFetch and install dependencies? [Yn] "
+    ],
+    [
+      0.951706,
+      "\r\n"
+    ],
+    [
+      0.000528,
+      "\u001b[32m* running \u001b[0mmix deps.get\u001b[0m\r\n"
+    ],
+    [
+      1.000000,
+      "\u001b[32m* running \u001b[0mnpm install \u0026\u0026 node node_modules/brunch/bin/brunch build\u001b[0m\r\n"
+    ],
+    [
+      1.000000,
+      "\r\nWe are all set! Run your Phoenix application:\r\n\r\n    $ cd kids_checkin\r\n    $ mix phoenix.server\r\n\r\nYou can also run your app inside IEx (Interactive Elixir) as:\r\n\r\n    $ iex -S mix phoenix.server\r\n\r\n"
+    ],
+    [
+      0.001754,
+      "\u001b]0;chris@ant:~/projects\u0007"
+    ],
+    [
+      0.000444,
+      "[chris@ant projects]$ "
+    ],
+    [
+      1.000000,
+      "c"
+    ],
+    [
+      0.163821,
+      "d"
+    ],
+    [
+      0.118436,
+      " "
+    ],
+    [
+      0.485106,
+      "k"
+    ],
+    [
+      0.290492,
+      "i"
+    ],
+    [
+      0.116985,
+      "d"
+    ],
+    [
+      0.118714,
+      "s"
+    ],
+    [
+      0.462382,
+      "_"
+    ],
+    [
+      0.447205,
+      "c"
+    ],
+    [
+      0.132853,
+      "h"
+    ],
+    [
+      0.280519,
+      "e"
+    ],
+    [
+      0.473873,
+      "c"
+    ],
+    [
+      0.162857,
+      "k"
+    ],
+    [
+      0.235052,
+      "i"
+    ],
+    [
+      0.063492,
+      "n"
+    ],
+    [
+      0.386236,
+      "\r\n\u001b]0;chris@ant:~/projects/kids_checkin\u0007[chris@ant kids_checkin]$ "
+    ],
+    [
+      0.542611,
+      "l"
+    ],
+    [
+      0.211292,
+      "s"
+    ],
+    [
+      0.356659,
+      "\r\nbrunch-config.js  \u001b[0m\u001b[01;34mconfig\u001b[0m  \u001b[01;34mlib\u001b[0m      mix.lock      package.json  README.md  \u001b[01;34mweb\u001b[0m\r\n\u001b[01;34m_build\u001b[0m            \u001b[01;34mdeps\u001b[0m    mix.exs  \u001b[01;34mnode_modules\u001b[0m  \u001b[01;34mpriv\u001b[0m          \u001b[01;34mtest\u001b[0m\r\n"
+    ],
+    [
+      0.000452,
+      "\u001b]0;chris@ant:~/projects/kids_checkin\u0007"
+    ],
+    [
+      0.000246,
+      "[chris@ant kids_checkin]$ "
+    ],
+    [
+      0.894457,
+      "f"
+    ],
+    [
+      0.305775,
+      "i"
+    ],
+    [
+      0.063527,
+      "n"
+    ],
+    [
+      0.359840,
+      "d"
+    ],
+    [
+      0.092823,
+      " "
+    ],
+    [
+      0.504309,
+      "w"
+    ],
+    [
+      0.177658,
+      "e"
+    ],
+    [
+      0.174036,
+      "b"
+    ],
+    [
+      0.780924,
+      "|"
+    ],
+    [
+      0.382736,
+      "c"
+    ],
+    [
+      0.154564,
+      "o"
+    ],
+    [
+      0.419644,
+      "l"
+    ],
+    [
+      0.170074,
+      "u"
+    ],
+    [
+      0.100987,
+      "m"
+    ],
+    [
+      0.126473,
+      "n"
+    ],
+    [
+      0.710585,
+      "\r\n"
+    ],
+    [
+      0.006127,
+      "web\t\t\t\t\tweb/stat"
+    ],
+    [
+      0.000088,
+      "ic/assets/images"
+    ],
+    [
+      0.000051,
+      "/phoenix.png\r\n"
+    ],
+    [
+      0.000049,
+      "web/controllers\t"
+    ],
+    [
+      0.000046,
+      "\t\t\tweb/static/as"
+    ],
+    [
+      0.000044,
+      "sets/robots.txt\r\n"
+    ],
+    [
+      0.000047,
+      "web/controllers/"
+    ],
+    [
+      0.000045,
+      "page_controller."
+    ],
+    [
+      0.000044,
+      "ex\tweb/templates"
+    ],
+    [
+      0.000043,
+      "\r\n"
+    ],
+    [
+      0.000046,
+      "web/router.ex\t\t\t"
+    ],
+    [
+      0.000043,
+      "\tweb/templates/p"
+    ],
+    [
+      0.000043,
+      "age\r\n"
+    ],
+    [
+      0.000046,
+      "web/models\t\t\t\twe"
+    ],
+    [
+      0.000043,
+      "b/templates/page"
+    ],
+    [
+      0.000075,
+      "/index.html.eex\r\n"
+    ],
+    [
+      0.000048,
+      "web/web.ex\t\t\t\twe"
+    ],
+    [
+      0.000044,
+      "b/templates/layo"
+    ],
+    [
+      0.000043,
+      "ut\r\n"
+    ],
+    [
+      0.000046,
+      "web/static\t\t\t\twe"
+    ],
+    [
+      0.000043,
+      "b/templates/layo"
+    ],
+    [
+      0.000043,
+      "ut/app.html.eex\r\n"
+    ],
+    [
+      0.000046,
+      "web/static/js\t\t\t"
+    ],
+    [
+      0.000044,
+      "\tweb/gettext.ex\r\n"
+    ],
+    [
+      0.000046,
+      "web/static/js/so"
+    ],
+    [
+      0.000044,
+      "cket.js\t\t\tweb/ch"
+    ],
+    [
+      0.000043,
+      "annels\r\n"
+    ],
+    [
+      0.000046,
+      "web/static/js/ap"
+    ],
+    [
+      0.000044,
+      "p.js\t\t\tweb/chann"
+    ],
+    [
+      0.000043,
+      "els/user_socket."
+    ],
+    [
+      0.000042,
+      "ex\r\n"
+    ],
+    [
+      0.000045,
+      "web/static/css\t\t"
+    ],
+    [
+      0.000043,
+      "\t\tweb/views\r\n"
+    ],
+    [
+      0.000046,
+      "web/static/css/a"
+    ],
+    [
+      0.000044,
+      "pp.css\t\t\tweb/vie"
+    ],
+    [
+      0.000043,
+      "ws/error_view.ex"
+    ],
+    [
+      0.000042,
+      "\r\n"
+    ],
+    [
+      0.000045,
+      "web/static/vendo"
+    ],
+    [
+      0.000044,
+      "r\t\t\tweb/views/er"
+    ],
+    [
+      0.000043,
+      "ror_helpers.ex\r\n"
+    ],
+    [
+      0.000045,
+      "web/static/asset"
+    ],
+    [
+      0.000044,
+      "s\t\t\tweb/views/la"
+    ],
+    [
+      0.000043,
+      "yout_view.ex\r\n"
+    ],
+    [
+      0.000046,
+      "web/static/asset"
+    ],
+    [
+      0.000044,
+      "s/favicon.ico\t\tw"
+    ],
+    [
+      0.000043,
+      "eb/views/page_vi"
+    ],
+    [
+      0.000042,
+      "ew.ex\r\n"
+    ],
+    [
+      0.000045,
+      "web/static/asset"
+    ],
+    [
+      0.000043,
+      "s/images\r\n"
+    ],
+    [
+      0.000386,
+      "\u001b]0;chris@ant:~/projects/kids_checkin\u0007"
+    ],
+    [
+      0.000196,
+      "[chris@ant kids_checkin]$ "
+    ]
+  ]
+}

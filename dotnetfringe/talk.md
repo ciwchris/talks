@@ -64,8 +64,44 @@ Clojure
 
 - Terrible errors
     - have to cataglog the errors https://github.com/yogthos/clojure-error-message-catalog/blob/master/clj/class-not-found-exception.md
+    - decoding: https://blog.8thlight.com/connor-mendenhall/2014/09/12/clojure-stacktraces.html
+    - example: http://stackoverflow.com/questions/32059978/how-to-read-clojure-stack-trace
 - Terse (hard to read)
     - http://stackoverflow.com/questions/1894209/how-to-read-mentally-lisp-clojure-code
+    - https://github.com/clojure/clojure/blob/master/src/clj/clojure/core.clj
+(defn keep
+  "Returns a lazy sequence of the non-nil results of (f item). Note,
+  this means false return values will be included.  f must be free of
+  side-effects.  Returns a transducer when no collection is provided."
+  {:added "1.2"
+   :static true}
+  ([f]
+   (fn [rf]
+     (fn
+       ([] (rf))
+       ([result] (rf result))
+       ([result input]
+          (let [v (f input)]
+            (if (nil? v)
+              result
+              (rf result v)))))))
+  ([f coll]
+   (lazy-seq
+    (when-let [s (seq coll)]
+      (if (chunked-seq? s)
+        (let [c (chunk-first s)
+              size (count c)
+              b (chunk-buffer size)]
+          (dotimes [i size]
+            (let [x (f (.nth c i))]
+              (when-not (nil? x)
+                (chunk-append b x))))
+          (chunk-cons (chunk b) (keep f (chunk-rest s))))
+        (let [x (f (first s))]
+          (if (nil? x)
+            (keep f (rest s))
+(cons x (keep f (rest s))))))))))
+
 - Has ClojureScript
 - Ring - no sockets, really? Okay I guess I can switch everything over to http-kit
 - Emacs, although there are others (watching a screencast, started with atom, had to shift to emacs)
