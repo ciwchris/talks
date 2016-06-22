@@ -16,11 +16,13 @@ Clojure [image: clj with cljs|color change]
 
 Let's talk about Clojure. Clojure is a dialect of Lisp which has the mantra of code as data. It's a dynamic language. There are several implementations, including one that runs on the CLR. The primary implementations are on the JVM (and has good interoperability with Java), and ClojureScript, which compiles to JavaScript using Google Closure Library. Cognitect is the maintainer of Clojure and Rich Hickey is its benevolent dictator for life.
 
-If you aren't familiar with Lisps the first two things you'll notice are the parentheses and prefix notation. [code: addition(maybe klipse)].
 user=> (+ 1 2 3 4)
 10
 user=> (+ 1 (* 2 3) 4)
 11
+
+If you aren't familiar with Lisps the first two things you'll notice are the parentheses and prefix notation. [code: addition(maybe klipse)].
+
 
 The parens are a list. Lists are evaluated. The first position in the list is the operator. The rest are arguments to the operator. Evaluation occurs from the inside out. So in the second example 2 and 3 are multiplied and then use in the addition evaluation. These simple rules have the effect of making the code simple and consistent.
 
@@ -165,6 +167,65 @@ Lessons:
 
 Elixir [image: elixir logo|color change]
 
-Let's talk about Elixir. Elixir is also a dynamic language. It is built on, and extends Erlang, and therefore runs on the Erlang virtual machine, aka BEAM. It has great support for distributed systems, being able to scale horizontally.
+Let's talk about Elixir. Elixir is also a dynamic language. It is built on, and extends Erlang, and therefore runs on the Erlang virtual machine, aka BEAM. It has great support for distributed systems, being able to scale horizontally. It achieves this by running all code in processes which send messages to each other. These are not OS processes or threads. These are extremely lightweight. Tens of thousands can be running simultaneously. Jose Valim, of Plataformatec, is the creator of Elixir.
 
+
+iex(1)> a = "hello"
+"hello"
+iex(2)> "hello" = a
+"hello"
+iex(3)> "world" = a
+** (MatchError) no match of right hand side value: "hello"
+
+An important concept in Elixir is pattern matching. In this example it appears the equal is assignment, but it's actually a match operator.
+
+iex(1)> {a, b} = {"hello", "world"}
+{"hello", "world"}
+iex(2)> {a, "world"} = {"hello", "world"}
+{"hello", "world"}
+iex(3)> {a, "world!"} = {"hello", "world"}
+** (MatchError) no match of right hand side value: {"hello", "world"}
+iex(3)> case {:ok, "hello world"} do
+...(3)>      {:ok, result} -> IO.puts result
+...(3)>      {:error, result} -> IO.puts result
+...(3)>      _ -> IO.puts "something unexpected"
+...(3)> end
+hello world
+:ok
+
+Tuples are used often in Elixir to send data to a function as a single argument or return multiple pieces of data from a function. Patterning matching is used with destructing to extract and branch on the results. Because of this if statements appear less frequently in Elixir.
+
+iex(1)> Enum.map(1..10, fn x -> x + 1 end)
+[2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+iex(2)> Enum.filter(1..10, fn x -> 0 == rem(x, 2) end)
+[2, 4, 6, 8, 10]
+iex(3)> Enum.reduce(1..10, fn(x, acc) -> acc + x end)
+55
+iex(4)> 1..10 \                                  
+...(4)>     |> Enum.map(fn x -> x + 1 end) \
+...(4)>     |> Enum.filter(fn x -> 0 == rem(x, 2) end) \
+...(4)>     |> Enum.sum
+30
+
+
+For comparison, here are the basic map, filter and reduce (not the must terse version). The last example shows the use of the piper operator, inspired by f#.
+
+iex(1)> {:ok, agent} = Agent.start_link fn -> [] end
+{:ok, #PID<0.86.0>}
+iex(2)> Agent.update(agent, fn list -> ["hello world" | list] end)
+:ok
+iex(3)> Agent.get(agent, fn list -> list end)
+["hello world"]
+iex(4)> Agent.stop(agent)
+:ok
+
+Processes are used to store state. Elixir uses OTP (Open Telecom Protocol), a set of libraries for working with processes. In this example we use the Agent abstraction to store state. First a process is started with an empty list. The list is updated by prepending a new item to the list. Then the list is retrieved. Finally the process is stopped.
+
+
+.Net [image: dotnet foundation logo|color change]
+
+I'll skip the intro to .net and c# and go directly into installation. [image: install options]. Or not. Well, the arch community is active, maybe somebody created a package for. [image: aur]. This looks promising. [code: dotnet not found] Oh, I guess it only runs .net core applications. [image: install options]. Well, I could try using it with Docker, but with my very limited experience I don't know a good development flow, and history has taught me I should limit the number of things I learn at the same time, so I guess an Ubuntu VM it is.
+
+End [^d]
+Thank you for attending my talk. If you would like to discuss these topics further, have questions, ideas or pass knowledge on to me I'll be around. Come find me. Thanks!
 
