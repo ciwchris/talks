@@ -36,6 +36,13 @@ Include lots of tweets from the community to spin the story
 Elixir
 ------
 
+<div id="elixir-create"></div>
+
+mix: build tool https://github.com/elixir-lang/elixir
+iex: IEx, Elixir's interactive shell https://github.com/elixir-lang/elixir
+emacs (first on their home page)
+
+
 - So easy people are recreating their past environment in Elixir.
     - People come because the barrier looks really low, familiar with what you're already doing and sell it to your company. But then you hit the intermediate gap and its fundamentally not new.
 - Separation between Elixir and Erlang communities
@@ -61,6 +68,18 @@ https://www.youtube.com/watch?v=a-off4Vznjs&feature=youtu.be
 
 Clojure
 -------
+
+<div id="clojure-create"></div>
+
+All is not well: http://ashtonkemerling.com/blog/2016/06/11/my-increasing-frustration-with-clojure/
+    - just because a community may look great in may not be (so .net doesn't have to be perfect either)
+Clojure is do it yourself, lots of libraries you need to put together
+    - old docs (http://stackoverflow.com/questions/3325033/comparison-of-clojure-web-frameworks)
+http://blog.cognitect.com/blog/2015/11/10/lets-make-clojure-org-better
+
+Started with OM - difficult - Reagent made sense
+
+Tougher to get back into. Signatures don't give enough info. What was in this map?
 
 - Terrible errors
     - have to cataglog the errors https://github.com/yogthos/clojure-error-message-catalog/blob/master/clj/class-not-found-exception.md

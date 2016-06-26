@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title</title>
+    <title>Clojure, Elixir and .Net Core: a newbie's experience</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="casts/asciinema-player.css" />
     <style>
-      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      @import url(YanoneKaffeesatz.css);
+      @import url(DroidSerif.css);
+      @import url(UbuntuMono.css);
 
       body { font-family: 'Droid Serif'; }
       h1, h2, h3 {
@@ -19,6 +19,10 @@
           margin-right: auto;
       }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .clojure-page-break { background-color: #90dc46; color: white; }
+      .clojure-page-break .hljs {background-color: #90dc46 !important; font-size: 16px; }
+      .takeaways { margin-left: 150px; font-size: 35px; font-family: 'Yanone Kaffeesatz'; }
+
     </style>
   </head>
   <body>
@@ -27,52 +31,620 @@
 
 class: center, middle
 
-# .Net Core, Clojure and Elixir: a newbie's experience
+ Clojure, Elixir and .Net Core: a newbie's experience
 
-# ![.Net](images/dotnet-logo.png) ![Clojure](images/clojure-logo.png) ![Elixir](images/elixir-logo.png)
+![Clojure](images/clojure-logo.png)
+![Elixir](images/elixir-logo.png)
+![.Net](images/dotnet-logo.png) 
 
 
 ### Christopher Lopes
 ### @ciwchris
 
+???
+
+- Hi I'm Chris Lopes
+- Welcome to my talk on my experience using
+
 ---
 
-# Clojure
+class: center, middle
 
-<div id="clojure-create"></div>
+![Closed](images/come-in-were-closed.jpg)
+
+???
+
+- I'm a web developer
+- Moonlight checking kids into classrooms, slick system
+- Max number of kids, unfortunately the system is happy
+- Therefore one of my duties
+- Can't monitor on phone, need to interrupt
+
+---
+
+class: center, middle
+
+![Admin Over Capacity](images/admin-over-capacity.png)
+
+???
+
+- Hope the classroom limit
+- Teachers none to happy
+
+---
+
+class: center, middle
+
+![Check in](images/app-open-full-framed.png)
+![Counts](images/app-counts-framed.png)
+
+???
+
+- First: status, identified by color, next to the check in screen screen
+- Second: count, buttons to increment/decrement, kid is moved
+- Web socket connection to the server
+- System sends a web hook
+- Server send requests to the API
+- Broadcasts to connected clients
+- Plan, learning project
+- Talk is my reflections after implementing in different stacks
+
+---
+
+class: center, middle
+
+![Me](images/dilpert.jpe)
+# Microsoft all the things
+
+???
+
+- I'm a asp.net developer, whole career
+- Typical developer
+- More than a 9-5
+- Not going home every night
+- Twitter, Podcasts, Videos
+- Attend occasional conference but have never spoken
+
+---
+
+class: center, middle
+
+![SO](images/so-reputation.png)
+
+???
+
+- Consult StackOverflow often, rarely contribute
+
+---
+
+class: center, middle
+
+![SO](images/)
+
+???
+
+- At work we, Microsoft way
+- Surprise, Angular
+- No JavaScript build process, etc
+
+---
+
+class: center, middle
+
+![SO](images/nuget.png)
+
+???
+
+- NuGet to install our libs
+- BundleTransformer to bundle and minify.
+
+---
+
+class: center, middle
+
+![SO](images/arch.png)
+
+???
+
+- Atypical
+- Doing any asp.net, not friendly
+- Mono impressive
+- Quicksilver, Gnome Do
+- Challenges: NuGet
+
+---
+
+class: center, middle
+
+![SO](images/mono-cli.png)
+
+???
+
+- Limit on cli, how even to get started?
+- Guess I can answer now
+
+---
+
+class: center, middle, clojure-page-break
+
+![Clojure](images/clj.png)
+![Clojure](images/cljs.png)
+
+???
+
+TODO: color change bkg
+
+- Dialect of Lisp, code as data
+- Dynamic, Several implementations, CLR, Primary JVM (interoperability with Java),
+- ClojureScript, JavaScript using Google Closure Library
+- Cognitect maintainer, Rich Hickey benevolent dictator for life
+
+---
+
+## Parens and infix
+
+```clojure
+user=> (+ 1 2 3 4)
+10
+user=> (+ 1 (* 2 3) 4)
+11
+```
+
+## Branching
+
+```clojure
+user=> (def hello "hello")
+#'user/hello
+user=> (def world "world")
+#'user/world
+user=> (if
+  #_=>     (or
+  #_=>         (and (= hello "hello") (= world "world"))
+  #_=>         (not= hello world))
+  #_=>     (str hello " " world))
+"hello world"
+```
 
 
 ???
 
-lein
-emacs
-Show exception stack
-    - an site created just to list common messages
-    - at least the community saw an issue and took action
-All is not well: http://ashtonkemerling.com/blog/2016/06/11/my-increasing-frustration-with-clojure/
-    - just because a community may look great in may not be (so .net doesn't have to be perfect either)
-Clojure is do it yourself, lots of libraries you need to put together
-    - old docs (http://stackoverflow.com/questions/3325033/comparison-of-clojure-web-frameworks)
-http://blog.cognitect.com/blog/2015/11/10/lets-make-clojure-org-better
+TODO: klipse
 
-Started with OM - difficult - Reagent made sense
+- Parentheses and prefix notation
+- Parens are a list. Lists are evaluated
+- First position is operator, rest arguments
+- Evaluation inside out
+- Talk through second example
+- Simple and consistent
 
-Tougher to get back into. Signatures don't give enough info. What was in this map?
+---
 
-Show very terse
-Show bad exception stack
+## Map, filter and reduce
+
+```clojure
+user=> (map inc (range 1 10))
+(2 3 4 5 6 7 8 9 10)
+user=> (filter even? (range 1 10))
+(2 4 6 8)
+user=> (reduce + (range 1 10))
+45
+user=> (reduce + (filter even? (map inc (range 1 10))))
+30
+
+```
+## Threading macro
+
+```clojure
+user=> (->>
+         (range 1 10)
+         (map inc)
+         (filter even?)
+         (reduce +))
+30
+```
+
+???
+
+- Basic functions map, filter, reduce
+- Begin to see the common complaint, parens
+- Used to them, proper editor, structure for readality
+- Pipes result, readality
+
+---
+
+class: center, middle
+
+# Leiningen
+
+![Leiningen](images/leiningen.jpg)
+
+???
+
+- Most prevalent to automate project related tasks
+- Similar to NPM
+- Project templates, dependencies, build, run tests, repl, more
+- Community plugins, write own
+
+---
+
+class: center, middle
+
+???
+
+- No end-to-end web framework
+- Ring base, other libraries, typically Compojure for routing
+
+---
+
+class: center, middle
+
+# Arachne
+
+![Arachne](images/arachne-logo.jpe)
+
+???
+
+- Identified as issue, kickstarter campaign
+
+---
+
+class: center, middle
+
+# Reagent
+
+![Reagent](images/reagent-logo.png)
+
+???
+
+- Other side of the story, ClojureScript
+- Several wrap React (JS framework), Reagent
+- React components in ClojureScript
+- Lein template, server side bits
+- Best way to get started
+
+---
+
+class: center, middle
+
+## Installation and getting started
+
+<div id="clojure-create"></div>
+
+???
+
+- Reader conditionals
+
+---
+
+## Setup routes
+
+```clojure
+(defroutes site-routes
+  (GET "/" [] (render-file "templates/index.html" env))
+  (GET "/checkins" [] {:status 200
+                       :body (api/create-list-of-checkin-count-by-group env)})
+  (POST "/newcheckin" request {:status 200
+                               :body (api/register-checkin request env)})
+  (resources "/")
+  (not-found "Not Found"))
+```
+
+???
+
+- Routes using Compojure
+
+---
+
+## Retrieve check-ins
+
+```clojure
+(defn- retrieve-checkins
+  "Page through the list of checkins from thecity and add them to a vector which
+  we be stored in an application cache, then return it for use"
+  ([] (retrieve-checkins 1 @checkins-store))
+  ([page-number checkins]
+   (let [today (.toString (time/today) "MM/dd/yyyy")
+         new-checkins (retrieve-checkins-for-result-page page-number)
+         new-checkin-store (add-new-checkins-to-checkins-store checkins new-checkins today)]
+     (if (not= (count new-checkin-store) (count checkins))
+       (retrieve-checkins (inc page-number) new-checkin-store)
+       (do
+         (swap! checkins-store into checkins)
+         @checkins-store)))))
+```
+
+???
+
+- Overloaded function
+- No arguments, calls itself with initial
+- Request to system API, results stored in map
+- 20 check-in entries are returned, entries do not exist send another
+- Once we have all check-ins the map is returned
+
+---
+
+## Configuration
+
+```clojure
+{:key "xxxxxxxxxxxxxxxxxxxxxxx"
+ :user-token "xxxxxxxxxxxxxxxx"}
+```
+
+## Read in configuration
+
+```clojure
+(defn- load-config
+  "Load thecity API config"
+  []
+  (edn/read-string (slurp "src/clj/kids_checkin/config.edn")))
+```
+
+???
+
+- API key and token
+- Stored in an edn file, contain clojure data, pulled into application
+- Env vars using Environ
+
+---
+
+## Java interop
+
+```clojure
+(defn- create-secret-key [key mac]
+  (SecretKeySpec. (.getBytes key) (.getAlgorithm mac)))
+
+(defn- sign-text-with-key
+  "Returns the signature of a string with a given key, using a SHA-256 HMAC."
+  [key string]
+  (let [mac (Mac/getInstance "HMACSHA256")
+        secretKey (create-secret-key key mac)]
+    (-> (doto mac
+          (.init secretKey)
+          (.update (.getBytes string)))
+        .doFinal)))
+```
+
+???
+
+TODO: turn highlight lines on
+
+- HMAC authentication, no Clojure library
+- Trivial to use Java interopt
+- SecretKeySpec constructor
+- Mac getIntance, then used
+
+---
+
+## Creating check-in counts
+
+```clojure
+(defn- count-checkins-for-group
+  "Count the number of checkins in each checkin group"
+  [group-id checkins]
+  (count (filter #(= group-id (second %)) checkins)))
+
+(defn create-group-count
+  [checkins]
+  [{:color "red" :count (count-checkins-for-group 108117 checkins)…}
+   {:color "orange" :count (count-checkins-for-group 108119 checkins)…}
+   {:color "yellow" :count (count-checkins-for-group 108120 checkins)…}
+   {:color "green" :count (count-checkins-for-group 144673 checkins)…}
+   {:color "blue" :count (count-checkins-for-group 108123 checkins)…}
+   {:color "purple" :count (count-checkins-for-group 89515 checkins)…}])
+```
+
+???
+
+- Request to retrieve check-ins, list is created for each classroom, calculates the count
+
+---
+
+## ClojureScript: page initialization
+
+```clojure
+(defn mount-root []
+  (reagent/render [checkin-page] (.getElementById js/document "app")))
+
+(defn save-checkins [response]
+  (swap! checkins (fn [] response)))
+
+(defn get-checkins []
+    (GET "/checkins" {:handler save-checkins}))
+```
+
+???
+
+- Mounts component, like React
+
+---
+
+## Create components
+
+```clojure
+(defn list-classes [checkins]
+  [:div
+   [:ul
+    (for [class checkins]
+      ^{:key (:id class)} [:li
+                           [:div {:style {:background-color (:color class)}}
+                            (str (:name class) " " (:count class) "/" (:max class))]])]])
+
+(defn checkin-page []
+  [:div
+   [list-classes @checkins]])
+```
+
+???
+
+- Create a container, bottom
+- Pass check-ins to, top, which iterates, creating a container for each classroom
+- The version of app outputs name and count
+
+---
+
+class: center, middle
+
+![Figwheel](images/figwheel.png)
+
+???
+
+- Creates a websocket connection and hotloads code
+- Error messages simpler
+
+---
+
+## Interacting with browser
+
+```clojure
+ClojureScript:cljs.user> (js/alert "test")
+```
+
+## Changing classroom count
+
+```clojure
+ClojureScript:cljs.user> (in-ns 'kids-checkin.core)
+nil
+ClojureScript:kids-checkin.core> (def incremented-counts (map #(assoc % :count 2) @checkins))
+ClojureScript:kids-checkin.core> (swap! checkins (fn [] incremented-counts))
+({:color "red", :count 2, …}
+ {:color "orange", :count 2, …}
+ {:color "yellow", :count 2, …}
+ {:color "green", :count 2, …}
+ {:color "blue", :count 2, …}
+ {:color "purple", :count 2, …})
+
+```
+
+???
+
+- Hooks up browser repl
+---
+
+class: center, middle
+
+# Deployment: Heroku
+
+![Heroku](images/heroku-logo.png)
+
+???
+
+- Reagent Procfile to deploy to Heroku
+- Simple instructions
+- Information, supply configuration, not discussed
+
+---
+
+class: clojure-page-break, takeways
+
+# Takeaways
+
+.takeaways[
+- Community enthusiastic and active
+- Repl driven development
+- ClojureScript refreshing
+- Figwheel simplifies workflow
+- Editor?
+- No complete in the box framework
+- Tougher to come back to
+]
+
+???
+
+- Community: friendly, enthusiastic,  active, lots of libraries
+- Repl handy, instead of debugging and inspecting
+- ClojureScript is fun and refreshing
+- Emacs/Spacemacs, Cursive
+- No framework to guide, lot of work past to figure out past Reagent
+- Tougher to come back, how did that work, how did I use the tool
+
+---
+
+class: small, clojure-page-break
+
+```clojure
+(defn keep
+  "Returns a lazy sequence of the non-nil results of (f item). Note,
+  this means false return values will be included.  f must be free of
+  side-effects.  Returns a transducer when no collection is provided."
+  {:added "1.2"
+   :static true}
+  ([f]
+   (fn [rf]
+     (fn
+       ([] (rf))
+       ([result] (rf result))
+       ([result input]
+          (let [v (f input)]
+            (if (nil? v)
+              result
+              (rf result v)))))))
+  ([f coll]
+   (lazy-seq
+    (when-let [s (seq coll)]
+      (if (chunked-seq? s)
+        (let [c (chunk-first s)
+              size (count c)
+              b (chunk-buffer size)]
+          (dotimes [i size]
+            (let [x (f (.nth c i))]
+              (when-not (nil? x)
+                (chunk-append b x))))
+          (chunk-cons (chunk b) (keep f (chunk-rest s))))
+        (let [x (f (first s))]
+          (if (nil? x)
+            (keep f (rest s))
+(cons x (keep f (rest s))))))))))
+```
+
+???
+
+- Terse, hard to read, single letter names
+
+---
+
+class: clojure-page-break
+
+```
+Exception in thread "main" clojure.lang.ArityException: Wrong number of args (2) passed to: StringReader: (abnf.clj:189:28)
+    at clojure.lang.Compiler$InvokeExpr.eval(Compiler.java:3628)
+    at clojure.lang.Compiler$InvokeExpr.eval(Compiler.java:3622)
+    at clojure.lang.Compiler$DefExpr.eval(Compiler.java:439)
+    at clojure.lang.Compiler.eval(Compiler.java:6787)
+    at clojure.lang.Compiler.load(Compiler.java:7227)
+    at clojure.lang.RT.loadResourceScript(RT.java:371)
+    at clojure.lang.RT.loadResourceScript(RT.java:362)
+    at clojure.lang.RT.load(RT.java:446)
+    at clojure.lang.RT.load(RT.java:412)
+    at clojure.core$load$fn__5448.invoke(core.clj:5866)
+    at instaparse.core$eval9510.invoke(core.clj:1)
+    at clojure.lang.AFn.applyToHelper(AFn.java:156)
+    at clojure.lang.Var.applyTo(Var.java:700)
+    at clojure.main.main(main.java:37)
+Caused by: clojure.lang.ArityException: Wrong number of args (2) passed to: StringReader
+    at clojure.lang.AFn.throwArity(AFn.java:429)
+    at clojure.lang.AFn.invoke(AFn.java:36)
+    at instaparse.cfg$build_rule.invoke(cfg.clj:214)
+    at clojure.core$map$fn__4553.invoke(core.clj:2622)
+    at clojure.core$into.invoke(core.clj:6600)
+    at instaparse.cfg$ebnf.invoke(cfg.clj:277)
+    at clojure.lang.AFn.applyToHelper(AFn.java:154)
+    at clojure.lang.AFn.applyTo(AFn.java:144)
+    at clojure.lang.Compiler$InvokeExpr.eval(Compiler.java:3623)
+    ... 125 more
+```
+
+???
+
+- Challenging figure out errors, misleading
+- Community helpful, cataloging exceptions, how to read
+- Constant high item on state of clojure survey, improving, clojure.spec
 
 ---
 
 # Elixir
 
-<div id="elixir-create"></div>
 
 ???
-
-mix: build tool https://github.com/elixir-lang/elixir
-iex: IEx, Elixir's interactive shell https://github.com/elixir-lang/elixir
-emacs (first on their home page)
 
 
 ---
@@ -88,15 +660,13 @@ emacs (first on their home page)
 | cljs    | npm/brunch | npm/gulp  |
 
 
-How to learn. Koans, excorism(http://exercism.io/languages) c# has more problems but less contribs
-
 ---
 
-vs code
 
 # Community/Call to action
 
 How many people have watched a community stand up?
+How to learn. Koans, excorism(http://exercism.io/languages) c# has more problems but less contribs
 
     </textarea>
     <script src="remark-latest.min.js"></script>

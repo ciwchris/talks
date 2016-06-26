@@ -221,10 +221,25 @@ iex(4)> Agent.stop(agent)
 
 Processes are used to store state. Elixir uses OTP (Open Telecom Protocol), a set of libraries for working with processes. In this example we use the Agent abstraction to store state. First a process is started with an empty list. The list is updated by prepending a new item to the list. Then the list is retrieved. Finally the process is stopped.
 
+Pattern matching function (dailydrip)
+
+Deployments aren't so simple, just the basic is. Need for the community to step up here.
+
+[image: mix] 
+
+
 
 .Net [image: dotnet foundation logo|color change]
 
 I'll skip the intro to .net and c# and go directly into installation. [image: install options]. Or not. Well, the arch community is active, maybe somebody created a package for. [image: aur]. This looks promising. [code: dotnet not found] Oh, I guess it only runs .net core applications. [image: install options]. Well, I could try using it with Docker, but with my very limited experience I don't know a good development flow, and history has taught me I should limit the number of things I learn at the same time, so I guess an Ubuntu VM it is.
+
+
+[image: out of date doc:The documentation is always last to know]
+
+
+Community [image: ???]
+Lot of people are upset. Leaving .Net. Frustrated by the changes.
+Now is a great time to to be a .Net developer. It's a time of change, when more people will be open to trying something different. Something not created by Microsoft. Opportunities are greater now than any other time. F# is great, but what did I learn that I can bring back and apply to my work?
 
 End [^d]
 Thank you for attending my talk. If you would like to discuss these topics further, have questions, ideas or pass knowledge on to me I'll be around. Come find me. Thanks!
