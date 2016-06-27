@@ -15,13 +15,31 @@
         font-weight: normal;
       }
       table {
+          border: 1px solid #ddd;
           margin-left: auto;
           margin-right: auto;
+          border-spacing: 0;
+          border-collapse: collapse;
+      }
+      th {
+          border: 1px solid #ddd;
+          padding: 8px;
+          border-spacing: 0;
+          border-collapse: collapse;
+      }
+      tbody tr:nth-of-type(2n+1) {
+          background-color: #f9f9f9;
+      }
+      tbody tr td {
+          border: 1px solid #ddd;
+          padding: 8px;
       }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
       .clojure-page-break { background-color: #90dc46; color: white; }
       .clojure-page-break .hljs {background-color: #90dc46 !important; font-size: 16px; }
       .takeaways { margin-left: 150px; font-size: 35px; font-family: 'Yanone Kaffeesatz'; }
+      .elixir-page-break { background-color: #4a3358; color: white; }
+      .dotnet-page-break { background-color: #68217a; color: white; }
 
     </style>
   </head>
@@ -31,7 +49,7 @@
 
 class: center, middle
 
- Clojure, Elixir and .Net Core: a newbie's experience
+# Clojure, Elixir and .Net Core: a newbie's experience
 
 ![Clojure](images/clojure-logo.png)
 ![Elixir](images/elixir-logo.png)
@@ -119,7 +137,24 @@ class: center, middle
 
 class: center, middle
 
-![SO](images/)
+--
+![grunt](images/grunt.png)
+--
+![gulp](images/gulp.png)
+--
+![rollupjs](images/rollupjs.png)
+--
+![webpack](images/webpack.jpe)
+--
+<br />
+![browserify](images/browerify.png)
+--
+![babel](images/babel.png)
+--
+![eslint](images/eslint.png)
+--
+![rxjs](images/rxjs.jpe)
+
 
 ???
 
@@ -339,8 +374,6 @@ class: center, middle
 
 ```clojure
 (defn- retrieve-checkins
-  "Page through the list of checkins from thecity and add them to a vector which
-  we be stored in an application cache, then return it for use"
   ([] (retrieve-checkins 1 @checkins-store))
   ([page-number checkins]
    (let [today (.toString (time/today) "MM/dd/yyyy")
@@ -374,7 +407,6 @@ class: center, middle
 
 ```clojure
 (defn- load-config
-  "Load thecity API config"
   []
   (edn/read-string (slurp "src/clj/kids_checkin/config.edn")))
 ```
@@ -394,7 +426,6 @@ class: center, middle
   (SecretKeySpec. (.getBytes key) (.getAlgorithm mac)))
 
 (defn- sign-text-with-key
-  "Returns the signature of a string with a given key, using a SHA-256 HMAC."
   [key string]
   (let [mac (Mac/getInstance "HMACSHA256")
         secretKey (create-secret-key key mac)]
@@ -518,6 +549,7 @@ ClojureScript:kids-checkin.core> (swap! checkins (fn [] incremented-counts))
 ???
 
 - Hooks up browser repl
+
 ---
 
 class: center, middle
@@ -529,7 +561,7 @@ class: center, middle
 ???
 
 - Reagent Procfile to deploy to Heroku
-- Simple instructions
+- Bare min instructions
 - Information, supply configuration, not discussed
 
 ---
@@ -544,7 +576,7 @@ class: clojure-page-break, takeways
 - ClojureScript refreshing
 - Figwheel simplifies workflow
 - Editor?
-- No complete in the box framework
+- No complete out of the box framework
 - Tougher to come back to
 ]
 
@@ -635,30 +667,413 @@ Caused by: clojure.lang.ArityException: Wrong number of args (2) passed to: Stri
 
 ???
 
+TODO: show complete stack in little image to right
+
 - Challenging figure out errors, misleading
 - Community helpful, cataloging exceptions, how to read
 - Constant high item on state of clojure survey, improving, clojure.spec
 
 ---
 
-# Elixir
+class: center, middle, elixir-page-break
 
+![Elixir](images/elixir.png)
 
 ???
 
+- Dynamic, built on/extends Erlang, runs on Erlang VM/BEAM
+- Distributed systems, scale horizontally
+- Runs in processes sending messages to each other
+- Not OS processes or threads, extremely lightweight, tens of thousands simultaneously
+- Jose Valim, Plataformatec
 
 ---
 
-# .Net Core
+## Pattern matching
 
-| Clojure | Elixir     | .Net Core |
-|---------|------------|-----------|
-| JVM     | BEAM       | CLR       |
-| lein    | mix        | dotnet    |
-| maven   | hex        | NuGet     |
-| ring/compojure   | phoenix        | asp.net mvc     |
-| cljs    | npm/brunch | npm/gulp  |
+```elixir
+iex(1)> a = "hello"
+"hello"
+iex(2)> "hello" = a
+"hello"
+iex(3)> "world" = a
+** (MatchError) no match of right hand side value: "hello"
+```
 
+```elixir
+iex(1)> {hello, world} = {"hello", "world"}
+{"hello", "world"}
+iex(2)> {hello, "world"} = {"hello", "world"}
+{"hello", "world"}
+iex(3)> {hello, "world!"} = {"hello", "world"}
+** (MatchError) no match of right hand side value: {"hello", "world"}
+iex(3)> case {:ok, "hello world"} do
+...(3)>      {:ok, result} -> IO.puts result
+...(3)>      {:error, result} -> IO.puts result
+...(3)>      _ -> IO.puts "something unexpected"
+...(3)> end
+hello world
+:ok
+```
+
+???
+
+- Important concept
+- Not equal is assignment, match operator
+- Tuples used often, send data or return multiple pieces from function
+- Used with destructing to extract and branch on results, if statements less frequently
+- Match any
+
+---
+
+## In function definitions
+
+```clojure
+iex(1)> hello = fn
+...(1)>     %{:name => name} -> "Hello " <> name
+...(1)>     %{:first => first, :last => last} -> "Hello " <> first <> " " <> last
+...(1)>     _ -> "Hello"
+...(1)> end
+#Function<6.50752066/1 in :erl_eval.expr/5>
+iex(2)> hello.(%{:name => "full name"})
+"Hello full name"
+iex(3)> hello.(%{:first => "first", :last => "last"})
+"Hello first last"
+iex(4)> hello.(%{:first => "first", :last => "last", :name => "full name"})
+"Hello full name"
+iex(5)> hello.(1)               
+"Hello"
+```
+
+???
+
+- Bind function to hello
+- Pattern match definition
+- Match anything
+
+---
+
+## Map, filter and reduce
+
+```elixir
+iex(1)> Enum.map(1..10, fn x -> x + 1 end)
+[2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+iex(2)> Enum.filter(1..10, fn x -> 0 == rem(x, 2) end)
+[2, 4, 6, 8, 10]
+iex(3)> Enum.reduce(1..10, fn(x, acc) -> acc + x end)
+55
+```
+
+## Using pipe
+
+```elixir
+iex(4)> 1..10 \                                  
+...(4)>     |> Enum.map(fn x -> x + 1 end) \
+...(4)>     |> Enum.filter(fn x -> 0 == rem(x, 2) end) \
+...(4)>     |> Enum.sum
+30
+```
+
+???
+
+- Comparison: map, filter and reduce
+- Pipe operator, inspired by f#.
+- Backslash is for the repl
+
+---
+
+## Storing state using processes
+
+```elixir
+iex(1)> {:ok, agent} = Agent.start_link fn -> [] end
+{:ok, #PID<0.86.0>}
+iex(2)> Agent.update(agent, fn list -> ["hello world" | list] end)
+:ok
+iex(3)> Agent.get(agent, fn list -> list end)
+["hello world"]
+iex(4)> Agent.stop(agent)
+:ok
+```
+
+???
+
+- Processes are used to store state
+- OTP set of libraries for working with processes
+- Agent abstraction to store state
+- Process started with an empty list, list updated by prepending, list retrieved, process stopped
+
+---
+
+class: center, middle
+
+# Mix
+
+![Mix](images/elixir.png)
+
+???
+
+- Similar to leiningen, manage projects
+- Comes with elixir installation
+- Create, manage dependencies, run tests, compile
+
+---
+
+class: center, middle
+
+# Phoenix
+
+![Phoenix](images/phoenix-framework.png)
+
+--
+
+![Phoenix Tweet](images/phoenix-naming.png)
+
+???
+
+- Predominate web framework
+- Complete out of the box solution
+- On surface familiar to om other web frameworks
+- MVC ORM, Brunch on front end for asset management
+
+---
+
+## Installation and getting started
+
+<div id="elixir-create"></div>
+
+???
+
+---
+
+## Setup routes
+
+```Elixir
+pipeline :browser do
+  plug :accepts, ["html"]
+  plug :protect_from_forgery
+  plug :put_secure_browser_headers
+end
+
+pipeline :api do
+  plug :accepts, ["json"]
+end
+
+scope "/", KidsCheckin do
+  pipe_through :browser
+
+  get "/", PageController, :index
+  get "/counts", PageController, :counts
+end
+
+scope "/api", KidsCheckin do
+  pipe_through :api
+
+  post "newcheckin", WebHookController, :index
+end
+```
+
+???
+
+- Requests different pipelines, scopes
+- Page requests and api requests different scopes, different pipelines
+
+---
+
+## Retrieve check-ins
+
+```elixir
+defp retrieveCheckins(checkins, page) do
+  newCheckins = Enum.filter(
+    getCheckinsForPage(page),
+    fn checkin -> isToday(checkin["checked_in_at"])
+  end)
+
+  cond do
+    Enum.count(newCheckins) == 0 -> createClassroomCounts checkins
+    !Map.has_key?(checkins, hd(Enum.reverse newCheckins)["barcode"]) ->
+      retrieveCheckins(mapCheckins(newCheckins, checkins), (page + 1)
+    )
+    true -> createClassroomCounts mapCheckins(newCheckins, checkins)
+  end
+end
+```
+
+???
+
+- Request to system API, retrieve last 20 check-ins
+- Results filtered to current day
+- No new check-ins, return current list
+- New check-ins, don't have last check-in, recursion next page
+- Already have last one, merge lists and return
+
+---
+
+## Configuration
+
+```elixir
+config :kids_checkin, :thecity_secret_key, "xxxxxxxxxxxxxxxxxxxxx"
+config :kids_checkin, :thecity_user_token, "xxxxxxxxxxxxxxxx"
+
+Application.get_env(:kids_checkin, :thecity_secret_key)
+```
+
+???
+
+- Separate config file, not in source control
+- Production environment variables
+
+---
+
+## Erlang interop
+
+```elixir
+defp getCheckinsPage(page) do
+  url = "https://api.onthecity.org/checkins?page=" <> to_string(page)
+  time = :os.system_time(:milli_seconds)
+  signed = :crypto.hmac(
+    :sha256,
+    Application.get_env(:kids_checkin, :thecity_secret_key),
+    "#{time}GET#{url}"
+  ) |> Base.encode64 |> URI.encode_www_form
+
+  response = HTTPoison.get!(url, [
+        {"X-City-Sig", signed},
+        {"X-City-User-Token", Application.get_env(:kids_checkin, :thecity_user_token)},
+        {"X-City-Time", time},
+        {"Accept", "application/vnd.thecity.admin.v1+json"}
+      ])
+  {_, checkins} = decode response.body
+  checkins["checkins"]
+end
+```
+
+???
+
+- No library for HMAC signature
+- Easy to call Erlang function directly
+
+---
+
+## Creating check-in counts
+
+```elixir
+def createClassroomCounts(checkins) do
+  [
+    %{"color" => "red", "count" => getCounts(checkins, 108117), …},
+    %{"color" => "orange", "count" => getCounts(checkins, 108119), …},
+    %{"color" => "yellow", "count" => getCounts(checkins, 108120), …},
+    %{"color" => "green", "count" => getCounts(checkins, 144673), …},
+    %{"color" => "blue", "count" => getCounts(checkins, 108123), …},
+    %{color" => "purple", "count" => getCounts(checkins, 89515), …}
+  ]
+end
+
+defp getCounts(checkins, id) do
+  Enum.filter(Map.values(checkins), fn checkin -> checkin == id end) |> Enum.count
+end
+```
+
+???
+
+- List is created with properties of each classroom in a map
+- Count is found by looking at id of classroom.
+
+---
+
+## Websockets with Phoenix
+
+```javascript
+import {Socket} from 'phoenix';
+
+let socket = new Socket('/socket', {params: {token: window.userToken}});
+socket.connect();
+let channel = socket.channel('checkins:count', {});
+
+channel.on("count_update", payload => {
+    let classes = JSON.parse(payload.classes);
+    for (var i = 0; i < classes.length; i++) {
+        var text = classes[i].count < classes[i].max
+            ? 'Open'
+            : 'Full';
+        $('#'+ classes[i].color).text(text);
+    }
+});
+
+channel.join()
+    .receive('ok', resp => { console.log('Joined successfully', resp); })
+    .receive('error', resp => { console.log('Unable to join', resp); });
+```
+
+???
+
+- Phoenix has websockets and Babel (modules es2015 features)
+- Import the phoenix module
+- When new event is broadcasted, payload looped through, updating status
+
+---
+
+class: center, middle
+
+# Deployment: Heroku
+
+![Heroku](images/heroku-logo.png)
+
+???
+
+- Phoenix provides through guide, creating Heroku account to pushing
+- Setup environment variables, secret keys
+- Enforcing HTTPS
+
+---
+
+class: elixir-page-break, takeways
+
+# Takeaways
+
+.takeaways[
+- Phoenix fit my need perfectly
+- Elixir and Phoenix docs through
+- Easy to come back to
+- Lot of momentum
+- Community smaller, tougher to search on
+- Editor?
+- Elected not to use OTP, Phoenix abstracts too much?
+]
+
+???
+
+- Phoenix: nice websockets and JS pipeline
+- Docs are through
+- Easy to come back to
+- A lot of momentum, community growing quickly
+- Newer, community smaller, tougher to search on
+- What editor to use
+- Didn't use OTP, use what I know (app cache), wasn't forced to change as much
+
+---
+
+class: dotnet-page-break, center, middle
+
+![.Net](images/dotnet.png) 
+
+???
+
+- Will skip the introduction
+
+---
+
+class: center
+
+# Comparison
+
+| Clojure        | Elixir     | .Net Core   |
+|----------------|------------|-------------|
+| JVM            | BEAM       | CLR         |
+| lein           | mix        | dotnet      |
+| maven          | hex        | NuGet       |
+| ring/compojure | phoenix    | asp.net mvc |
+| cljs           | npm/brunch | npm/gulp    |
+| repl           | iex        | repl???     |
 
 ---
 
@@ -667,6 +1082,8 @@ Caused by: clojure.lang.ArityException: Wrong number of args (2) passed to: Stri
 
 How many people have watched a community stand up?
 How to learn. Koans, excorism(http://exercism.io/languages) c# has more problems but less contribs
+
+All communities have their problems. Clojure: bugs not addressed, no complete framework. Elixir: grow too fast. Phoenix abstracts too much. Wrong answers to questions.
 
     </textarea>
     <script src="remark-latest.min.js"></script>
@@ -689,11 +1106,20 @@ How to learn. Koans, excorism(http://exercism.io/languages) c# has more problems
                 fontSize: 'medium',
                 theme: 'solarized-light'
             });
-    </script>
-    <script>
         asciinema.player.js.CreatePlayer(
             'elixir-create',
             'casts/elixir-creation.json',
+            {
+                poster: 'npt:1',
+                speed: 1.5,
+                width: 80,
+                height: 18,
+                fontSize: 'medium',
+                theme: 'solarized-light'
+            });
+        asciinema.player.js.CreatePlayer(
+            'dotnet-create',
+            'casts/dotnet-creation.json',
             {
                 poster: 'npt:1',
                 speed: 1.5,

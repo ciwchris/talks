@@ -66,6 +66,8 @@ https://www.youtube.com/watch?v=a-off4Vznjs&feature=youtu.be
     - [b,c,4] = a
 - Pipe operator (like threading operator in Clojure) 19:30
 
+Deployments aren't so simple, just the basic is. Need for the community to step up here.
+
 Clojure
 -------
 
