@@ -9,6 +9,24 @@
       @import url(DroidSerif.css);
       @import url(UbuntuMono.css);
 
+      .image-overlay {position:absolute; top:200px; left: 0; width:100%; text-align: center; }
+      .jumbo { font-size: 400%; font-family: hack }
+      blockquote {
+          padding: 10px 20px;
+          margin: 0 0 20px;
+          font-size: 150%;
+          border-left: 5px solid #eee;
+          text-align: left;
+      }
+      blockquote footer {
+          display: block;
+          font-size: 80%;
+          line-height: 1.42857143;
+          color: #777;
+      }
+      blockquote footer::before {
+          content: '\2014 \00A0';
+      }
       body { font-family: 'Droid Serif'; }
       h1, h2, h3 {
         font-family: 'Yanone Kaffeesatz';
@@ -99,11 +117,11 @@ class: center, middle
 ???
 
 - First: status, identified by color, next to the check in screen screen
-- Second: count, buttons to increment/decrement, kid is moved
 - Web socket connection to the server
 - System sends a web hook
 - Server send requests to the API
 - Broadcasts to connected clients
+- Second: count, buttons to increment/decrement, kid is moved
 - Plan, learning project
 - Talk is my reflections after implementing in different stacks
 
@@ -118,10 +136,9 @@ class: center, middle
 
 - I'm a asp.net developer, whole career
 - Typical developer
-- More than a 9-5
+- More than a a day job
 - Not going home every night
 - Twitter, Podcasts, Videos
-- Attend occasional conference but have never spoken
 
 ---
 
@@ -131,7 +148,21 @@ class: center, middle
 
 ???
 
+TODO: scratch
+
 - Consult StackOverflow often, rarely contribute
+- Attend occasional conference but have never spoken
+
+---
+
+class: center, middle
+
+![SO](images/nuget.png)
+
+???
+
+- At work we're all in, NuGet to install our libs
+- Surprise, Angular
 
 ---
 
@@ -142,12 +173,12 @@ class: center, middle
 --
 ![gulp](images/gulp.png)
 --
-![rollupjs](images/rollupjs.png)
+![browserify](images/browerify.png)
 --
 ![webpack](images/webpack.jpe)
 --
 <br />
-![browserify](images/browerify.png)
+![rollupjs](images/rollupjs.png)
 --
 ![babel](images/babel.png)
 --
@@ -158,20 +189,8 @@ class: center, middle
 
 ???
 
-- At work we, Microsoft way
-- Surprise, Angular
 - No JavaScript build process, etc
-
----
-
-class: center, middle
-
-![SO](images/nuget.png)
-
-???
-
-- NuGet to install our libs
-- BundleTransformer to bundle and minify.
+- BundleTransformer to transpile, bundle and minify.
 
 ---
 
@@ -184,7 +203,7 @@ class: center, middle
 - Atypical
 - Doing any asp.net, not friendly
 - Mono impressive
-- Quicksilver, Gnome Do
+- [strike: Quicksilver, Gnome Do]
 - Challenges: NuGet
 
 ---
@@ -196,6 +215,7 @@ class: center, middle
 ???
 
 - Limit on cli, how even to get started?
+- Looking at early versions of omnisharp
 - Guess I can answer now
 
 ---
@@ -206,8 +226,6 @@ class: center, middle, clojure-page-break
 ![Clojure](images/cljs.png)
 
 ???
-
-TODO: color change bkg
 
 - Dialect of Lisp, code as data
 - Dynamic, Several implementations, CLR, Primary JVM (interoperability with Java),
@@ -248,6 +266,7 @@ TODO: klipse
 - Parentheses and prefix notation
 - Parens are a list. Lists are evaluated
 - First position is operator, rest arguments
+- Don't have to remember precedence
 - Evaluation inside out
 - Talk through second example
 - Simple and consistent
@@ -304,10 +323,14 @@ class: center, middle
 
 class: center, middle
 
+--
+
+# Ring + Compojure
+
 ???
 
 - No end-to-end web framework
-- Ring base, other libraries, typically Compojure for routing
+- Ring base (Ruby Rack), other libraries, typically Compojure for routing
 
 ---
 
@@ -320,6 +343,7 @@ class: center, middle
 ???
 
 - Identified as issue, kickstarter campaign
+- Goal of approachable beginners, pluggable for adavanced
 
 ---
 
@@ -347,6 +371,7 @@ class: center, middle
 
 ???
 
+- Let's get started on our project
 - Reader conditionals
 
 ---
@@ -388,6 +413,9 @@ class: center, middle
 
 ???
 
+TODO: change from overload to defaults
+
+- Algorithm not important, instead focus on code structure
 - Overloaded function
 - No arguments, calls itself with initial
 - Request to system API, results stored in map
@@ -395,6 +423,8 @@ class: center, middle
 - Once we have all check-ins the map is returned
 
 ---
+
+TODO: how to pronouce environ
 
 ## Configuration
 
@@ -423,11 +453,11 @@ class: center, middle
 
 ```clojure
 (defn- create-secret-key [key mac]
-  (SecretKeySpec. (.getBytes key) (.getAlgorithm mac)))
+* (SecretKeySpec. (.getBytes key) (.getAlgorithm mac)))
 
 (defn- sign-text-with-key
   [key string]
-  (let [mac (Mac/getInstance "HMACSHA256")
+* (let [mac (Mac/getInstance "HMACSHA256")
         secretKey (create-secret-key key mac)]
     (-> (doto mac
           (.init secretKey)
@@ -465,6 +495,8 @@ TODO: turn highlight lines on
 ```
 
 ???
+
+TODO: change func name, use classroom and not group
 
 - Request to retrieve check-ins, list is created for each classroom, calculates the count
 
@@ -527,7 +559,7 @@ class: center, middle
 ## Interacting with browser
 
 ```clojure
-ClojureScript:cljs.user> (js/alert "test")
+ClojureScript:cljs.user> (js/alert "Hello world!")
 ```
 
 ## Changing classroom count
@@ -547,6 +579,8 @@ ClojureScript:kids-checkin.core> (swap! checkins (fn [] incremented-counts))
 ```
 
 ???
+
+TODO: change name checkins to classrooms, probably above too. Also, shouldn't the output go with the map expression
 
 - Hooks up browser repl
 
@@ -576,15 +610,15 @@ class: clojure-page-break, takeways
 - ClojureScript refreshing
 - Figwheel simplifies workflow
 - Editor?
-- No complete out of the box framework
-- Tougher to come back to
+- No complete out of the box web framework
+- Tougher to come back to TODO: scratch this one
 ]
 
 ???
 
-- Community: friendly, enthusiastic,  active, lots of libraries
-- Repl handy, instead of debugging and inspecting
-- ClojureScript is fun and refreshing
+- Community: friendly, enthusiastic, positive, active, lots of libraries
+- Repl handy, instead of debugging and inspecting, problem forget what you did, no tests
+- ClojureScript is fun and refreshing, bypass all js tooling/decisions, dead code elimination
 - Emacs/Spacemacs, Cursive
 - No framework to guide, lot of work past to figure out past Reagent
 - Tougher to come back, how did that work, how did I use the tool
@@ -627,10 +661,14 @@ class: small, clojure-page-break
             (keep f (rest s))
 (cons x (keep f (rest s))))))))))
 ```
+--
+.image-overlay[![Terse](images/terse-lisp.png)]
 
 ???
 
-- Terse, hard to read, single letter names
+TODO: also show core.async operators
+
+- Common practice: terse, hard to read, single letter names
 
 ---
 
@@ -672,6 +710,7 @@ TODO: show complete stack in little image to right
 - Challenging figure out errors, misleading
 - Community helpful, cataloging exceptions, how to read
 - Constant high item on state of clojure survey, improving, clojure.spec
+- That's Clojure, how about Elixir
 
 ---
 
@@ -682,9 +721,9 @@ class: center, middle, elixir-page-break
 ???
 
 - Dynamic, built on/extends Erlang, runs on Erlang VM/BEAM
-- Distributed systems, scale horizontally
 - Runs in processes sending messages to each other
 - Not OS processes or threads, extremely lightweight, tens of thousands simultaneously
+- Distributed systems, scale horizontally
 - Jose Valim, Plataformatec
 
 ---
@@ -697,7 +736,7 @@ iex(1)> a = "hello"
 iex(2)> "hello" = a
 "hello"
 iex(3)> "world" = a
-** (MatchError) no match of right hand side value: "hello"
+   (MatchError) no match of right hand side value: "hello"
 ```
 
 ```elixir
@@ -706,7 +745,7 @@ iex(1)> {hello, world} = {"hello", "world"}
 iex(2)> {hello, "world"} = {"hello", "world"}
 {"hello", "world"}
 iex(3)> {hello, "world!"} = {"hello", "world"}
-** (MatchError) no match of right hand side value: {"hello", "world"}
+   (MatchError) no match of right hand side value: {"hello", "world"}
 iex(3)> case {:ok, "hello world"} do
 ...(3)>      {:ok, result} -> IO.puts result
 ...(3)>      {:error, result} -> IO.puts result
@@ -717,6 +756,7 @@ hello world
 ```
 
 ???
+TODO: is it really :error or :err
 
 - Important concept
 - Not equal is assignment, match operator
@@ -747,6 +787,8 @@ iex(5)> hello.(1)
 
 ???
 
+TODO: are those atoms or keys (:name)?
+
 - Bind function to hello
 - Pattern match definition
 - Match anything
@@ -764,13 +806,13 @@ iex(3)> Enum.reduce(1..10, fn(x, acc) -> acc + x end)
 55
 ```
 
-## Using pipe
+## Using pipes
 
 ```elixir
 iex(4)> 1..10 \                                  
 ...(4)>     |> Enum.map(fn x -> x + 1 end) \
 ...(4)>     |> Enum.filter(fn x -> 0 == rem(x, 2) end) \
-...(4)>     |> Enum.sum
+...(4)>     |> Enum.reduce(fn(x, acc) -> acc + x end)
 30
 ```
 
@@ -798,7 +840,7 @@ iex(4)> Agent.stop(agent)
 ???
 
 - Processes are used to store state
-- OTP set of libraries for working with processes
+- OTP set of libraries for working with processes, Open Telecom Platform
 - Agent abstraction to store state
 - Process started with an empty list, list updated by prepending, list retrieved, process stopped
 
@@ -826,7 +868,7 @@ class: center, middle
 
 --
 
-![Phoenix Tweet](images/phoenix-naming.png)
+.image-overlay[![Phoenix Tweet](images/phoenix-naming.png)]
 
 ???
 
@@ -875,6 +917,7 @@ end
 ???
 
 - Requests different pipelines, scopes
+- Plug, elixir for composable web components
 - Page requests and api requests different scopes, different pipelines
 
 ---
@@ -882,23 +925,25 @@ end
 ## Retrieve check-ins
 
 ```elixir
-defp retrieveCheckins(checkins, page) do
-  newCheckins = Enum.filter(
-    getCheckinsForPage(page),
-    fn checkin -> isToday(checkin["checked_in_at"])
+defp retrieve_checkins(checkins, page) do
+  new_checkins = Enum.filter(
+    get_checkins_for_page(page),
+    fn checkin -> is_today(checkin["checked_in_at"])
   end)
 
   cond do
-    Enum.count(newCheckins) == 0 -> createClassroomCounts checkins
-    !Map.has_key?(checkins, hd(Enum.reverse newCheckins)["barcode"]) ->
-      retrieveCheckins(mapCheckins(newCheckins, checkins), (page + 1)
+    Enum.count(new_checkins) == 0 -> create_classroom_counts checkins
+    !Map.has_key?(checkins, hd(Enum.reverse new_checkins)["barcode"]) ->
+      retrieve_checkins(map_checkins(new_checkins, checkins), (page + 1)
     )
-    true -> createClassroomCounts mapCheckins(newCheckins, checkins)
+    true -> create_classroom_counts map_checkins(new_checkins, checkins)
   end
 end
 ```
 
 ???
+
+TODO: better name for create_classroom_counts
 
 - Request to system API, retrieve last 20 check-ins
 - Results filtered to current day
@@ -913,11 +958,15 @@ end
 ```elixir
 config :kids_checkin, :thecity_secret_key, "xxxxxxxxxxxxxxxxxxxxx"
 config :kids_checkin, :thecity_user_token, "xxxxxxxxxxxxxxxx"
+```
 
+```elixir
 Application.get_env(:kids_checkin, :thecity_secret_key)
 ```
 
 ???
+
+TODO: details on the separate file
 
 - Separate config file, not in source control
 - Production environment variables
@@ -927,10 +976,10 @@ Application.get_env(:kids_checkin, :thecity_secret_key)
 ## Erlang interop
 
 ```elixir
-defp getCheckinsPage(page) do
+defp get_checkins_page(page) do
   url = "https://api.onthecity.org/checkins?page=" <> to_string(page)
-  time = :os.system_time(:milli_seconds)
-  signed = :crypto.hmac(
+*  time = :os.system_time(:milli_seconds)
+*  signed = :crypto.hmac(
     :sha256,
     Application.get_env(:kids_checkin, :thecity_secret_key),
     "#{time}GET#{url}"
@@ -942,7 +991,7 @@ defp getCheckinsPage(page) do
         {"X-City-Time", time},
         {"Accept", "application/vnd.thecity.admin.v1+json"}
       ])
-  {_, checkins} = decode response.body
+  {:ok, checkins} = decode response.body
   checkins["checkins"]
 end
 ```
@@ -951,24 +1000,25 @@ end
 
 - No library for HMAC signature
 - Easy to call Erlang function directly
+- Pipe to encode
 
 ---
 
 ## Creating check-in counts
 
 ```elixir
-def createClassroomCounts(checkins) do
+def create_classroom_counts(checkins) do
   [
-    %{"color" => "red", "count" => getCounts(checkins, 108117), …},
-    %{"color" => "orange", "count" => getCounts(checkins, 108119), …},
-    %{"color" => "yellow", "count" => getCounts(checkins, 108120), …},
-    %{"color" => "green", "count" => getCounts(checkins, 144673), …},
-    %{"color" => "blue", "count" => getCounts(checkins, 108123), …},
-    %{color" => "purple", "count" => getCounts(checkins, 89515), …}
+    %{"color" => "red", "count" => get_counts(checkins, 108117), …},
+    %{"color" => "orange", "count" => get_counts(checkins, 108119), …},
+    %{"color" => "yellow", "count" => get_counts(checkins, 108120), …},
+    %{"color" => "green", "count" => get_counts(checkins, 144673), …},
+    %{"color" => "blue", "count" => get_counts(checkins, 108123), …},
+    %{"color" => "purple", "count" => get_counts(checkins, 89515), …}
   ]
 end
 
-defp getCounts(checkins, id) do
+defp get_counts(checkins, id) do
   Enum.filter(Map.values(checkins), fn checkin -> checkin == id end) |> Enum.count
 end
 ```
@@ -1020,8 +1070,8 @@ class: center, middle
 
 ???
 
-- Phoenix provides through guide, creating Heroku account to pushing
-- Setup environment variables, secret keys
+- Phoenix provides thorough guide, creating Heroku account to pushing
+- Setup environment variables, secret keys, buildpack to use
 - Enforcing HTTPS
 
 ---
@@ -1032,7 +1082,7 @@ class: elixir-page-break, takeways
 
 .takeaways[
 - Phoenix fit my need perfectly
-- Elixir and Phoenix docs through
+- Elixir and Phoenix docs thorough
 - Easy to come back to
 - Lot of momentum
 - Community smaller, tougher to search on
@@ -1043,7 +1093,7 @@ class: elixir-page-break, takeways
 ???
 
 - Phoenix: nice websockets and JS pipeline
-- Docs are through
+- Docs are thorough
 - Easy to come back to
 - A lot of momentum, community growing quickly
 - Newer, community smaller, tougher to search on
@@ -1058,7 +1108,28 @@ class: dotnet-page-break, center, middle
 
 ???
 
-- Will skip the introduction
+- We'll skip the introduction
+
+---
+
+class: center, middle
+
+![Ubuntu Only](images/ubuntu-only.png)
+
+---
+
+class: center, middle
+
+<div id="dotnet-create"></div>
+
+???
+
+- routes
+- alogrith
+- config
+- js (No signalR - going low level)
+- deploy azure
+- takeaways (good and bad)
 
 ---
 
@@ -1066,31 +1137,61 @@ class: center
 
 # Comparison
 
-| Clojure        | Elixir     | .Net Core   |
-|----------------|------------|-------------|
-| JVM            | BEAM       | CLR         |
-| lein           | mix        | dotnet      |
-| maven          | hex        | NuGet       |
-| ring/compojure | phoenix    | asp.net mvc |
-| cljs           | npm/brunch | npm/gulp    |
-| repl           | iex        | repl???     |
+| Clojure        | Elixir        | .Net Core   |
+|----------------|---------------|-------------|
+| JVM            | BEAM          | CLR         |
+| lein           | mix           | dotnet      |
+| Maven          | Hex           | NuGet       |
+| Ring/Compojure | Phoenix       | ASP.NET MVC |
+| CLJS           | Brunch        | Bower/Gulp  |
+| Repl           | IEx           | Repl?       |
+| Emacs          | Emacs         | VS Code     |
+| Cognitect      | Plataformatec | Microsoft   |
 
+???
+
+- Lot of similar components, but for a different set of problems, still interesting to compare
+- .Net missing repl, but better debug experience
+- Microsoft big player, others little guys, implications
+- 
 ---
 
 
 # Community/Call to action
 
-How many people have watched a community stand up?
-How to learn. Koans, excorism(http://exercism.io/languages) c# has more problems but less contribs
 
 All communities have their problems. Clojure: bugs not addressed, no complete framework. Elixir: grow too fast. Phoenix abstracts too much. Wrong answers to questions.
+
+Now is a time of great opportunity. .net developers are going to be forced to change. Remember how mentioned the way we do development at work. All of that is going to change. We will have to adopt new practices. Now is an rare time the community can step in and fill a need.
+
+---
+
+class: center, middle
+
+<blockquote>
+  <p>I am only one, but I am one. I can't do everything, but I can do something. And that I can do, I ought to do. And what I ought to do, by the grace of God, I shall do.</p>
+  <footer>Edward Everett Hale</footer>
+</blockquote>
+
+
+---
+
+class: center, middle
+
+.jumbo[Ctrl^D]
+
+???
+
+- Thank you and
+- Discuss any of this, questions, ideas share knowledge I'll be around, find me, Thanks!
 
     </textarea>
     <script src="remark-latest.min.js"></script>
     <script>
         var slideshow = remark.create({
             ratio: '16:9',
-            slideNumberFormat: ''
+            slideNumberFormat: '',
+            highlightLines: true
         });
     </script>
     <script src="casts/asciinema-player.js"></script>

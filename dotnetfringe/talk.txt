@@ -366,6 +366,9 @@ Community [image: ???]
 Lot of people are upset. Leaving .Net. Frustrated by the changes.
 Now is a great time to to be a .Net developer. It's a time of change, when more people will be open to trying something different. Something not created by Microsoft. Opportunities are greater now than any other time. F# is great, but what did I learn that I can bring back and apply to my work?
 
+How many people have watched a community stand up?
+How to learn. Koans, excorism(http://exercism.io/languages) c# has more problems but less contribs
+
 End [^d]
 Thank you for attending my talk. If you would like to discuss these topics further, have questions, ideas or pass knowledge on to me I'll be around. Come find me. Thanks!
 
