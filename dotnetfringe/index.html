@@ -57,7 +57,7 @@
       .clojure-page-break .hljs {background-color: #90dc46 !important; font-size: 16px; }
       .takeaways { margin-left: 150px; font-size: 35px; font-family: 'Yanone Kaffeesatz'; }
       .elixir-page-break { background-color: #4a3358; color: white; }
-      .dotnet-page-break { background-color: #68217a; color: white; }
+      .dotnet-page-break { background-color: #682a7b; color: white; }
 
     </style>
   </head>
@@ -80,7 +80,7 @@ class: center, middle
 ???
 
 - Hi I'm Chris Lopes
-- Welcome to my talk on my experience using
+- Welcome to the recounting of my experience
 
 ---
 
@@ -92,7 +92,7 @@ class: center, middle
 
 - I'm a web developer
 - Moonlight checking kids into classrooms, slick system
-- Max number of kids, unfortunately the system is happy
+- More kids than classroom space
 - Therefore one of my duties
 - Can't monitor on phone, need to interrupt
 
@@ -106,6 +106,8 @@ class: center, middle
 
 - Hope the classroom limit
 - Teachers none to happy
+- Experiencing this unpleasantness
+- With this knowledge
 
 ---
 
@@ -122,7 +124,9 @@ class: center, middle
 - Server send requests to the API
 - Broadcasts to connected clients
 - Second: count, buttons to increment/decrement, kid is moved
-- Plan, learning project
+- Figured, good small, learning project, real need
+- But before I talk about the app be helpful to know my background and what prospective I bring
+
 - Talk is my reflections after implementing in different stacks
 
 ---
@@ -134,22 +138,11 @@ class: center, middle
 
 ???
 
-- I'm a asp.net developer, whole career
+- entire pro career Windows web dev, asp
 - Typical developer
-- More than a a day job
+- More than a day job
 - Not going home every night
 - Twitter, Podcasts, Videos
-
----
-
-class: center, middle
-
-![SO](images/so-reputation.png)
-
-???
-
-TODO: scratch
-
 - Consult StackOverflow often, rarely contribute
 - Attend occasional conference but have never spoken
 
@@ -214,9 +207,10 @@ class: center, middle
 
 ???
 
-- Limit on cli, how even to get started?
 - Looking at early versions of omnisharp
+- Limit on cli, how even to get started?
 - Guess I can answer now
+- With that in mind let's talk about
 
 ---
 
@@ -227,8 +221,9 @@ class: center, middle, clojure-page-break
 
 ???
 
-- Dialect of Lisp, code as data
-- Dynamic, Several implementations, CLR, Primary JVM (interoperability with Java),
+- Dialect of Lisp
+- Dynamic, Several implementations, CLR, Primary JVM
+- Interoperability with Java, consume each others libs
 - ClojureScript, JavaScript using Google Closure Library
 - Cognitect maintainer, Rich Hickey benevolent dictator for life
 
@@ -261,14 +256,12 @@ user=> (if
 
 ???
 
-TODO: klipse
-
+- If you haven't worked in a lisp
 - Parentheses and prefix notation
-- Parens are a list. Lists are evaluated
+- Parens are a list. Lists are evaluated, S-expressions
 - First position is operator, rest arguments
 - Don't have to remember precedence
 - Evaluation inside out
-- Talk through second example
 - Simple and consistent
 
 ---
@@ -371,7 +364,7 @@ class: center, middle
 
 ???
 
-- Let's get started on our project
+- Let's begin our project, first installation
 - Reader conditionals
 
 ---
@@ -442,6 +435,8 @@ TODO: how to pronouce environ
 ```
 
 ???
+
+TODO: show it's use
 
 - API key and token
 - Stored in an edn file, contain clojure data, pulled into application
@@ -600,7 +595,7 @@ class: center, middle
 
 ---
 
-class: clojure-page-break, takeways
+class: clojure-page-break
 
 # Takeaways
 
@@ -668,6 +663,7 @@ class: small, clojure-page-break
 
 TODO: also show core.async operators
 
+- Reading the clojure code of others
 - Common practice: terse, hard to read, single letter names
 
 ---
@@ -708,8 +704,8 @@ Caused by: clojure.lang.ArityException: Wrong number of args (2) passed to: Stri
 TODO: show complete stack in little image to right
 
 - Challenging figure out errors, misleading
-- Community helpful, cataloging exceptions, how to read
 - Constant high item on state of clojure survey, improving, clojure.spec
+- Community helpful, cataloging exceptions, how to read
 - That's Clojure, how about Elixir
 
 ---
@@ -756,7 +752,6 @@ hello world
 ```
 
 ???
-TODO: is it really :error or :err
 
 - Important concept
 - Not equal is assignment, match operator
@@ -874,7 +869,7 @@ class: center, middle
 
 - Predominate web framework
 - Complete out of the box solution
-- On surface familiar to om other web frameworks
+- On surface familiar to other web frameworks
 - MVC ORM, Brunch on front end for asset management
 
 ---
@@ -884,6 +879,8 @@ class: center, middle
 <div id="elixir-create"></div>
 
 ???
+
+- Let's begin our Elixir app
 
 ---
 
@@ -1076,7 +1073,7 @@ class: center, middle
 
 ---
 
-class: elixir-page-break, takeways
+class: elixir-page-break
 
 # Takeaways
 
@@ -1120,16 +1117,223 @@ class: center, middle
 
 class: center, middle
 
+![AUR CLI](images/aur-cli.png)
+
+---
+
+class: center, middle
+
 <div id="dotnet-create"></div>
 
 ???
 
-- routes
-- alogrith
-- config
-- js (No signalR - going low level)
-- deploy azure
-- takeaways (good and bad)
+---
+
+## Setup routes
+
+```csharp
+public void Configure()
+{
+    app.UseMvc(routes =>
+    {
+        routes.MapRoute(
+            name: "default",
+            template: "{controller=Home}/{action=Index}/{id?}");
+    });
+}
+```
+```csharp
+[Route("api/[controller]")]
+public class NewCheckinController : Controller
+{
+    [HttpPost]
+    public IActionResult Create()
+    {
+        var classroomList = checkinRetrievalService.CreateNewClassroomList();
+        BroadcastNewList(classroomList);
+
+        return Ok();
+    }
+}
+```
+
+???
+
+- Standard MVC
+- Standard WebAPI attributes
+
+---
+
+## Retrieve check-ins
+
+```csharp
+public async Task<Dictionary<string, string>> CreateUpdatedCheckinList()
+{
+    var currentCheckins = cache.Get("checkins") as Dictionary<string, string> ?? new Dictionary<string, string>();
+    var page = 1;
+    Dictionary<string, string> newCheckins;
+
+    do
+    {
+        newCheckins = GetCheckinsOnPage(page++).Result;
+    } while(WasUnseenCheckinReceived(currentCheckins, newCheckins));
+    cache.Set("checkins", currentCheckins);
+
+    return await Task.Run(() => currentCheckins);
+}
+
+private bool WasUnseenCheckinReceived(Dictionary<string, string> current, Dictionary<string, string> newCheckins)
+{
+    var count = current.Count();
+    newCheckins.ToList().ForEach(entry => current[entry.Key] = entry.Value);
+    return count != current.Count();
+}
+```
+
+???
+
+- Use in memory
+- Retrieve checkins, add to list (sneaky state), see if counts are different
+- Set new list
+
+---
+
+## Configuration
+
+
+```csharp
+public Startup(IHostingEnvironment env)
+{
+    var builder = new ConfigurationBuilder().SetBasePath(env.ContentRootPath);
+
+    if (env.IsDevelopment()) builder.AddUserSecrets();
+
+    builder.AddEnvironmentVariables();
+    Configuration = builder.Build();
+}
+```
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddOptions();
+    services.Configure<ApiConfiguration>(apiOptions =>
+    {
+        apiOptions.SecretKey = Configuration["secretKey"];
+        apiOptions.Token = Configuration["token"];
+    });
+}
+```
+
+```csharp
+public CheckinRetrievalService(IMemoryCache cache, IOptions<ApiConfiguration> apiConfiguration)
+```
+
+???
+
+- Secret config, environment var
+- Register the config object
+- DI
+
+---
+
+## Creating check-in counts
+
+```csharp
+private List<CheckinProperties>() CreateNewClassroomList()
+{
+    var checkins = checkinRetrievalService.CreateUpdatedCheckinList().Result;
+
+    var counts = new List<CheckinProperties>(); 
+    counts.Add(new CheckinProperties { Color = "red", Count = GetClassroomCount("108117", checkins), …}); 
+    counts.Add(new CheckinProperties { Color = "orange", Count = GetClassroomCount("108119", checkins), …});
+    counts.Add(new CheckinProperties { Color = "yellow", Count = GetClassroomCount("108120", checkins), …});
+    counts.Add(new CheckinProperties { Color = "green", Count = GetClassroomCount("144673", checkins), …});
+    counts.Add(new CheckinProperties { Color = "blue", Count = GetClassroomCount("108123", checkins), …});
+    counts.Add(new CheckinProperties { Color = "purple", Count = GetClassroomCount("89515", checkins), …});
+
+    return counts;
+}
+```
+
+```csharp
+private int GetClassroomCount(string id, Dictionary<string, string> checkins)
+{
+    return checkins.Where(checkin => checkin.Value == id).Count();
+}
+```
+
+???
+
+---
+
+## Websockets
+
+```javascript
+webSocket = new WebSocket(scheme + location.host);
+
+webSocket.onopen = function () {
+    console.log('connected');
+};
+
+webSocket.onclose = function () {
+    console.log('disconnected');
+};
+
+webSocket.onmessage = function (evt) {
+    var classes = JSON.parse(evt.data);
+    for (var i = 0; i < classes.length; i++) {
+        var text = classes[i].count < classes[i].max ? 'Open' : 'Full';
+        $('#'+ classes[i].color).text(text);
+    }
+};
+```
+
+???
+
+- No SignalR
+- Open connection, update when message
+
+---
+
+class: center, middle
+
+![Azure](images/azure.png)
+
+???
+
+- Azure
+- Setup git push
+- Turn on websocket, looked at key vault, went with env var
+
+---
+
+class: dotnet-page-break
+
+# Takeaways
+
+.takeaways[
+- Quickly progressing
+- Good docs, but out of date
+- Editor?
+- Secret Manager
+- Community: good & bad
+- Missing pieces
+- Right at home
+]
+
+???
+
+TODO: brad wilson tweet?
+
+- Ubuntu 14.04/16.04/AUR (relied on community)
+- At RC2 docs no longer accurate, git issues: sample apps in repos nice
+- Nice to have editor option, but: ominsharp, debugger, vim (crash)
+- Secret solution, not encrypted, but no diff
+- Libraries: sidelines (less options now), tired of chasing RC2, but responsive: nicholas - sirilog
+- Dotnet cli, nice, but limited. Community needs to dive in. Yeoman has Nancy
+- No SignalR for websockets
+- Skills transferable, good for those invested and make the move
 
 ---
 
@@ -1152,13 +1356,12 @@ class: center
 
 - Lot of similar components, but for a different set of problems, still interesting to compare
 - .Net missing repl, but better debug experience
-- Microsoft big player, others little guys, implications
-- 
+- Microsoft big player, others little guys (cosulting), implications -> community
+- Tendency to look to them, bring into fold, asp.net monsters
+
 ---
 
-
 # Community/Call to action
-
 
 All communities have their problems. Clojure: bugs not addressed, no complete framework. Elixir: grow too fast. Phoenix abstracts too much. Wrong answers to questions.
 
@@ -1173,6 +1376,9 @@ class: center, middle
   <footer>Edward Everett Hale</footer>
 </blockquote>
 
+???
+
+- Inspire. Take part. Take something on. Be part of a team. Encourage. Positive comments.
 
 ---
 
