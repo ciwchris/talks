@@ -1169,7 +1169,8 @@ public class NewCheckinController : Controller
 ```csharp
 public async Task<Dictionary<string, string>> CreateUpdatedCheckinList()
 {
-    var currentCheckins = cache.Get("checkins") as Dictionary<string, string> ?? new Dictionary<string, string>();
+    var currentCheckins = cache.Get("checkins") as Dictionary<string, string>
+        ?? new Dictionary<string, string>();
     var page = 1;
     Dictionary<string, string> newCheckins;
 
@@ -1182,7 +1183,9 @@ public async Task<Dictionary<string, string>> CreateUpdatedCheckinList()
     return await Task.Run(() => currentCheckins);
 }
 
-private bool WasUnseenCheckinReceived(Dictionary<string, string> current, Dictionary<string, string> newCheckins)
+private bool WasUnseenCheckinReceived(
+    Dictionary<string, string> current,
+    Dictionary<string, string> newCheckins)
 {
     var count = current.Count();
     newCheckins.ToList().ForEach(entry => current[entry.Key] = entry.Value);
@@ -1245,12 +1248,12 @@ private List<ClassroomProperties>() CreateNewClassroomList()
     var checkins = checkinRetrievalService.CreateUpdatedCheckinList().Result;
 
     var counts = new List<ClassroomProperties>(); 
-    counts.Add(new ClassroomProperties { Color = "red", Count = GetClassroomCount("108117", checkins), …}); 
-    counts.Add(new ClassroomProperties { Color = "orange", Count = GetClassroomCount("108119", checkins), …});
-    counts.Add(new ClassroomProperties { Color = "yellow", Count = GetClassroomCount("108120", checkins), …});
-    counts.Add(new ClassroomProperties { Color = "green", Count = GetClassroomCount("144673", checkins), …});
-    counts.Add(new ClassroomProperties { Color = "blue", Count = GetClassroomCount("108123", checkins), …});
-    counts.Add(new ClassroomProperties { Color = "purple", Count = GetClassroomCount("89515", checkins), …});
+    counts.Add(new ClassroomProperties { Count = GetClassroomCount("108117", checkins), …}); 
+    counts.Add(new ClassroomProperties { Count = GetClassroomCount("108119", checkins), …});
+    counts.Add(new ClassroomProperties { Count = GetClassroomCount("108120", checkins), …});
+    counts.Add(new ClassroomProperties { Count = GetClassroomCount("144673", checkins), …});
+    counts.Add(new ClassroomProperties { Count = GetClassroomCount("108123", checkins), …});
+    counts.Add(new ClassroomProperties { Count = GetClassroomCount("89515", checkins), …});
 
     return counts;
 }
@@ -1432,7 +1435,8 @@ class: center, middle
     <script src="remark-latest.min.js"></script>
     <script>
         var slideshow = remark.create({
-            ratio: '16:9',
+            ratio: '14:9',
+            //ratio: '16:9',
             //ratio: '4:3',
             slideNumberFormat: '',
             highlightLines: true
