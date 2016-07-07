@@ -344,7 +344,7 @@ Phoenix provides a guide to walk through the steps to deploy to Heroku, all the 
 
 Lessons:
 [image: purple] That covers the core pieces.
-- Solved the problem perfectly, nice that websockets and JS pipeline in place, so complete
+- Solved the problem perfectly, nice that websockets (channels) and JS pipeline in place, so complete
 - Both the elixir and phoenix docs are through
 - Pretty easy to come back to
 - A lot of momentum, community growing quickly
@@ -363,6 +363,23 @@ I'll skip the intro to .net and c# and go directly into installation. [image: in
 
 
 Community [image: ???]
+
+All communities have their problems. Clojure: bugs not addressed, no complete framework. Elixir: grow too fast. Phoenix abstracts too much. People think it's the only thing and that Ecto is the db framework.22:30 (How long are you going to use training wheels vs how long are you going to ride the bike) 44:00 (Rene) Wrong answers to questions.
+
+
+
+It's frustrating because they're not trying to learn something new they're trying to just apply what they know to the new thing. Johnny
+
+We should be worried that too many people are coming in too fast, because then you will have, for example, bad StackOverflow answers marked as the correct solution. And then bad practices will propagate through the larger community. Rene 45
+
+
+
+Some are leaving, some are frustrated (brad wilson tweet?), but now
+
+So too does the .net community have its issues. But as a natural outcome from all these changes, maybe this is the best thing Microsoft could have done, unattended consquences. 
+Now is a time of great opportunity. .net developers are going to be forced to change. Remember how mentioned the way we do development at work. All of that is going to change. We will have to adopt new practices. Now is an rare time the community can step in and fill a need.
+
+
 Lot of people are upset. Leaving .Net. Frustrated by the changes.
 Now is a great time to to be a .Net developer. It's a time of change, when more people will be open to trying something different. Something not created by Microsoft. Opportunities are greater now than any other time. F# is great, but what did I learn that I can bring back and apply to my work?
 

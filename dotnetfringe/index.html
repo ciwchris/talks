@@ -81,7 +81,7 @@ class: center, middle
 ???
 
 - Hi I'm Chris Lopes
-- Welcome to the recounting of my experience
+- This is the recounting of my experience
 
 ---
 
@@ -92,8 +92,9 @@ class: center, middle
 ???
 
 - I'm a web developer
-- Moonlight checking kids into classrooms, slick system
-- More kids than classroom space
+- Moonlight helping to check
+- The system that we use
+- We have limited classroom space
 - Therefore one of my duties
 - Can't monitor on phone, need to interrupt
 
@@ -108,7 +109,7 @@ class: center, middle
 - Hope the classroom limit
 - Teachers none to happy
 - Experiencing this unpleasantness
-- With this knowledge
+- With this information my mind started mapping out a solution
 
 ---
 
@@ -139,7 +140,7 @@ class: center, middle
 
 ???
 
-- entire pro career Windows web dev, asp
+- I've been a web developer on Windows for my entire pro career, asp
 - Typical developer
 - More than a day job
 - Not going home every night
@@ -156,7 +157,7 @@ class: center, middle
 ???
 
 - At work we're all in, NuGet to install our libs
-- Surprise, Angular
+- Angular, surprise
 
 ---
 
@@ -177,8 +178,6 @@ class: center, middle
 ![babel](images/babel.png)
 --
 ![eslint](images/eslint.png)
---
-![rxjs](images/rxjs.jpe)
 
 
 ???
@@ -195,6 +194,7 @@ class: center, middle
 ???
 
 - Atypical
+- Not hardcore, recompiling the kernel
 - Doing any asp.net, not friendly
 - Mono impressive
 - [strike: Quicksilver, Gnome Do]
@@ -308,7 +308,7 @@ class: center, middle
 
 ???
 
-- Most prevalent to automate project related tasks
+- Most prevalent to automate project tasks
 - Similar to NPM
 - Project templates, dependencies, build, run tests, repl, more
 - Community plugins, write own
@@ -324,6 +324,7 @@ class: center, middle
 ???
 
 - No end-to-end web framework
+- Good for knowledgable & experience
 - Ring base (Ruby Rack), other libraries, typically Compojure for routing
 
 ---
@@ -350,7 +351,7 @@ class: center, middle
 ???
 
 - Other side of the story, ClojureScript
-- Several wrap React (JS framework), Reagent
+- Several wrap React (JS framework - Virtual dom), Reagent
 - React components in ClojureScript
 - Lein template, server side bits
 - Best way to get started
@@ -375,8 +376,8 @@ class: center, middle
 ```clojure
 (defroutes site-routes
   (GET "/" [] (render-file "templates/index.html" env))
-  (GET "/checkins" [] {:status 200
-                       :body (api/create-list-of-checkin-count-by-group env)})
+  (GET "/counts" [] {:status 200
+                     :body (api/create-classroom-counts env)})
   (POST "/newcheckin" request {:status 200
                                :body (api/register-checkin request env)})
   (resources "/")
@@ -398,11 +399,9 @@ class: center, middle
    (let [today (.toString (time/today) "MM/dd/yyyy")
          new-checkins (retrieve-checkins-for-result-page page-number)
          new-checkin-store (add-new-checkins-to-checkins-store checkins new-checkins today)]
-     (if (not= (count new-checkin-store) (count checkins))
-       (retrieve-checkins (inc page-number) new-checkin-store)
-       (do
-         (swap! checkins-store into checkins)
-         @checkins-store)))))
+     (if (= (count new-checkin-store) (count checkins))
+       new-checkin-store
+       (retrieve-checkins (inc page-number) new-checkin-store))))))
 ```
 
 ???
@@ -471,7 +470,7 @@ class: center, middle
 
 ---
 
-## Creating check-in counts
+## Creating classroom counts
 
 ```clojure
 (defn- count-checkins-for-classrom
@@ -516,6 +515,12 @@ class: center, middle
 ## Create components
 
 ```clojure
+(defn checkin-page []
+  [:div
+   [list-classes @checkins]])
+```
+
+```clojure
 (defn list-classes [checkins]
   [:div
    [:ul
@@ -523,10 +528,6 @@ class: center, middle
       ^{:key (:id class)} [:li
                            [:div {:style {:background-color (:color class)}}
                             (str (:name class) " " (:count class) "/" (:max class))]])]])
-
-(defn checkin-page []
-  [:div
-   [list-classes @checkins]])
 ```
 
 ???
@@ -587,7 +588,6 @@ class: center, middle
 
 - Reagent Procfile to deploy to Heroku
 - Bare min instructions
-- Information, supply configuration, not discussed
 
 ---
 
@@ -602,12 +602,11 @@ class: clojure-page-break
 - Figwheel simplifies workflow
 - Editor?
 - No complete out of the box web framework
-- Tougher to come back to
 ]
 
 ???
 
-- Community: friendly, enthusiastic, positive, active, lots of libraries
+- Community: friendly, enthusiastic, passionate, active, lots of libraries, new devs (clojure bridge)
 - Repl handy, instead of debugging and inspecting, problem forget what you did, no tests
 - ClojureScript is fun and refreshing, bypass all js tooling/decisions, dead code elimination
 - Emacs/Spacemacs, Cursive
@@ -713,7 +712,7 @@ class: center, middle, elixir-page-break
 - Dynamic, built on/extends Erlang, runs on Erlang VM/BEAM
 - Runs in processes sending messages to each other
 - Not OS processes or threads, extremely lightweight, tens of thousands simultaneously
-- Distributed systems, scale horizontally
+- Allows ability to created distributed app, scale horizontally
 - Jose Valim, Plataformatec
 
 ---
@@ -737,9 +736,9 @@ iex(2)> {hello, "world"} = {"hello", "world"}
 iex(3)> {hello, "world!"} = {"hello", "world"}
    (MatchError) no match of right hand side value: {"hello", "world"}
 iex(3)> case {:ok, "hello world"} do
-...(3)>      {:ok, result} -> IO.puts result
-...(3)>      {:error, result} -> IO.puts result
-...(3)>      _ -> IO.puts "something unexpected"
+...(3)>      {:ok, result} -> result
+...(3)>      {:error, result} -> result
+...(3)>      _ -> "something unexpected"
 ...(3)> end
 hello world
 :ok
@@ -841,8 +840,8 @@ class: center, middle
 
 ???
 
-- Similar to leiningen, manage projects
-- Comes with elixir installation
+- W/ Elixir
+- Manage project related tasks
 - Create, manage dependencies, run tests, compile
 
 ---
@@ -862,7 +861,7 @@ class: center, middle
 - Predominate web framework
 - Complete out of the box solution
 - On surface familiar to other web frameworks
-- MVC ORM, Brunch on front end for asset management
+- MVC, db framework , Brunch on front end for asset management
 
 ---
 
@@ -873,6 +872,7 @@ class: center, middle
 ???
 
 - Let's begin our Elixir app
+- Hex, package manager
 
 ---
 
@@ -1000,7 +1000,7 @@ end
 
 ---
 
-## Creating check-in counts
+## Creating classroom counts
 
 ```elixir
 def create_classroom_counts(checkins) do
@@ -1079,16 +1079,17 @@ class: elixir-page-break
 .takeaways[
 - Phoenix fit my need perfectly
 - Elixir and Phoenix docs thorough
-- Easy to come back to
-- Lot of momentum
 - Community smaller, tougher to search on
+- Lot of momentum
+- Easy to come back to
 - Editor?
-- Elected not to use OTP, Phoenix abstracts too much?
+- Phoenix abstracts too much?
+- Didn't use OTP
 ]
 
 ???
 
-- Phoenix: nice websockets and JS pipeline
+- Phoenix: nice websockets (channels) and JS pipeline
 - Docs are thorough
 - Easy to come back to
 - A lot of momentum, community growing quickly
@@ -1104,7 +1105,7 @@ class: dotnet-page-break, center, middle
 
 ???
 
-- We'll skip the introduction
+- i'll skip the introduction of framework and lang and move directly to installation
 
 ---
 
@@ -1230,26 +1231,26 @@ public CheckinRetrievalService(IMemoryCache cache, IOptions<ApiConfiguration> ap
 
 ???
 
-- Secret config, environment var
+- Secret Manager, environment var
 - Register the config object
 - DI
 
 ---
 
-## Creating check-in counts
+## Creating classroom counts
 
 ```csharp
-private List<CheckinProperties>() CreateNewClassroomList()
+private List<ClassroomProperties>() CreateNewClassroomList()
 {
     var checkins = checkinRetrievalService.CreateUpdatedCheckinList().Result;
 
-    var counts = new List<CheckinProperties>(); 
-    counts.Add(new CheckinProperties { Color = "red", Count = GetClassroomCount("108117", checkins), …}); 
-    counts.Add(new CheckinProperties { Color = "orange", Count = GetClassroomCount("108119", checkins), …});
-    counts.Add(new CheckinProperties { Color = "yellow", Count = GetClassroomCount("108120", checkins), …});
-    counts.Add(new CheckinProperties { Color = "green", Count = GetClassroomCount("144673", checkins), …});
-    counts.Add(new CheckinProperties { Color = "blue", Count = GetClassroomCount("108123", checkins), …});
-    counts.Add(new CheckinProperties { Color = "purple", Count = GetClassroomCount("89515", checkins), …});
+    var counts = new List<ClassroomProperties>(); 
+    counts.Add(new ClassroomProperties { Color = "red", Count = GetClassroomCount("108117", checkins), …}); 
+    counts.Add(new ClassroomProperties { Color = "orange", Count = GetClassroomCount("108119", checkins), …});
+    counts.Add(new ClassroomProperties { Color = "yellow", Count = GetClassroomCount("108120", checkins), …});
+    counts.Add(new ClassroomProperties { Color = "green", Count = GetClassroomCount("144673", checkins), …});
+    counts.Add(new ClassroomProperties { Color = "blue", Count = GetClassroomCount("108123", checkins), …});
+    counts.Add(new ClassroomProperties { Color = "purple", Count = GetClassroomCount("89515", checkins), …});
 
     return counts;
 }
@@ -1282,7 +1283,9 @@ webSocket.onclose = function () {
 webSocket.onmessage = function (evt) {
     var classes = JSON.parse(evt.data);
     for (var i = 0; i < classes.length; i++) {
-        var text = classes[i].count < classes[i].max ? 'Open' : 'Full';
+        var text = classes[i].count < classes[i].max
+            ? 'Open'
+            : 'Full';
         $('#'+ classes[i].color).text(text);
     }
 };
@@ -1314,24 +1317,22 @@ class: dotnet-page-break
 .takeaways[
 - Quickly progressing
 - Good docs, but out of date
-- Editor?
 - Secret Manager
-- Community: good & bad
+- Community
 - Missing pieces
+- Editor?
 - Right at home
 ]
 
 ???
 
-TODO: brad wilson tweet?
-
 - Ubuntu 14.04/16.04/AUR (relied on community)
 - At RC2 docs no longer accurate, git issues: sample apps in repos nice
-- Nice to have editor option, but: ominsharp, debugger, vim (crash)
 - Secret solution, not encrypted, but no diff
-- Libraries: sidelines (less options now), tired of chasing RC2, but responsive: nicholas - sirilog
+- Libraries: sidelines (less options now), tired of chasing RC2, but responsive: nicholas blumhardt
 - Dotnet cli, nice, but limited. Community needs to dive in. Yeoman has Nancy
 - No SignalR for websockets
+- Nice to have editor option, but: ominsharp, debugger, vim (crash)
 - Skills transferable, good for those invested and make the move
 
 ---
@@ -1360,12 +1361,45 @@ class: center
 
 ---
 
-# Community/Call to action
+class: center, middle
 
-All communities have their problems. Clojure: bugs not addressed, no complete framework. Elixir: grow too fast. Phoenix abstracts too much. Wrong answers to questions.
+# Community: All have their issues
 
-Now is a time of great opportunity. .net developers are going to be forced to change. Remember how mentioned the way we do development at work. All of that is going to change. We will have to adopt new practices. Now is an rare time the community can step in and fill a need.
+--
+![Clojure frustration](images/clojure-frustration.png)
+--
+.image-overlay[![Rich Hickey tweet](images/rich-hickey.png)]
 
+???
+
+- Concerns over direction
+- Lots of discussion
+- Rich Hickey didn't help
+
+---
+
+class: center, middle
+
+# Community: All have their issues
+
+<blockquote>
+  <p>We should be worried that too many people are coming in too fast, because then you will have, for example, bad StackOverflow answers marked as the correct solution. And then bad practices will propagate through the larger community.</p>
+  <footer>René Föhring</footer>
+</blockquote>
+
+<blockquote>
+    <p>It's frustrating because they're not trying to learn something new they're trying to just apply what they know to the new thing.</p>
+  <footer>Johnny Winn</footer>
+</blockquote>
+
+<blockquote>
+    <p>The community in eloving around what's happening in Phoenix and what's happening. It's almost like they've been married from the beginning. It does concern </p>
+  <footer>Johnny Winn</footer>
+</blockquote>
+
+???
+
+- So too does the .net community have its issues
 ---
 
 class: center, middle
@@ -1377,7 +1411,12 @@ class: center, middle
 
 ???
 
-- Inspire. Take part. Take something on. Be part of a team. Encourage. Positive comments.
+- I'll leave you with
+- When I'm sitting there in the audience, listen to all the impressive things
+- Exclude myself from that group, I just average developer
+- But this is a community. It is a community. I am part. What are implications for me.
+- Doesn't mean I have to go it alone, but I can do something
+- What does that mean for you?
 
 ---
 
@@ -1387,14 +1426,14 @@ class: center, middle
 
 ???
 
-- Thank you and
-- Discuss any of this, questions, ideas share knowledge I'll be around, find me, Thanks!
+- Discuss any of these things, questions, ideas, share knowledge, I'll be around, find me, Thanks!
 
     </textarea>
     <script src="remark-latest.min.js"></script>
     <script>
         var slideshow = remark.create({
             ratio: '16:9',
+            //ratio: '4:3',
             slideNumberFormat: '',
             highlightLines: true
         });

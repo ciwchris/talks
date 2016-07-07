@@ -6564,19 +6564,15 @@
     ],
     [
       0.065049,
-      "r"
-    ],
-    [
-      0.062337,
       "u"
     ],
     [
-      0.079498,
-      "n"
+      0.062337,
+      "l"
     ],
     [
-      0.108726,
-      "t"
+      0.079498,
+      "p"
     ],
     [
       0.094466,
@@ -6876,51 +6872,51 @@
     ],
     [
       0.074715,
-      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] / extract:grunt: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
+      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] / extract:gulp: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
     ],
     [
       0.093082,
-      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] \\ extract:grunt: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
+      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] \\ extract:gulp: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
     ],
     [
       0.053290,
-      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] / extract:grunt: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
+      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] / extract:gulp: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
     ],
     [
       0.054794,
-      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] / extract:grunt: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
+      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] / extract:gulp: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
     ],
     [
       0.057404,
-      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] - extract:grunt: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
+      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] - extract:gulp: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
     ],
     [
       0.077306,
-      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] \\ extract:grunt: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
+      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] \\ extract:gulp: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
     ],
     [
       0.059855,
-      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] - extract:grunt: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
+      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] - extract:gulp: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
     ],
     [
       0.059380,
-      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] - extract:grunt: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
+      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] - extract:gulp: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
     ],
     [
       0.053791,
-      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] - extract:grunt: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
+      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] - extract:gulp: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
     ],
     [
       0.052084,
-      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] \\ extract:grunt: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
+      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] \\ extract:gulp: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
     ],
     [
       0.059207,
-      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] / extract:grunt: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
+      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] / extract:gulp: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
     ],
     [
       0.054565,
-      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] / extract:grunt: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
+      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] / extract:gulp: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m extract 94\u001b[K\r"
     ],
     [
       0.056512,
@@ -6928,11 +6924,11 @@
     ],
     [
       0.090042,
-      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] \\ extract:grunt-legacy-log-utils: \u001b[7msill\u001b[0m \u001b[35mgunzTarPerm\u001b[0m extract\u001b[K\r"
+      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] \\ extract:gulp-legacy-log-utils: \u001b[7msill\u001b[0m \u001b[35mgunzTarPerm\u001b[0m extract\u001b[K\r"
     ],
     [
       0.061154,
-      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] / extract:grunt-legacy-log-utils: \u001b[7msill\u001b[0m \u001b[35mgunzTarPerm\u001b[0m extract\u001b[K\r"
+      "[\u001b[7m             \u001b[27m\u001b[90m.....\u001b[0m] / extract:gulp-legacy-log-utils: \u001b[7msill\u001b[0m \u001b[35mgunzTarPerm\u001b[0m extract\u001b[K\r"
     ],
     [
       0.059656,
@@ -6956,7 +6952,7 @@
     ],
     [
       0.049704,
-      "[\u001b[7m              \u001b[27m\u001b[90m....\u001b[0m] \\ extract:grunt-legacy-log: \u001b[34;40mverb\u001b[0m \u001b[35mgentlyRm\u001b[0m don't care about\u001b[K\r"
+      "[\u001b[7m              \u001b[27m\u001b[90m....\u001b[0m] \\ extract:gulp-legacy-log: \u001b[34;40mverb\u001b[0m \u001b[35mgentlyRm\u001b[0m don't care about\u001b[K\r"
     ],
     [
       0.049921,
@@ -7172,11 +7168,11 @@
     ],
     [
       0.056524,
-      "[\u001b[7m               \u001b[27m\u001b[90m...\u001b[0m] | preinstall:grunt: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m preinstall 94\u001b[K\r"
+      "[\u001b[7m               \u001b[27m\u001b[90m...\u001b[0m] | preinstall:gulp: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m preinstall 94\u001b[K\r"
     ],
     [
       0.111698,
-      "[\u001b[7m               \u001b[27m\u001b[90m...\u001b[0m] - preinstall:grunt: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m preinstall 94\u001b[K\r"
+      "[\u001b[7m               \u001b[27m\u001b[90m...\u001b[0m] - preinstall:gulp: \u001b[7msill\u001b[0m \u001b[35mdoParallel\u001b[0m preinstall 94\u001b[K\r"
     ],
     [
       0.049883,
@@ -7212,7 +7208,7 @@
     ],
     [
       0.055132,
-      "[\u001b[7m               \u001b[27m\u001b[90m...\u001b[0m] / build:grunt: \u001b[7msill\u001b[0m \u001b[35mdoSerial\u001b[0m build 94\u001b[K\r"
+      "[\u001b[7m               \u001b[27m\u001b[90m...\u001b[0m] / build:gulp: \u001b[7msill\u001b[0m \u001b[35mdoSerial\u001b[0m build 94\u001b[K\r"
     ],
     [
       0.033929,
@@ -7236,7 +7232,7 @@
     ],
     [
       0.000105,
-      "/usr/bin/grunt -\u003e /usr/lib/node_modules/grunt/bin/grunt\r\n"
+      "/usr/bin/gulp -\u003e /usr/lib/node_modules/gulp/bin/gulp\r\n"
     ],
     [
       0.047439,
@@ -7264,15 +7260,15 @@
     ],
     [
       0.000154,
-      "/usr/lib\r\n├── \u001b[40m\u001b[33mbower@1.7.9\u001b[39m\u001b[49m \r\n└─┬ \u001b[40m\u001b[33mgrunt@1.0.1\u001b[39m\u001b[49m \r\n  ├── \u001b[40m\u001b[33mcoffee-script@1.10.0\u001b[39m\u001b[49m \r\n  ├─┬ \u001b[40m\u001b[33mdateformat@1.0.12\u001b[39m\u001b[49m \r\n  │ ├── \u001b[40m\u001b[33mget-stdin@4.0.1\u001b[39m\u001b[49m \r\n  │ └─┬ \u001b[40m\u001b[33mmeow@3.7.0\u001b[39m\u001b[49m \r\n  │   ├─┬ \u001b[40m\u001b[33mcamelcase-keys@2.1.0\u001b[39m\u001b[49m \r\n  │   │ └── \u001b[40m\u001b[33mcamelcase@2.1.1\u001b[39m\u001b[49m \r\n  │   ├── \u001b[40m\u001b[33mdecamelize@1.2.0\u001b[39m\u001b[49m \r\n  │   ├─┬ \u001b[40m\u001b[33mloud-rejection@1.5.0\u001b[39m\u001b[49m \r\n  │   │ ├─┬ \u001b[40m\u001b[33mcurrently-unhandled@0.4.1\u001b[39m\u001b[49m \r\n  │   │ │ └── \u001b[40m\u001b[33marray-find-index@1.0.1\u001b[39m\u001b[49m \r\n  │   │ └── \u001b[40m\u001b[33msignal-exit@3.0.0\u001b[39m\u001b[49m \r\n  │   ├── \u001b[40m\u001b[33mmap-obj@1.0.1\u001b[39m\u001b[49m \r\n  │   ├── \u001b[40m\u001b[33mminimist@1.2.0\u001b[39m\u001b[49m \r\n  │   ├─┬ \u001b[40m\u001b[33mnormalize-package-data@2.3.5\u001b[39m\u001b[49m \r\n  │   │ ├── \u001b[40m\u001b[33mhosted-git-info@2.1.5\u001b[39m\u001b[49m \r\n  │   │ ├─┬ \u001b[40m\u001b[33mis-builtin-module@1.0.0\u001b[39m\u001b[49m \r\n  │   │ │ └── \u001b[40m\u001b[33mbuiltin-modules@1.1.1\u001b[39m\u001b[49m \r\n  │   │ ├── \u001b[40m\u001b[33msemver@5.2.0\u001b[39m\u001b[49m \r\n  │   │ └─┬ \u001b[40m\u001b[33mvalidate-npm-package-license@3.0.1\u001b[39m\u001b[49m \r\n  │   │   ├─┬ \u001b[40m\u001b[33mspdx-correct@1.0.2\u001b[39m\u001b[49m \r\n  │   │   │ └── \u001b[40m\u001b[33mspdx-license-ids@1.2.1\u001b[39m\u001b[49m \r\n  │   │   └─┬ \u001b[40m\u001b[33mspdx-expression-parse@1.0.2\u001b[39m\u001b[49m \r\n  │   │     └── \u001b[40m\u001b[33mspdx-exceptions@1.0.4\u001b[39m\u001b[49m \r\n  │   ├── \u001b[40m\u001b[33mobject-assign@4.1.0\u001b[39m\u001b[49m \r\n  │   ├─┬ \u001b[40m\u001b[33mread-pkg-up@1.0.1\u001b[39m\u001b[49m \r\n  │   │ ├─┬ \u001b[40m\u001b[33mfind-up@1.1.2\u001b[39m\u001b[49m \r\n  │   │ │ ├── \u001b[40m\u001b[33mpath-exists@2.1.0\u001b[39m\u001b[49m \r\n  │   │ │ └─┬ \u001b[40m\u001b[33mpinkie-promise@2.0.1\u001b[39m\u001b[49m \r\n  │   │ │   └── \u001b[40m\u001b[33mpinkie@2.0.4\u001b[39m\u001b[49m \r\n  │   │ └─┬ \u001b[40m\u001b[33mread-pkg@1.1.0\u001b[39m\u001b[49m \r\n  │   │   ├─┬ \u001b[40m\u001b[33mload-json-file@1.1.0\u001b[39m\u001b[49m \r\n  │   │   │ ├── \u001b[40"
+      "/usr/lib\r\n├── \u001b[40m\u001b[33mbower@1.7.9\u001b[39m\u001b[49m \r\n└─┬ \u001b[40m\u001b[33mgulp@1.0.1\u001b[39m\u001b[49m \r\n  ├── \u001b[40m\u001b[33mcoffee-script@1.10.0\u001b[39m\u001b[49m \r\n  ├─┬ \u001b[40m\u001b[33mdateformat@1.0.12\u001b[39m\u001b[49m \r\n  │ ├── \u001b[40m\u001b[33mget-stdin@4.0.1\u001b[39m\u001b[49m \r\n  │ └─┬ \u001b[40m\u001b[33mmeow@3.7.0\u001b[39m\u001b[49m \r\n  │   ├─┬ \u001b[40m\u001b[33mcamelcase-keys@2.1.0\u001b[39m\u001b[49m \r\n  │   │ └── \u001b[40m\u001b[33mcamelcase@2.1.1\u001b[39m\u001b[49m \r\n  │   ├── \u001b[40m\u001b[33mdecamelize@1.2.0\u001b[39m\u001b[49m \r\n  │   ├─┬ \u001b[40m\u001b[33mloud-rejection@1.5.0\u001b[39m\u001b[49m \r\n  │   │ ├─┬ \u001b[40m\u001b[33mcurrently-unhandled@0.4.1\u001b[39m\u001b[49m \r\n  │   │ │ └── \u001b[40m\u001b[33marray-find-index@1.0.1\u001b[39m\u001b[49m \r\n  │   │ └── \u001b[40m\u001b[33msignal-exit@3.0.0\u001b[39m\u001b[49m \r\n  │   ├── \u001b[40m\u001b[33mmap-obj@1.0.1\u001b[39m\u001b[49m \r\n  │   ├── \u001b[40m\u001b[33mminimist@1.2.0\u001b[39m\u001b[49m \r\n  │   ├─┬ \u001b[40m\u001b[33mnormalize-package-data@2.3.5\u001b[39m\u001b[49m \r\n  │   │ ├── \u001b[40m\u001b[33mhosted-git-info@2.1.5\u001b[39m\u001b[49m \r\n  │   │ ├─┬ \u001b[40m\u001b[33mis-builtin-module@1.0.0\u001b[39m\u001b[49m \r\n  │   │ │ └── \u001b[40m\u001b[33mbuiltin-modules@1.1.1\u001b[39m\u001b[49m \r\n  │   │ ├── \u001b[40m\u001b[33msemver@5.2.0\u001b[39m\u001b[49m \r\n  │   │ └─┬ \u001b[40m\u001b[33mvalidate-npm-package-license@3.0.1\u001b[39m\u001b[49m \r\n  │   │   ├─┬ \u001b[40m\u001b[33mspdx-correct@1.0.2\u001b[39m\u001b[49m \r\n  │   │   │ └── \u001b[40m\u001b[33mspdx-license-ids@1.2.1\u001b[39m\u001b[49m \r\n  │   │   └─┬ \u001b[40m\u001b[33mspdx-expression-parse@1.0.2\u001b[39m\u001b[49m \r\n  │   │     └── \u001b[40m\u001b[33mspdx-exceptions@1.0.4\u001b[39m\u001b[49m \r\n  │   ├── \u001b[40m\u001b[33mobject-assign@4.1.0\u001b[39m\u001b[49m \r\n  │   ├─┬ \u001b[40m\u001b[33mread-pkg-up@1.0.1\u001b[39m\u001b[49m \r\n  │   │ ├─┬ \u001b[40m\u001b[33mfind-up@1.1.2\u001b[39m\u001b[49m \r\n  │   │ │ ├── \u001b[40m\u001b[33mpath-exists@2.1.0\u001b[39m\u001b[49m \r\n  │   │ │ └─┬ \u001b[40m\u001b[33mpinkie-promise@2.0.1\u001b[39m\u001b[49m \r\n  │   │ │   └── \u001b[40m\u001b[33mpinkie@2.0.4\u001b[39m\u001b[49m \r\n  │   │ └─┬ \u001b[40m\u001b[33mread-pkg@1.1.0\u001b[39m\u001b[49m \r\n  │   │   ├─┬ \u001b[40m\u001b[33mload-json-file@1.1.0\u001b[39m\u001b[49m \r\n  │   │   │ ├── \u001b[40"
     ],
     [
       0.000052,
-      "m\u001b[33mgraceful-fs@4.1.4\u001b[39m\u001b[49m \r\n  │   │   │ ├─┬ \u001b[40m\u001b[33mparse-json@2.2.0\u001b[39m\u001b[49m \r\n  │   │   │ │ └─┬ \u001b[40m\u001b[33merror-ex@1.3.0\u001b[39m\u001b[49m \r\n  │   │   │ │   └── \u001b[40m\u001b[33mis-arrayish@0.2.1\u001b[39m\u001b[49m \r\n  │   │   │ ├── \u001b[40m\u001b[33mpify@2.3.0\u001b[39m\u001b[49m \r\n  │   │   │ └─┬ \u001b[40m\u001b[33mstrip-bom@2.0.0\u001b[39m\u001b[49m \r\n  │   │   │   └── \u001b[40m\u001b[33mis-utf8@0.2.1\u001b[39m\u001b[49m \r\n  │   │   └── \u001b[40m\u001b[33mpath-type@1.1.0\u001b[39m\u001b[49m \r\n  │   ├─┬ \u001b[40m\u001b[33mredent@1.0.0\u001b[39m\u001b[49m \r\n  │   │ ├─┬ \u001b[40m\u001b[33mindent-string@2.1.0\u001b[39m\u001b[49m \r\n  │   │ │ └─┬ \u001b[40m\u001b[33mrepeating@2.0.1\u001b[39m\u001b[49m \r\n  │   │ │   └─┬ \u001b[40m\u001b[33mis-finite@1.0.1\u001b[39m\u001b[49m \r\n  │   │ │     └── \u001b[40m\u001b[33mnumber-is-nan@1.0.0\u001b[39m\u001b[49m \r\n  │   │ └── \u001b[40m\u001b[33mstrip-indent@1.0.1\u001b[39m\u001b[49m \r\n  │   └── \u001b[40m\u001b[33mtrim-newlines@1.0.0\u001b[39m\u001b[49m \r\n  ├── \u001b[40m\u001b[33meventemitter2@0.4.14\u001b[39m\u001b[49m \r\n  ├── \u001b[40m\u001b[33mexit@0.1.2\u001b[39m\u001b[49m \r\n  ├─┬ \u001b[40m\u001b[33mfindup-sync@0.3.0\u001b[39m\u001b[49m \r\n  │ └── \u001b[40m\u001b[33mglob@5.0.15\u001b[39m\u001b[49m \r\n  ├─┬ \u001b[40m\u001b[33mglob@7.0.5\u001b[39m\u001b[49m \r\n  │ ├── \u001b[40m\u001b[33mfs.realpath@1.0.0\u001b[39m\u001b[49m \r\n  │ ├─┬ \u001b[40m\u001b[33minflight@1.0.5\u001b[39m\u001b[49m \r\n  │ │ └── \u001b[40m\u001b[33mwrappy@1.0.2\u001b[39m\u001b[49m \r\n  │ ├── \u001b[40m\u001b[33minherits@2.0.1\u001b[39m\u001b[49m \r\n  │ └── \u001b[40m\u001b[33monce@1.3.3\u001b[39m\u001b[49m \r\n  ├─┬ \u001b[40m\u001b[33mgrunt-cli@1.2.0\u001b[39m\u001b[49m \r\n  │ └── \u001b[40m\u001b[33mresolve@1.1.7\u001b[39m\u001b[49m \r\n  ├── \u001b[40m\u001b[33mgrunt-known-options@1.1.0\u001b[39m\u001b[49m \r\n  ├─┬ \u001b[40m\u001b[33mgrunt-legacy-log@1.0.0\u001b[39m\u001b[49m \r\n  │ ├── \u001b[40m\u001b[33mcolors@1.1.2\u001b[39m\u001b[49m \r\n  │ ├─┬ \u001b[40m\u001b[33mgrunt-legacy-log-utils@1.0.0\u001b[39m\u001b[49m \r\n  │ │ ├─┬ \u001b[40m\u001b[33mchalk@1.1.3\u001b[39m\u001b[49m \r\n  │ │ │ ├── \u001b[40m\u001b[33mansi-styles@2.2.1\u001b[39m\u001b[49m \r\n  │ │ │ ├── \u001b[40m\u001b[33mescape-string-regexp@1.0.5\u001b[39m\u001b[49m \r\n  │ │ │ ├─┬ \u001b[40m\u001b[33mhas-ansi@2.0.0\u001b[39m\u001b[49m \r\n  │ │ │ │ └── \u001b[40m\u001b[33m"
+      "m\u001b[33mgraceful-fs@4.1.4\u001b[39m\u001b[49m \r\n  │   │   │ ├─┬ \u001b[40m\u001b[33mparse-json@2.2.0\u001b[39m\u001b[49m \r\n  │   │   │ │ └─┬ \u001b[40m\u001b[33merror-ex@1.3.0\u001b[39m\u001b[49m \r\n  │   │   │ │   └── \u001b[40m\u001b[33mis-arrayish@0.2.1\u001b[39m\u001b[49m \r\n  │   │   │ ├── \u001b[40m\u001b[33mpify@2.3.0\u001b[39m\u001b[49m \r\n  │   │   │ └─┬ \u001b[40m\u001b[33mstrip-bom@2.0.0\u001b[39m\u001b[49m \r\n  │   │   │   └── \u001b[40m\u001b[33mis-utf8@0.2.1\u001b[39m\u001b[49m \r\n  │   │   └── \u001b[40m\u001b[33mpath-type@1.1.0\u001b[39m\u001b[49m \r\n  │   ├─┬ \u001b[40m\u001b[33mredent@1.0.0\u001b[39m\u001b[49m \r\n  │   │ ├─┬ \u001b[40m\u001b[33mindent-string@2.1.0\u001b[39m\u001b[49m \r\n  │   │ │ └─┬ \u001b[40m\u001b[33mrepeating@2.0.1\u001b[39m\u001b[49m \r\n  │   │ │   └─┬ \u001b[40m\u001b[33mis-finite@1.0.1\u001b[39m\u001b[49m \r\n  │   │ │     └── \u001b[40m\u001b[33mnumber-is-nan@1.0.0\u001b[39m\u001b[49m \r\n  │   │ └── \u001b[40m\u001b[33mstrip-indent@1.0.1\u001b[39m\u001b[49m \r\n  │   └── \u001b[40m\u001b[33mtrim-newlines@1.0.0\u001b[39m\u001b[49m \r\n  ├── \u001b[40m\u001b[33meventemitter2@0.4.14\u001b[39m\u001b[49m \r\n  ├── \u001b[40m\u001b[33mexit@0.1.2\u001b[39m\u001b[49m \r\n  ├─┬ \u001b[40m\u001b[33mfindup-sync@0.3.0\u001b[39m\u001b[49m \r\n  │ └── \u001b[40m\u001b[33mglob@5.0.15\u001b[39m\u001b[49m \r\n  ├─┬ \u001b[40m\u001b[33mglob@7.0.5\u001b[39m\u001b[49m \r\n  │ ├── \u001b[40m\u001b[33mfs.realpath@1.0.0\u001b[39m\u001b[49m \r\n  │ ├─┬ \u001b[40m\u001b[33minflight@1.0.5\u001b[39m\u001b[49m \r\n  │ │ └── \u001b[40m\u001b[33mwrappy@1.0.2\u001b[39m\u001b[49m \r\n  │ ├── \u001b[40m\u001b[33minherits@2.0.1\u001b[39m\u001b[49m \r\n  │ └── \u001b[40m\u001b[33monce@1.3.3\u001b[39m\u001b[49m \r\n  ├─┬ \u001b[40m\u001b[33mgulp-cli@1.2.0\u001b[39m\u001b[49m \r\n  │ └── \u001b[40m\u001b[33mresolve@1.1.7\u001b[39m\u001b[49m \r\n  ├── \u001b[40m\u001b[33mgulp-known-options@1.1.0\u001b[39m\u001b[49m \r\n  ├─┬ \u001b[40m\u001b[33mgulp-legacy-log@1.0.0\u001b[39m\u001b[49m \r\n  │ ├── \u001b[40m\u001b[33mcolors@1.1.2\u001b[39m\u001b[49m \r\n  │ ├─┬ \u001b[40m\u001b[33mgulp-legacy-log-utils@1.0.0\u001b[39m\u001b[49m \r\n  │ │ ├─┬ \u001b[40m\u001b[33mchalk@1.1.3\u001b[39m\u001b[49m \r\n  │ │ │ ├── \u001b[40m\u001b[33mansi-styles@2.2.1\u001b[39m\u001b[49m \r\n  │ │ │ ├── \u001b[40m\u001b[33mescape-string-regexp@1.0.5\u001b[39m\u001b[49m \r\n  │ │ │ ├─┬ \u001b[40m\u001b[33mhas-ansi@2.0.0\u001b[39m\u001b[49m \r\n  │ │ │ │ └── \u001b[40m\u001b[33m"
     ],
     [
       0.000051,
-      "ansi-regex@2.0.0\u001b[39m\u001b[49m \r\n  │ │ │ ├── \u001b[40m\u001b[33mstrip-ansi@3.0.1\u001b[39m\u001b[49m \r\n  │ │ │ └── \u001b[40m\u001b[33msupports-color@2.0.0\u001b[39m\u001b[49m \r\n  │ │ └── \u001b[40m\u001b[33mlodash@4.3.0\u001b[39m\u001b[49m \r\n  │ ├── \u001b[40m\u001b[33mhooker@0.2.3\u001b[39m\u001b[49m \r\n  │ ├── \u001b[40m\u001b[33mlodash@3.10.1\u001b[39m\u001b[49m \r\n  │ └── \u001b[40m\u001b[33munderscore.string@3.2.3\u001b[39m\u001b[49m \r\n  ├─┬ \u001b[40m\u001b[33mgrunt-legacy-util@1.0.0\u001b[39m\u001b[49m \r\n  │ ├── \u001b[40m\u001b[33masync@1.5.2\u001b[39m\u001b[49m \r\n  │ ├── \u001b[40m\u001b[33mgetobject@0.1.0\u001b[39m\u001b[49m \r\n  │ ├── \u001b[40m\u001b[33mlodash@4.3.0\u001b[39m\u001b[49m \r\n  │ └─┬ \u001b[40m\u001b[33mwhich@1.2.10\u001b[39m\u001b[49m \r\n  │   └── \u001b[40m\u001b[33misexe@1.1.2\u001b[39m\u001b[49m \r\n  ├── \u001b[40m\u001b[33miconv-lite@0.4.13\u001b[39m\u001b[49m \r\n  ├─┬ \u001b[40m\u001b[33mjs-yaml@3.5.5\u001b[39m\u001b[49m \r\n  │ ├─┬ \u001b[40m\u001b[33margparse@1.0.7\u001b[39m\u001b[49m \r\n  │ │ └── \u001b[40m\u001b[33msprintf-js@1.0.3\u001b[39m\u001b[49m \r\n  │ └── \u001b[40m\u001b[33mesprima@2.7.2\u001b[39m\u001b[49m \r\n  ├─┬ \u001b[40m\u001b[33mminimatch@3.0.2\u001b[39m\u001b[49m \r\n  │ └─┬ \u001b[40m\u001b[33mbrace-expansion@1.1.5\u001b[39m\u001b[49m \r\n  │   ├── \u001b[40m\u001b[33mbalanced-match@0.4.1\u001b[39m\u001b[49m \r\n  │   └── \u001b[40m\u001b[33mconcat-map@0.0.1\u001b[39m\u001b[49m \r\n  ├─┬ \u001b[40m\u001b[33mnopt@3.0.6\u001b[39m\u001b[49m \r\n  │ └── \u001b[40m\u001b[33mabbrev@1.0.9\u001b[39m\u001b[49m \r\n  ├── \u001b[40m\u001b[33mpath-is-absolute@1.0.0\u001b[39m\u001b[49m \r\n  └── \u001b[40m\u001b[33mrimraf@2.2.8\u001b[39m\u001b[49m \r\n\r\n"
+      "ansi-regex@2.0.0\u001b[39m\u001b[49m \r\n  │ │ │ ├── \u001b[40m\u001b[33mstrip-ansi@3.0.1\u001b[39m\u001b[49m \r\n  │ │ │ └── \u001b[40m\u001b[33msupports-color@2.0.0\u001b[39m\u001b[49m \r\n  │ │ └── \u001b[40m\u001b[33mlodash@4.3.0\u001b[39m\u001b[49m \r\n  │ ├── \u001b[40m\u001b[33mhooker@0.2.3\u001b[39m\u001b[49m \r\n  │ ├── \u001b[40m\u001b[33mlodash@3.10.1\u001b[39m\u001b[49m \r\n  │ └── \u001b[40m\u001b[33munderscore.string@3.2.3\u001b[39m\u001b[49m \r\n  ├─┬ \u001b[40m\u001b[33mgulp-legacy-util@1.0.0\u001b[39m\u001b[49m \r\n  │ ├── \u001b[40m\u001b[33masync@1.5.2\u001b[39m\u001b[49m \r\n  │ ├── \u001b[40m\u001b[33mgetobject@0.1.0\u001b[39m\u001b[49m \r\n  │ ├── \u001b[40m\u001b[33mlodash@4.3.0\u001b[39m\u001b[49m \r\n  │ └─┬ \u001b[40m\u001b[33mwhich@1.2.10\u001b[39m\u001b[49m \r\n  │   └── \u001b[40m\u001b[33misexe@1.1.2\u001b[39m\u001b[49m \r\n  ├── \u001b[40m\u001b[33miconv-lite@0.4.13\u001b[39m\u001b[49m \r\n  ├─┬ \u001b[40m\u001b[33mjs-yaml@3.5.5\u001b[39m\u001b[49m \r\n  │ ├─┬ \u001b[40m\u001b[33margparse@1.0.7\u001b[39m\u001b[49m \r\n  │ │ └── \u001b[40m\u001b[33msprintf-js@1.0.3\u001b[39m\u001b[49m \r\n  │ └── \u001b[40m\u001b[33mesprima@2.7.2\u001b[39m\u001b[49m \r\n  ├─┬ \u001b[40m\u001b[33mminimatch@3.0.2\u001b[39m\u001b[49m \r\n  │ └─┬ \u001b[40m\u001b[33mbrace-expansion@1.1.5\u001b[39m\u001b[49m \r\n  │   ├── \u001b[40m\u001b[33mbalanced-match@0.4.1\u001b[39m\u001b[49m \r\n  │   └── \u001b[40m\u001b[33mconcat-map@0.0.1\u001b[39m\u001b[49m \r\n  ├─┬ \u001b[40m\u001b[33mnopt@3.0.6\u001b[39m\u001b[49m \r\n  │ └── \u001b[40m\u001b[33mabbrev@1.0.9\u001b[39m\u001b[49m \r\n  ├── \u001b[40m\u001b[33mpath-is-absolute@1.0.0\u001b[39m\u001b[49m \r\n  └── \u001b[40m\u001b[33mrimraf@2.2.8\u001b[39m\u001b[49m \r\n\r\n"
     ],
     [
       0.021838,

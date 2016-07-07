@@ -68,6 +68,8 @@ https://www.youtube.com/watch?v=a-off4Vznjs&feature=youtu.be
 
 Deployments aren't so simple, just the basic is. Need for the community to step up here.
 
+https://twitter.com/rrrene
+
 Clojure
 -------
 
@@ -148,3 +150,9 @@ asp.net core
 ------------
 
 - Editor: vscode really taking off, especially in the angular community
+
+http://codeofrob.com/entries/why-you-cant-be-a-good-.net-developer.html
+https://ayende.com/blog/174433/re-why-you-cant-be-a-good-net-developer
+https://wizardsofsmart.wordpress.com/2016/06/14/net-fatigue/
+http://byterot.blogspot.com/2016/06/after-all-it-might-not-matter-commentary-status-of-dotnet-dotnetcore-csharp-oss-fsharp-dnx.html
+
