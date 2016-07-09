@@ -55,10 +55,13 @@
       }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
       .clojure-page-break { background-color: #90dc46; color: white; }
-      .clojure-page-break .hljs {background-color: #90dc46 !important; font-size: 16px; }
+      .clojure-page-break .hljs {background-color: #90dc46 !important; font-size: 22px !important; }
       .takeaways { margin-left: 150px; font-size: 35px; font-family: 'Yanone Kaffeesatz'; }
       .elixir-page-break { background-color: #4a3358; color: white; }
       .dotnet-page-break { background-color: #682a7b; color: white; }
+      .hljs { font-size: 21px; overflow: hidden !important; }
+      .medium .hljs { font-size: 19px; }
+      .small .hljs { font-size: 18px; }
 
     </style>
   </head>
@@ -309,7 +312,8 @@ class: center, middle
 ???
 
 - Most prevalent to automate project tasks
-- Similar to NPM
+- Similar to NPM/rake
+- Does not come w/
 - Project templates, dependencies, build, run tests, repl, more
 - Community plugins, write own
 
@@ -376,8 +380,8 @@ class: center, middle
 ```clojure
 (defroutes site-routes
   (GET "/" [] (render-file "templates/index.html" env))
-  (GET "/counts" [] {:status 200
-                     :body (api/create-classroom-counts env)})
+  (GET "/ccheckinounts" [] {:status 200
+                            :body (api/create-classroom-counts env)})
   (POST "/newcheckin" request {:status 200
                                :body (api/register-checkin request env)})
   (resources "/")
@@ -392,17 +396,19 @@ class: center, middle
 
 ## Retrieve check-ins
 
+.medium[
 ```clojure
 (defn- retrieve-checkins
   ([] (retrieve-checkins 1 @checkins-store))
   ([page-number checkins]
    (let [today (.toString (time/today) "MM/dd/yyyy")
          new-checkins (retrieve-checkins-for-result-page page-number)
-         new-checkin-store (add-new-checkins-to-checkins-store checkins new-checkins today)]
+         new-checkin-store (add-new-checkins-to-store checkins new-checkins today)]
      (if (= (count new-checkin-store) (count checkins))
        new-checkin-store
        (retrieve-checkins (inc page-number) new-checkin-store))))))
 ```
+]
 
 ???
 
@@ -497,13 +503,13 @@ class: center, middle
 
 ```clojure
 (defn mount-root []
-  (reagent/render [checkin-page] (.getElementById js/document "app")))
+  (reagent/render [classrooms-page] (.getElementById js/document "app")))
 
-(defn save-checkins [response]
-  (swap! checkins (fn [] response)))
+(defn save-classrooms [response]
+  (swap! classrooms (fn [] response)))
 
 (defn get-checkins []
-    (GET "/checkins" {:handler save-checkins}))
+    (GET "/classrooms" {:handler save-classrooms}))
 ```
 
 ???
@@ -514,21 +520,23 @@ class: center, middle
 
 ## Create components
 
+.medium[
 ```clojure
-(defn checkin-page []
+(defn classrooms-page []
   [:div
-   [list-classes @checkins]])
+   [list-classes @classrooms]])
 ```
 
 ```clojure
 (defn list-classes [checkins]
   [:div
    [:ul
-    (for [class checkins]
+    (for [class classrooms]
       ^{:key (:id class)} [:li
                            [:div {:style {:background-color (:color class)}}
                             (str (:name class) " " (:count class) "/" (:max class))]])]])
 ```
+]
 
 ???
 
@@ -538,8 +546,11 @@ class: center, middle
 
 ---
 
-class: center, middle
+class: center
 
+# Figwheel
+
+<br style="margin-top: 50px" />
 ![Figwheel](images/figwheel.png)
 
 ???
@@ -552,23 +563,22 @@ class: center, middle
 ## Interacting with browser
 
 ```clojure
-ClojureScript:cljs.user> (js/alert "Hello world!")
+cljs.user> (js/alert "Hello world!")
 ```
 
 ## Changing classroom count
 
 ```clojure
-ClojureScript:cljs.user> (in-ns 'kids-checkin.core)
+cljs.user> (in-ns 'kids-checkin.core)
 nil
-ClojureScript:kids-checkin.core> (def incremented-counts (map #(assoc % :count 2) @classrooms))
-ClojureScript:kids-checkin.core> (swap! classrooms (fn [] incremented-counts))
+kids-checkin.core> (def incremented-counts (map #(assoc % :count 2) @classrooms))
+kids-checkin.core> (swap! classrooms (fn [] incremented-counts))
 ({:color "red", :count 2, …}
  {:color "orange", :count 2, …}
  {:color "yellow", :count 2, …}
  {:color "green", :count 2, …}
  {:color "blue", :count 2, …}
  {:color "purple", :count 2, …})
-
 ```
 
 ???
@@ -606,7 +616,7 @@ class: clojure-page-break
 
 ???
 
-- Community: friendly, enthusiastic, passionate, active, lots of libraries, new devs (clojure bridge)
+- Community: enthusiastic, excited about what they're doing, passionate, active, lots of libraries, friendly, new devs (clojure bridge)
 - Repl handy, instead of debugging and inspecting, problem forget what you did, no tests
 - ClojureScript is fun and refreshing, bypass all js tooling/decisions, dead code elimination
 - Emacs/Spacemacs, Cursive
@@ -624,16 +634,6 @@ class: small, clojure-page-break
   side-effects.  Returns a transducer when no collection is provided."
   {:added "1.2"
    :static true}
-  ([f]
-   (fn [rf]
-     (fn
-       ([] (rf))
-       ([result] (rf result))
-       ([result input]
-          (let [v (f input)]
-            (if (nil? v)
-              result
-              (rf result v)))))))
   ([f coll]
    (lazy-seq
     (when-let [s (seq coll)]
@@ -712,7 +712,7 @@ class: center, middle, elixir-page-break
 - Dynamic, built on/extends Erlang, runs on Erlang VM/BEAM
 - Runs in processes sending messages to each other
 - Not OS processes or threads, extremely lightweight, tens of thousands simultaneously
-- Allows ability to created distributed app, scale horizontally
+- Allows ability to create distributed app, scale horizontally
 - Jose Valim, Plataformatec
 
 ---
@@ -878,6 +878,7 @@ class: center, middle
 
 ## Setup routes
 
+.medium[
 ```Elixir
 pipeline :browser do
   plug :accepts, ["html"]
@@ -902,6 +903,7 @@ scope "/api", KidsCheckin do
   post "newcheckin", WebHookController, :index
 end
 ```
+]
 
 ???
 
@@ -971,6 +973,7 @@ TODO: details on the separate file
 
 ## Erlang interop
 
+.medium[
 ```elixir
 defp get_checkins_page(page) do
   url = "https://api.onthecity.org/checkins?page=" <> to_string(page)
@@ -991,6 +994,7 @@ defp get_checkins_page(page) do
   checkins["checkins"]
 end
 ```
+]
 
 ???
 
@@ -1002,6 +1006,7 @@ end
 
 ## Creating classroom counts
 
+.medium[
 ```elixir
 def create_classroom_counts(checkins) do
   [
@@ -1018,6 +1023,7 @@ defp get_counts(checkins, id) do
   Enum.filter(Map.values(checkins), fn checkin -> checkin == id end) |> Enum.count
 end
 ```
+]
 
 ???
 
@@ -1067,8 +1073,8 @@ class: center, middle
 ???
 
 - Phoenix provides thorough guide, creating Heroku account to pushing
-- Setup environment variables, secret keys, buildpack to use
-- Enforcing HTTPS
+- Buildpack
+- Environment variables, enforcing HTTPS
 
 ---
 
@@ -1092,9 +1098,11 @@ class: elixir-page-break
 - Phoenix: nice websockets (channels) and JS pipeline
 - Docs are thorough
 - Easy to come back to
-- A lot of momentum, community growing quickly
 - Newer, community smaller, tougher to search on
+- A lot of momentum, community growing quickly
+- Easy to come back to
 - What editor to use
+- Phoenix abstracts too much
 - Didn't use OTP, use what I know (app cache), wasn't forced to change as much
 
 ---
@@ -1121,7 +1129,7 @@ class: center, middle
 
 ---
 
-class: center, middle
+## Installation and getting started
 
 <div id="dotnet-create"></div>
 
@@ -1131,6 +1139,7 @@ class: center, middle
 
 ## Setup routes
 
+.medium[
 ```csharp
 public void Configure()
 {
@@ -1142,6 +1151,7 @@ public void Configure()
     });
 }
 ```
+
 ```csharp
 [Route("api/[controller]")]
 public class NewCheckinController : Controller
@@ -1156,6 +1166,7 @@ public class NewCheckinController : Controller
     }
 }
 ```
+]
 
 ???
 
@@ -1166,6 +1177,7 @@ public class NewCheckinController : Controller
 
 ## Retrieve check-ins
 
+.small[
 ```csharp
 public async Task<Dictionary<string, string>> CreateUpdatedCheckinList()
 {
@@ -1192,6 +1204,7 @@ private bool WasUnseenCheckinReceived(
     return count != current.Count();
 }
 ```
+]
 
 ???
 
@@ -1203,7 +1216,7 @@ private bool WasUnseenCheckinReceived(
 
 ## Configuration
 
-
+.medium[
 ```csharp
 public Startup(IHostingEnvironment env)
 {
@@ -1229,8 +1242,9 @@ public void ConfigureServices(IServiceCollection services)
 ```
 
 ```csharp
-public CheckinRetrievalService(IMemoryCache cache, IOptions<ApiConfiguration> apiConfiguration)
+public CheckinRetrievalService(IOptions<ApiConfiguration> apiConfiguration)
 ```
+]
 
 ???
 
@@ -1242,6 +1256,7 @@ public CheckinRetrievalService(IMemoryCache cache, IOptions<ApiConfiguration> ap
 
 ## Creating classroom counts
 
+.small[
 ```csharp
 private List<ClassroomProperties>() CreateNewClassroomList()
 {
@@ -1265,6 +1280,7 @@ private int GetClassroomCount(string id, Dictionary<string, string> checkins)
     return checkins.Where(checkin => checkin.Value == id).Count();
 }
 ```
+]
 
 ???
 
@@ -1303,6 +1319,8 @@ webSocket.onmessage = function (evt) {
 
 class: center, middle
 
+# Deployment: Azure
+
 ![Azure](images/azure.png)
 
 ???
@@ -1319,7 +1337,7 @@ class: dotnet-page-break
 
 .takeaways[
 - Quickly progressing
-- Good docs, but out of date
+- Good docs, but…
 - Secret Manager
 - Community
 - Missing pieces
@@ -1360,11 +1378,12 @@ class: center
 - Lot of similar components, but for a different set of problems, still interesting to compare
 - .Net missing repl, but better debug experience
 - Microsoft big player, others little guys (cosulting), implications -> community
+- Can see how this leads to two different mindsets
 - Tendency to look to them, bring into fold, asp.net monsters
 
 ---
 
-class: center, middle
+class: center
 
 # Community: All have their issues
 

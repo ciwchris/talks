@@ -1,0 +1,14 @@
+# All
+
+- Videos for static
+- Creating the checkin counts
+
+
+# Clojure
+
+- Branch example
+- ClojureScript setup
+
+# Elixir
+
+- pattern matching tuples and function definitions

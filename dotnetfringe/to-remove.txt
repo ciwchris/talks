@@ -1,0 +1,21 @@
+# All
+
+- Videos to commands
+- Creating the class room counts
+
+# Clojure
+
+- Branching
+- Reagent component mount
+- Terse
+
+# Elixir
+
+- Function pattern matching
+
+
+# Questions
+
+- Moving too quickly through code samples? Too much code?
+- Ending, too down?
+
