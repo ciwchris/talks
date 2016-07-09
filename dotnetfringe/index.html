@@ -138,83 +138,11 @@ class: center, middle
 
 class: center, middle
 
-![Me](images/dilpert.jpe)
-# Microsoft all the things
-
-???
-
-- I've been a web developer on Windows for my entire pro career, asp
-- Typical developer
-- More than a day job
-- Not going home every night
-- Twitter, Podcasts, Videos
-- Consult StackOverflow often, rarely contribute
-- Attend occasional conference but have never spoken
-
----
-
-class: center, middle
-
-![SO](images/nuget.png)
-
-???
-
-- At work we're all in, NuGet to install our libs
-- Angular, surprise
-
----
-
-class: center, middle
-
---
-![grunt](images/grunt.png)
---
-![gulp](images/gulp.png)
---
-![browserify](images/browerify.png)
---
-![webpack](images/webpack.jpe)
---
-<br />
-![rollupjs](images/rollupjs.png)
---
-![babel](images/babel.png)
---
-![eslint](images/eslint.png)
-
-
-???
-
-- No JavaScript build process, etc
-- BundleTransformer to transpile, bundle and minify.
-
----
-
-class: center, middle
-
 ![SO](images/arch.png)
 
 ???
 
-- Atypical
-- Not hardcore, recompiling the kernel
-- Doing any asp.net, not friendly
-- Mono impressive
-- [strike: Quicksilver, Gnome Do]
-- Challenges: NuGet
-
----
-
-class: center, middle
-
-![SO](images/mono-cli.png)
-
-???
-
-- Looking at early versions of omnisharp
-- Limit on cli, how even to get started?
-- Guess I can answer now
-- With that in mind let's talk about
+-
 
 ---
 
@@ -241,22 +169,6 @@ user=> (+ 1 2 3 4)
 user=> (+ 1 (* 2 3) 4)
 11
 ```
-
-## Branching
-
-```clojure
-user=> (def hello "hello")
-#'user/hello
-user=> (def world "world")
-#'user/world
-user=> (if
-  #_=>     (or
-  #_=>         (and (= hello "hello") (= world "world"))
-  #_=>         (not= hello world))
-  #_=>     (str hello " " world))
-"hello world"
-```
-
 
 ???
 
@@ -499,25 +411,6 @@ class: center, middle
 
 ---
 
-## ClojureScript: page initialization
-
-```clojure
-(defn mount-root []
-  (reagent/render [classrooms-page] (.getElementById js/document "app")))
-
-(defn save-classrooms [response]
-  (swap! classrooms (fn [] response)))
-
-(defn get-checkins []
-    (GET "/classrooms" {:handler save-classrooms}))
-```
-
-???
-
-- Mounts component, like React
-
----
-
 ## Create components
 
 .medium[
@@ -729,12 +622,6 @@ iex(3)> "world" = a
 ```
 
 ```elixir
-iex(1)> {hello, world} = {"hello", "world"}
-{"hello", "world"}
-iex(2)> {hello, "world"} = {"hello", "world"}
-{"hello", "world"}
-iex(3)> {hello, "world!"} = {"hello", "world"}
-   (MatchError) no match of right hand side value: {"hello", "world"}
 iex(3)> case {:ok, "hello world"} do
 ...(3)>      {:ok, result} -> result
 ...(3)>      {:error, result} -> result
@@ -782,17 +669,6 @@ iex(5)> hello.(1)
 ---
 
 ## Map, filter and reduce
-
-```elixir
-iex(1)> Enum.map(1..10, fn x -> x + 1 end)
-[2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-iex(2)> Enum.filter(1..10, fn x -> 0 == rem(x, 2) end)
-[2, 4, 6, 8, 10]
-iex(3)> Enum.reduce(1..10, fn(x, acc) -> acc + x end)
-55
-```
-
-## Using pipes
 
 ```elixir
 iex(4)> 1..10 \                                  
