@@ -90,13 +90,23 @@ class: center, middle
 
 class: center, middle
 
-![Closed](images/come-in-were-closed.jpg)
+![Closed](images/classroom.jpg)
+
 
 ???
 
 - I'm a web developer
 - Moonlight helping to check
 - The system that we use
+
+---
+
+class: center, middle
+
+![Closed](images/come-in-were-closed.jpg)
+
+???
+
 - We have limited classroom space
 - Therefore one of my duties
 - Can't monitor on phone, need to interrupt
@@ -308,7 +318,6 @@ class: center, middle
 
 ## Retrieve check-ins
 
-.medium[
 ```clojure
 (defn- retrieve-checkins
   ([] (retrieve-checkins 1 @checkins-store))
@@ -320,7 +329,6 @@ class: center, middle
        new-checkin-store
        (retrieve-checkins (inc page-number) new-checkin-store))))))
 ```
-]
 
 ???
 
@@ -413,7 +421,6 @@ class: center, middle
 
 ## Create components
 
-.medium[
 ```clojure
 (defn classrooms-page []
   [:div
@@ -429,7 +436,6 @@ class: center, middle
                            [:div {:style {:background-color (:color class)}}
                             (str (:name class) " " (:count class) "/" (:max class))]])]])
 ```
-]
 
 ???
 
@@ -496,7 +502,7 @@ class: center, middle
 
 class: clojure-page-break
 
-# Takeaways
+# Clojure takeaways
 
 .takeaways[
 - Community enthusiastic and active
@@ -849,7 +855,6 @@ TODO: details on the separate file
 
 ## Erlang interop
 
-.medium[
 ```elixir
 defp get_checkins_page(page) do
   url = "https://api.onthecity.org/checkins?page=" <> to_string(page)
@@ -870,7 +875,6 @@ defp get_checkins_page(page) do
   checkins["checkins"]
 end
 ```
-]
 
 ???
 
@@ -882,7 +886,6 @@ end
 
 ## Creating classroom counts
 
-.medium[
 ```elixir
 def create_classroom_counts(checkins) do
   [
@@ -899,7 +902,6 @@ defp get_counts(checkins, id) do
   Enum.filter(Map.values(checkins), fn checkin -> checkin == id end) |> Enum.count
 end
 ```
-]
 
 ???
 
@@ -956,7 +958,7 @@ class: center, middle
 
 class: elixir-page-break
 
-# Takeaways
+# Elixir takeaways
 
 .takeaways[
 - Phoenix fit my need perfectly
@@ -1092,7 +1094,6 @@ private bool WasUnseenCheckinReceived(
 
 ## Configuration
 
-.medium[
 ```csharp
 public Startup(IHostingEnvironment env)
 {
@@ -1120,7 +1121,6 @@ public void ConfigureServices(IServiceCollection services)
 ```csharp
 public CheckinRetrievalService(IOptions<ApiConfiguration> apiConfiguration)
 ```
-]
 
 ???
 
@@ -1132,7 +1132,6 @@ public CheckinRetrievalService(IOptions<ApiConfiguration> apiConfiguration)
 
 ## Creating classroom counts
 
-.small[
 ```csharp
 private List<ClassroomProperties>() CreateNewClassroomList()
 {
@@ -1156,7 +1155,6 @@ private int GetClassroomCount(string id, Dictionary<string, string> checkins)
     return checkins.Where(checkin => checkin.Value == id).Count();
 }
 ```
-]
 
 ???
 
@@ -1209,7 +1207,7 @@ class: center, middle
 
 class: dotnet-page-break
 
-# Takeaways
+# .Net Core takeaways
 
 .takeaways[
 - Quickly progressing
@@ -1330,8 +1328,8 @@ class: center, middle
     <script src="remark-latest.min.js"></script>
     <script>
         var slideshow = remark.create({
-            ratio: '14:9',
-            //ratio: '16:9',
+            //ratio: '14:9',
+            ratio: '16:9',
             //ratio: '4:3',
             slideNumberFormat: '',
             highlightLines: true
