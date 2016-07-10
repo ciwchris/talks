@@ -372,7 +372,19 @@ It's frustrating because they're not trying to learn something new they're tryin
 
 We should be worried that too many people are coming in too fast, because then you will have, for example, bad StackOverflow answers marked as the correct solution. And then bad practices will propagate through the larger community. Rene 45
 
+6-27 17:46 - evolving around what's happening in Phoenix and what's happening in ecto, almost like they have been married from the beginning. It does concern me a little bit because if everyone believes that using elixir equates to using Phoenix and using Phoenix equates to using Ecto it limits are ability to find new grounds or break new innovations because we are stuck in our little world of these are the couple of tools that you use and that you have to use. I don't want to say its bad. Of course it's great for people adopting, or doing web development, or coming from Rails. But there's a whole world that doesn't need these. There's this confusion that is happening.
 
+The main confusion people coming from Rails is that Phoenix and Ecto are separate libraries. You can use one without the other. They are so used to the idea that you get the whole framework and one bundle of everything. They don't even consider that it is multiple components. The structure that Phoenix generates right now encourages this kind of thinking. Because you get everything in one thing, like I said. I'm not very happy with that.
+
+22:10 a great pattern to separate your application and not have everything bundled up together
+
+6/13 42:15 - whole other podcast and whether at the right pace
+     43:00 - mass of new people coming through Phoenix
+     44:08 - have to start thinking differently, need to convey to people now
+     45:00 - apply what they know to the new thing
+     45:45 - community too fast
+     49:30 - want to be an attractive ecosystem but don't want people to dilute
+35:30: Ecto is deeper into Phoenix than just plugging in/out
 
 Some are leaving, some are frustrated (brad wilson tweet?), but now
 

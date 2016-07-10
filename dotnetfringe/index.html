@@ -28,6 +28,9 @@
       blockquote footer::before {
           content: '\2014 \00A0';
       }
+      .small blockquote {
+          font-size: 100%;
+      }
       body { font-family: 'Droid Serif'; }
       h1, h2, h3 {
         font-family: 'Yanone Kaffeesatz';
@@ -354,36 +357,6 @@ class: center, middle
 
 ---
 
-## Configuration
-
-```clojure
-{:key "xxxxxxxxxxxxxxxxxxxxxxx"
- :user-token "xxxxxxxxxxxxxxxx"}
-```
-
-## Read in configuration
-
-```clojure
-(defn- load-config
-  []
-  (edn/read-string (slurp "src/clj/kids_checkin/config.edn")))
-```
-
-## Use
-
-```clojure
-(let [config (load-config)
-    (:user-token config))
-```
-
-???
-
-- API key and token
-- Stored in an edn file, contain clojure data, pulled into application
-- Env vars using Environ
-
----
-
 ## Java interop
 
 ```clojure
@@ -516,7 +489,6 @@ class: clojure-page-break
 - Repl driven development
 - ClojureScript refreshing
 - Figwheel simplifies workflow
-- Editor?
 - No complete out of the box web framework
 ]
 
@@ -651,33 +623,6 @@ hello world
 - Tuples used often, send data or return multiple pieces from function
 - Used with destructing to extract and branch on results, if statements less frequently
 - Match any
-
----
-
-## In function definitions
-
-```clojure
-iex(1)> hello = fn
-...(1)>     %{:name => name} -> "Hello " <> name
-...(1)>     %{:first => first, :last => last} -> "Hello " <> first <> " " <> last
-...(1)>     _ -> "Hello"
-...(1)> end
-#Function<6.50752066/1 in :erl_eval.expr/5>
-iex(2)> hello.(%{:name => "full name"})
-"Hello full name"
-iex(3)> hello.(%{:first => "first", :last => "last"})
-"Hello first last"
-iex(4)> hello.(%{:first => "first", :last => "last", :name => "full name"})
-"Hello full name"
-iex(5)> hello.(1)               
-"Hello"
-```
-
-???
-
-- Bind function to hello
-- Pattern match definition
-- Match anything
 
 ---
 
@@ -832,35 +777,6 @@ end
 
 ---
 
-## Configuration
-
-```elixir
-config :kids_checkin, :thecity_secret_key, "xxxxxxxxxxxxxxxxxxxxx"
-config :kids_checkin, :thecity_user_token, "xxxxxxxxxxxxxxxx"
-```
-
-## Include
-
-```elixir
-use Mix.Config
-
-import_config "thecity.secret.exs"
-```
-## Use
-
-```elixir
-Application.get_env(:kids_checkin, :thecity_secret_key)
-```
-
-???
-
-TODO: details on the separate file
-
-- Dev: separate config file, not in source control
-- Production environment variables
-
----
-
 ## Erlang interop
 
 ```elixir
@@ -971,10 +887,8 @@ class: elixir-page-break
 .takeaways[
 - Phoenix fit my need perfectly
 - Elixir and Phoenix docs thorough
-- Community smaller, tougher to search on
+- Community smaller
 - Lot of momentum
-- Easy to come back to
-- Editor?
 - Phoenix abstracts too much?
 - Didn't use OTP
 ]
@@ -985,8 +899,6 @@ class: elixir-page-break
 - Docs are thorough
 - Newer, community smaller, tougher to search on
 - A lot of momentum, community growing quickly
-- Easy to come back to
-- What editor to use
 - Phoenix abstracts too much
 - Didn't use OTP, use what I know (app cache), wasn't forced to change as much
 
@@ -1055,6 +967,7 @@ public class NewCheckinController : Controller
 
 ???
 
+- NOTHING special here, moving on
 - Standard MVC
 - Standard WebAPI attributes
 
@@ -1093,6 +1006,8 @@ private bool WasUnseenCheckinReceived(
 
 ???
 
+- STANDARD thing, page through checkins
+- INTERESTING thing, changing state, to creating new list
 - Use in memory
 - Retrieve checkins, add to list (sneaky state), see if counts are different
 - Set new list
@@ -1133,7 +1048,9 @@ public CheckinRetrievalService(IOptions<ApiConfiguration> apiConfiguration)
 
 ???
 
-- Secret Manager, environment var
+- Skip config in other stacks but worth mention here
+- API requires a, don't want to store in repo
+- in .Net there's an interesting implementation, Secret Manager, environment var
 - Register the config object
 - DI
 
@@ -1166,6 +1083,8 @@ private int GetClassroomCount(string id, Dictionary<string, string> checkins)
 ```
 
 ???
+
+- INTERESTING thing, created a type for properties
 
 ---
 
@@ -1223,10 +1142,8 @@ class: dotnet-page-break
 - Quickly progressing
 - Good docs, but…
 - Secret Manager
-- Community
 - Missing pieces
 - Editor?
-- Right at home
 ]
 
 ???
@@ -1234,11 +1151,10 @@ class: dotnet-page-break
 - Ubuntu 14.04/16.04/AUR (relied on community)
 - At RC2 docs no longer accurate, git issues: sample apps in repos nice
 - Secret solution, not encrypted, but no diff
-- Libraries: sidelines (less options now), tired of chasing RC2, but responsive: nicholas blumhardt
-- Dotnet cli, nice, but limited. Community needs to dive in. Yeoman has Nancy
-- No SignalR for websockets
+- Missing
+    - Dotnet cli, nice, but limited. Community needs to dive in. Yeoman has Nancy
+    - No SignalR for websockets
 - Nice to have editor option, but: ominsharp, debugger, vim (crash)
-- Skills transferable, good for those invested and make the move
 
 ---
 
@@ -1262,7 +1178,8 @@ class: center
 - Lot of similar components, but for a different set of problems, still interesting to compare
 - .Net missing repl, but better debug experience
 - Microsoft big player, others little guys (cosulting), implications -> community
-- Can see how this leads to two different mindsets
+- Can see how this leads to two different mindsets, of both the community and Microsoft
+- One issue, there are others
 - Tendency to look to them, bring into fold, asp.net monsters
 
 ---
@@ -1284,10 +1201,11 @@ class: center
 
 ---
 
-class: center, middle
+class: center
 
 # Community: All have their issues
 
+.small[
 <blockquote>
   <p>We should be worried that too many people are coming in too fast, because then you will have, for example, bad StackOverflow answers marked as the correct solution. And then bad practices will propagate through the larger community.</p>
   <footer>René Föhring</footer>
@@ -1299,15 +1217,23 @@ class: center, middle
 </blockquote>
 
 <blockquote>
-    <p>The community in evolving around what's happening in Phoenix and what's happening. It's almost like they've been married from the beginning. It does concern </p>
+    <p>… if everyone believes that using Elixir equates to using Phoenix and using Phoenix equates to using Ecto it limits are ability to find new grounds or break new innovations because we are stuck in our little world of these are the couple of tools that you use and that you have to use.</p>
   <footer>Johnny Winn</footer>
 </blockquote>
+]
+
 
 ???
+It does concern me a little bit because if everyone believes that using Elixir equates to using Phoenix and using Phoenix equates to using Ecto it limits are ability to find new grounds or break new innovations because we are stuck in our little world of these are the couple of tools that you use and that you have to use.
 
-TODO: fix quote!!!!!!
+- Want to be an attractive ecosystem but don't want people to dilute
+- Training wheels vs riding a bike
+- The structure that Phoenix generates right now encourages this kind of thinking. Because you get everything in one thing, like I said. I'm not very happy with that.
+- Great time for .net though
+- Unforeseen consequence, people are going to have to change
+- This is a rare time. Almost like a start over.
+- Opportunities to set a new mindset, a new direction.
 
-- So too does the .net community have its issues
 
 ---
 
@@ -1322,7 +1248,8 @@ class: center, middle
 
 - I'll leave you with
 - When I'm sitting there in the audience, listen to all the impressive things
-- Exclude myself from that group, I just average developer
+- A I think about the possibility of a different community, a new mindset
+- I don't include myself in that group, that's for those people doing impressive work.
 - But this is a community. It is a community. I am part. What are implications for me.
 - Doesn't mean I have to go it alone, but I can do something
 - What does that mean for you?
