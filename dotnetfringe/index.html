@@ -49,6 +49,15 @@
       tbody tr:nth-of-type(2n+1) {
           background-color: #f9f9f9;
       }
+      tbody tr:nth-child(5) {
+          background-color: #ff0;
+      }
+      tbody tr:nth-child(6) {
+          background-color: #ff0;
+      }
+      tbody tr:nth-child(8) {
+          background-color: #ff0;
+      }
       tbody tr td {
           border: 1px solid #ddd;
           padding: 8px;
@@ -139,7 +148,8 @@ class: center, middle
 - Server send requests to the API
 - Broadcasts to connected clients
 - Second: count, buttons to increment/decrement, kid is moved
-- Figured, good small, learning project, real need
+- Figured, good small, learning project
+- So recreated the app in
 - But before I talk about the app be helpful to know my background and what prospective I bring
 
 - Talk is my reflections after implementing in different stacks
@@ -152,7 +162,9 @@ class: center, middle
 
 ???
 
--
+- During the week day I am a web developer on Windows
+- At home I use Arch
+- And that is what I will be using to develop the app in each stack
 
 ---
 
@@ -302,7 +314,7 @@ class: center, middle
 ```clojure
 (defroutes site-routes
   (GET "/" [] (render-file "templates/index.html" env))
-  (GET "/ccheckinounts" [] {:status 200
+  (GET "/checkincounts" [] {:status 200
                             :body (api/create-classroom-counts env)})
   (POST "/newcheckin" request {:status 200
                                :body (api/register-checkin request env)})
@@ -312,6 +324,7 @@ class: center, middle
 
 ???
 
+- Not important to understand the code in detail, just to give a sense what it looks to develop
 - Routes using Compojure
 
 ---
@@ -424,14 +437,8 @@ class: center, middle
 ```clojure
 (defn classrooms-page []
   [:div
-   [list-classes @classrooms]])
-```
-
-```clojure
-(defn list-classes [checkins]
-  [:div
    [:ul
-    (for [class classrooms]
+    (for [class @classrooms]
       ^{:key (:id class)} [:li
                            [:div {:style {:background-color (:color class)}}
                             (str (:name class) " " (:count class) "/" (:max class))]])]])
@@ -483,7 +490,7 @@ kids-checkin.core> (swap! classrooms (fn [] incremented-counts))
 ???
 
 - classrooms outputted 2x, only showing once here
-- Hooks up browser repl
+- Sets up browser repl automatically
 
 ---
 
@@ -744,6 +751,7 @@ class: center, middle
 - Complete out of the box solution
 - On surface familiar to other web frameworks
 - MVC, db framework , Brunch on front end for asset management
+- Jimmy's prediction will not come to fruition
 
 ---
 
@@ -975,7 +983,6 @@ class: elixir-page-break
 
 - Phoenix: nice websockets (channels) and JS pipeline
 - Docs are thorough
-- Easy to come back to
 - Newer, community smaller, tougher to search on
 - A lot of momentum, community growing quickly
 - Easy to come back to
@@ -1094,6 +1101,7 @@ private bool WasUnseenCheckinReceived(
 
 ## Configuration
 
+.medium[
 ```csharp
 public Startup(IHostingEnvironment env)
 {
@@ -1121,6 +1129,7 @@ public void ConfigureServices(IServiceCollection services)
 ```csharp
 public CheckinRetrievalService(IOptions<ApiConfiguration> apiConfiguration)
 ```
+]
 
 ???
 
@@ -1200,6 +1209,7 @@ class: center, middle
 ???
 
 - Azure
+- Much geared toward VS, and PowerShell
 - Setup git push
 - Turn on websocket, looked at key vault, went with env var
 
@@ -1289,13 +1299,16 @@ class: center, middle
 </blockquote>
 
 <blockquote>
-    <p>The community in eloving around what's happening in Phoenix and what's happening. It's almost like they've been married from the beginning. It does concern </p>
+    <p>The community in evolving around what's happening in Phoenix and what's happening. It's almost like they've been married from the beginning. It does concern </p>
   <footer>Johnny Winn</footer>
 </blockquote>
 
 ???
 
+TODO: fix quote!!!!!!
+
 - So too does the .net community have its issues
+
 ---
 
 class: center, middle
