@@ -52,15 +52,15 @@
       tbody tr:nth-of-type(2n+1) {
           background-color: #f9f9f9;
       }
-      tbody tr:nth-child(5) {
-          background-color: #ff0;
-      }
-      tbody tr:nth-child(6) {
-          background-color: #ff0;
-      }
-      tbody tr:nth-child(8) {
-          background-color: #ff0;
-      }
+//      tbody tr:nth-child(5) {
+//          background-color: #ff0;
+//      }
+//      tbody tr:nth-child(6) {
+//          background-color: #ff0;
+//      }
+//      tbody tr:nth-child(8) {
+//          background-color: #ff0;
+//      }
       tbody tr td {
           border: 1px solid #ddd;
           padding: 8px;
@@ -167,7 +167,10 @@ class: center, middle
 
 - During the week day I am a web developer on Windows
 - At home I use Arch
-- And that is what I will be using to develop the app in each stack
+- And that is what I will be using recreate the app in each stack
+- Moving through code quickly
+- Not the intention to understand the code in detail
+- Give a sense what it looks to develop
 
 ---
 
@@ -258,8 +261,6 @@ class: center, middle
 
 class: center, middle
 
---
-
 # Ring + Compojure
 
 ???
@@ -327,7 +328,6 @@ class: center, middle
 
 ???
 
-- Not important to understand the code in detail, just to give a sense what it looks to develop
 - Routes using Compojure
 
 ---
@@ -425,48 +425,6 @@ class: center, middle
 
 ---
 
-class: center
-
-# Figwheel
-
-<br style="margin-top: 50px" />
-![Figwheel](images/figwheel.png)
-
-???
-
-- Creates a websocket connection and hotloads code
-- Error messages simpler
-
----
-
-## Interacting with browser
-
-```clojure
-cljs.user> (js/alert "Hello world!")
-```
-
-## Changing classroom count
-
-```clojure
-cljs.user> (in-ns 'kids-checkin.core)
-nil
-kids-checkin.core> (def incremented-counts (map #(assoc % :count 2) @classrooms))
-kids-checkin.core> (swap! classrooms (fn [] incremented-counts))
-({:color "red", :count 2, …}
- {:color "orange", :count 2, …}
- {:color "yellow", :count 2, …}
- {:color "green", :count 2, …}
- {:color "blue", :count 2, …}
- {:color "purple", :count 2, …})
-```
-
-???
-
-- classrooms outputted 2x, only showing once here
-- Sets up browser repl automatically
-
----
-
 class: center, middle
 
 # Deployment: Heroku
@@ -488,7 +446,6 @@ class: clojure-page-break
 - Community enthusiastic and active
 - Repl driven development
 - ClojureScript refreshing
-- Figwheel simplifies workflow
 - No complete out of the box web framework
 ]
 
@@ -606,23 +563,10 @@ iex(3)> "world" = a
    (MatchError) no match of right hand side value: "hello"
 ```
 
-```elixir
-iex(3)> case {:ok, "hello world"} do
-...(3)>      {:ok, result} -> result
-...(3)>      {:error, result} -> result
-...(3)>      _ -> "something unexpected"
-...(3)> end
-hello world
-:ok
-```
-
 ???
 
 - Important concept
 - Not equal is assignment, match operator
-- Tuples used often, send data or return multiple pieces from function
-- Used with destructing to extract and branch on results, if statements less frequently
-- Match any
 
 ---
 
@@ -696,7 +640,7 @@ class: center, middle
 - Complete out of the box solution
 - On surface familiar to other web frameworks
 - MVC, db framework , Brunch on front end for asset management
-- Jimmy's prediction will not come to fruition
+- Unfortunate name, but hopefully not meet the fate Jimmy
 
 ---
 
@@ -1224,11 +1168,8 @@ class: center
 
 
 ???
-It does concern me a little bit because if everyone believes that using Elixir equates to using Phoenix and using Phoenix equates to using Ecto it limits are ability to find new grounds or break new innovations because we are stuck in our little world of these are the couple of tools that you use and that you have to use.
 
-- Want to be an attractive ecosystem but don't want people to dilute
-- Training wheels vs riding a bike
-- The structure that Phoenix generates right now encourages this kind of thinking. Because you get everything in one thing, like I said. I'm not very happy with that.
+- Want to be an attractive ecosystem but don't want people to dilute, training wheels vs riding a bike
 - Great time for .net though
 - Unforeseen consequence, people are going to have to change
 - This is a rare time. Almost like a start over.
