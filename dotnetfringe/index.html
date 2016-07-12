@@ -383,29 +383,6 @@ class: center, middle
 
 ---
 
-## Creating classroom counts
-
-```clojure
-(defn- count-checkins-for-classrom
-  [classroom-id checkins]
-  (count (filter #(= classroom-id (second %)) checkins)))
-
-(defn create-classroom-counts
-  [checkins]
-  [{:color "red" :count (count-checkins-for-classroom 108117 checkins)…}
-   {:color "orange" :count (count-checkins-for-classroom 108119 checkins)…}
-   {:color "yellow" :count (count-checkins-for-classroom 108120 checkins)…}
-   {:color "green" :count (count-checkins-for-classroom 144673 checkins)…}
-   {:color "blue" :count (count-checkins-for-classroom 108123 checkins)…}
-   {:color "purple" :count (count-checkins-for-classroom 89515 checkins)…}])
-```
-
-???
-
-- Request to retrieve check-ins, list is created for each classroom, calculates the count
-
----
-
 ## Create components
 
 ```clojure
@@ -726,32 +703,6 @@ end
 
 ---
 
-## Creating classroom counts
-
-```elixir
-def create_classroom_counts(checkins) do
-  [
-    %{"color" => "red", "count" => get_counts(checkins, 108117), …},
-    %{"color" => "orange", "count" => get_counts(checkins, 108119), …},
-    %{"color" => "yellow", "count" => get_counts(checkins, 108120), …},
-    %{"color" => "green", "count" => get_counts(checkins, 144673), …},
-    %{"color" => "blue", "count" => get_counts(checkins, 108123), …},
-    %{"color" => "purple", "count" => get_counts(checkins, 89515), …}
-  ]
-end
-
-defp get_counts(checkins, id) do
-  Enum.filter(Map.values(checkins), fn checkin -> checkin == id end) |> Enum.count
-end
-```
-
-???
-
-- List is created with properties of each classroom in a map
-- Count is found by looking at id of classroom.
-
----
-
 ## Websockets with Phoenix
 
 ```javascript
@@ -971,38 +922,6 @@ public CheckinRetrievalService(IOptions<ApiConfiguration> apiConfiguration)
 - in .Net there's an interesting implementation, Secret Manager (Kassandra), environment var
 - Register the config object
 - DI
-
----
-
-## Creating classroom counts
-
-```csharp
-private List<ClassroomProperties>() CreateNewClassroomList()
-{
-    var checkins = checkinRetrievalService.CreateUpdatedCheckinList().Result;
-
-    var counts = new List<ClassroomProperties>(); 
-    counts.Add(new ClassroomProperties { Count = GetClassroomCount("108117", checkins), …}); 
-    counts.Add(new ClassroomProperties { Count = GetClassroomCount("108119", checkins), …});
-    counts.Add(new ClassroomProperties { Count = GetClassroomCount("108120", checkins), …});
-    counts.Add(new ClassroomProperties { Count = GetClassroomCount("144673", checkins), …});
-    counts.Add(new ClassroomProperties { Count = GetClassroomCount("108123", checkins), …});
-    counts.Add(new ClassroomProperties { Count = GetClassroomCount("89515", checkins), …});
-
-    return counts;
-}
-```
-
-```csharp
-private int GetClassroomCount(string id, Dictionary<string, string> checkins)
-{
-    return checkins.Where(checkin => checkin.Value == id).Count();
-}
-```
-
-???
-
-- INTERESTING thing, created a type for properties
 
 ---
 
