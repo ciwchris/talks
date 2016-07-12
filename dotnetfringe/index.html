@@ -109,7 +109,8 @@ class: center, middle
 
 - I'm a web developer
 - Moonlight helping to check
-- The system that we use
+- We use a pretty slick system, self service
+- We have limited classroom space however
 
 ---
 
@@ -425,6 +426,34 @@ class: center, middle
 
 ---
 
+# Figwheel/Browser repl
+
+```clojure
+cljs.user> (js/alert "Hello world!")
+```
+
+## Changing classroom count
+
+```clojure
+cljs.user> (in-ns 'kids-checkin.core)
+nil
+kids-checkin.core> (def incremented-counts (map #(assoc % :count 2) @classrooms))
+kids-checkin.core> (swap! classrooms (fn [] incremented-counts))
+({:color "red", :count 2, …}
+ {:color "orange", :count 2, …}
+ {:color "yellow", :count 2, …}
+ {:color "green", :count 2, …}
+ {:color "blue", :count 2, …}
+ {:color "purple", :count 2, …})
+```
+
+???
+
+- classrooms outputted 2x, only showing once here
+- Sets up browser repl automatically
+
+---
+
 class: center, middle
 
 # Deployment: Heroku
@@ -447,94 +476,39 @@ class: clojure-page-break
 - Repl driven development
 - ClojureScript refreshing
 - No complete out of the box web framework
+- Terse: `(cons x (keep f (rest s)))`
+- Error messages/stack traces
 ]
+
+--
+.image-overlay[![Terse](images/terse-lisp.png)]
 
 ???
 
 - Community: enthusiastic, excited about what they're doing, passionate, active, lots of libraries, friendly, new devs (clojure bridge)
 - Repl handy, instead of debugging and inspecting, problem forget what you did, no tests
 - ClojureScript is fun and refreshing, bypass all js tooling/decisions, dead code elimination
-- Emacs/Spacemacs, Cursive
 - No framework to guide, lot of work past to figure out past Reagent
-- Tougher to come back, how did that work, how did I use the tool => greater learning curve
-
----
-
-class: small, clojure-page-break
-
-```clojure
-(defn keep
-  "Returns a lazy sequence of the non-nil results of (f item). Note,
-  this means false return values will be included.  f must be free of
-  side-effects.  Returns a transducer when no collection is provided."
-  {:added "1.2"
-   :static true}
-  ([f coll]
-   (lazy-seq
-    (when-let [s (seq coll)]
-      (if (chunked-seq? s)
-        (let [c (chunk-first s)
-              size (count c)
-              b (chunk-buffer size)]
-          (dotimes [i size]
-            (let [x (f (.nth c i))]
-              (when-not (nil? x)
-                (chunk-append b x))))
-          (chunk-cons (chunk b) (keep f (chunk-rest s))))
-        (let [x (f (first s))]
-          (if (nil? x)
-            (keep f (rest s))
-            (cons x (keep f (rest s))))))))))
-```
---
-.image-overlay[![Terse](images/terse-lisp.png)]
-
-???
-
-- Keep, removes nil
-- Reading the clojure code of others
-- Common practice: terse, hard to read, single letter names
+- Andrea needs to give a talk to Clojure community
 
 ---
 
 class: clojure-page-break
 
-```
-Exception in thread "main" clojure.lang.ArityException: Wrong number of args (2) passed to: StringReader: (abnf.clj:189:28)
-    at clojure.lang.Compiler$InvokeExpr.eval(Compiler.java:3628)
-    at clojure.lang.Compiler$InvokeExpr.eval(Compiler.java:3622)
-    at clojure.lang.Compiler$DefExpr.eval(Compiler.java:439)
-    at clojure.lang.Compiler.eval(Compiler.java:6787)
-    at clojure.lang.Compiler.load(Compiler.java:7227)
-    at clojure.lang.RT.loadResourceScript(RT.java:371)
-    at clojure.lang.RT.loadResourceScript(RT.java:362)
-    at clojure.lang.RT.load(RT.java:446)
-    at clojure.lang.RT.load(RT.java:412)
-    at clojure.core$load$fn__5448.invoke(core.clj:5866)
-    at instaparse.core$eval9510.invoke(core.clj:1)
-    at clojure.lang.AFn.applyToHelper(AFn.java:156)
-    at clojure.lang.Var.applyTo(Var.java:700)
-    at clojure.main.main(main.java:37)
-Caused by: clojure.lang.ArityException: Wrong number of args (2) passed to: StringReader
-    at clojure.lang.AFn.throwArity(AFn.java:429)
-    at clojure.lang.AFn.invoke(AFn.java:36)
-    at instaparse.cfg$build_rule.invoke(cfg.clj:214)
-    at clojure.core$map$fn__4553.invoke(core.clj:2622)
-    at clojure.core$into.invoke(core.clj:6600)
-    at instaparse.cfg$ebnf.invoke(cfg.clj:277)
-    at clojure.lang.AFn.applyToHelper(AFn.java:154)
-    at clojure.lang.AFn.applyTo(AFn.java:144)
-    at clojure.lang.Compiler$InvokeExpr.eval(Compiler.java:3623)
-    ... 125 more
-```
+# Clojure takeaways
+
+.takeaways[
+- Community enthusiastic and active
+- Repl driven development
+- ClojureScript refreshing
+- No complete out of the box web framework
+- Terse: `(cons x (keep f (rest s)))`
+- Error messages/stack traces
+]
+
 .right-col[![Stack](images/clojure-stack.png)]
 
 ???
-
-- Challenging figure out errors, misleading
-- Constant high item on state of clojure survey, improving, clojure.spec
-- Community helpful, cataloging exceptions, how to read
-- That's Clojure, how about Elixir
 
 ---
 
@@ -994,7 +968,7 @@ public CheckinRetrievalService(IOptions<ApiConfiguration> apiConfiguration)
 
 - Skip config in other stacks but worth mention here
 - API requires a, don't want to store in repo
-- in .Net there's an interesting implementation, Secret Manager, environment var
+- in .Net there's an interesting implementation, Secret Manager (Kassandra), environment var
 - Register the config object
 - DI
 
@@ -1114,6 +1088,7 @@ class: center
 | Ring/Compojure | Phoenix       | ASP.NET MVC |
 | CLJS           | Brunch        | Bower/Gulp  |
 | Repl           | IEx           | Repl?       |
+| Heroku         | Heroku        | Azure       |
 | Emacs          | Emacs         | VS Code     |
 | Cognitect      | Plataformatec | Microsoft   |
 
@@ -1123,14 +1098,15 @@ class: center
 - .Net missing repl, but better debug experience
 - Microsoft big player, others little guys (cosulting), implications -> community
 - Can see how this leads to two different mindsets, of both the community and Microsoft
-- One issue, there are others
+- Unheard of open source libs (Scott)
+- One challenge, there are others
 - Tendency to look to them, bring into fold, asp.net monsters
 
 ---
 
 class: center
 
-# Community: All have their issues
+# Community: All have their challenges
 
 --
 ![Clojure frustration](images/clojure-frustration.png)
@@ -1171,10 +1147,10 @@ class: center
 
 - Want to be an attractive ecosystem but don't want people to dilute, training wheels vs riding a bike
 - Great time for .net though
-- Unforeseen consequence, people are going to have to change
-- This is a rare time. Almost like a start over.
-- Opportunities to set a new mindset, a new direction.
-
+- As Don stated, this is a rare time. Almost like a reset
+- People are going to have to change
+- Opportunities to set a new mindset, a shift to make .Net memetic
+- Great time in .Net community
 
 ---
 
@@ -1190,7 +1166,8 @@ class: center, middle
 - I'll leave you with
 - When I'm sitting there in the audience, listen to all the impressive things
 - A I think about the possibility of a different community, a new mindset
-- I don't include myself in that group, that's for those people doing impressive work.
+- I don't include myself in that group, that's for the thought leaders of the community
+- Don yesterday challenged the community, that's not me
 - But this is a community. It is a community. I am part. What are implications for me.
 - Doesn't mean I have to go it alone, but I can do something
 - What does that mean for you?
